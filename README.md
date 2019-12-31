@@ -1,7 +1,4 @@
-# Code Institute
+# MyBookYourBook
 
-Welcome USER_NAME,
-
-We have preinstalled all of the tools you need to get started.
-
-Happy coding!
+##
+This website is build to let as many people as possible read the books they want to read.
