@@ -2,20 +2,26 @@
 {% block content %}
     {% for post in posts %}
         <div class="row">
-            <div class="col-md-2 col-sm-3 text-center">
-                <a class="story-img" href="#">
-                    <img src="/media/img/profile.jpg" class="img-circle">
-                </a>
-            </div>
             <div class="col-md-10 col-sm-9">
                 <h3>{{ post.title }}</h3>
                 <div class="row">
                     <div class="col-xs-9">
-                        <p>{{ post.content|truncatewords:30 }}</p>
+                        <p><span class="boldtext">Title:</span> {{post.title}}</p>
+                        <p><span class="boldtext">Author:</span> {{post.author}}</p>
+                        <p><span class="boldtext">Condition:</span> {{post.condition_of_book}}</p>
+                        <p><span class="boldtext">Provider:</span> {{post.provider}}</p>
+                        <p><span class="boldtext">Location:</span> {{post.location}}</p>
+                        <p><span class="boldtext">Price:</span> {{post.price}}</p>
+                        <p>{{ post.summary|truncatewords:30 }}</p>
                         <p><a href="{% url 'post_detail' post.id %}"  class="btn btn-default">Read more</a></p>
                         <p><span class="boldtext">Views:</span> {{post.views}}</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-img" href="#">
+                    <img src="/media/img/profile.jpg" class="img-circle">
+                </a>
             </div>
             <hr>
         </div>

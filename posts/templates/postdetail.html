@@ -15,8 +15,16 @@
                 <div class="col-xs-9">
                     <p>{{ post.content }}</p>
                     <p><span class="boldtext">Published on:</span> {{ post.published_date }} </p>
-                    <p><span class="boldtext">Views:</span> {{post.views}}</p>
-                    <p><span class="boldtext">Tag:</span> {{ post.tag }}</p>
+                    <p><span class="boldtext">Title:</span> {{post.title}}</p>
+                    <p><span class="boldtext">Author:</span> {{post.author}}</p>
+                    <p><span class="boldtext">Edition:</span> {{post.year_of_edition}}</p>
+                    <p><span class="boldtext">Condition:</span> {{post.condition_of_book}}</p>
+                    <p><span class="boldtext">Publisher:</span> {{post.publisher}}</p>
+                    <p><span class="boldtext">Pages:</span> {{post.number_of_pages}}</p>
+                    <p><span class="boldtext">Provider:</span> {{post.provider}}</p>
+                    <p><span class="boldtext">Location:</span> {{post.location}}</p>
+                    <p><span class="boldtext">Price:</span> {{post.price}}</p>
+                    <p><span class="boldtext">Summary:</span> {{ post.summary }}</p>
                     <a href="{% url 'get_posts' %}" class="btn btn-default">Back to Blog</a>
                     <a href="{% url 'edit_post' post.id %}" class="btn btn-default">Edit Post</a>
                     <hr>

@@ -1,5 +1,16 @@
 from django.db import models
 from django.utils import timezone
+import datetime
+
+CONDITION_CHOICES = (
+    ('like_new', 'Like new'),
+    ('good', 'Good'),
+    ('used', 'Used'),
+)
+
+YEAR_CHOICES = []
+for r in range(1800, (datetime.datetime.now().year+1)):
+    YEAR_CHOICES.append((r,r))
 
 
 class Post(models.Model):
@@ -8,15 +19,15 @@ class Post(models.Model):
     Title, author, year of print, condition of book, provider, location,
     publisher, number of pages, sell, rent, price, summary
     """
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=200)
-    year_of_edition = models.CharField(max_length=4)
-    condition_of_book = models.CharField(max_length=200)
-    provider = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    publisher = models.CharField(max_length=200)
-    number_of_pages = models.CharField(max_length=4)
-    price = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, null=True)
+    author = models.CharField(max_length=200, null=True)
+    year_of_edition = models.IntegerField(choices=YEAR_CHOICES, default=datetime.datetime.now().year)
+    condition_of_book = models.CharField(max_length=10, choices=CONDITION_CHOICES, default='like_new')
+    provider = models.CharField(max_length=200, null=True)
+    location = models.CharField(max_length=200, null=True)
+    publisher = models.CharField(max_length=200, null=True)
+    number_of_pages = models.IntegerField(null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=00)
     summary = models.TextField(max_length=300, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
