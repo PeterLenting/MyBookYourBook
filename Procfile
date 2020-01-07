@@ -1,1 +1,1 @@
-web: gunicorn blog.wsgi:application
+web: gunicorn mbyb-app.wsgi:application
