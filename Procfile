@@ -1,1 +1,1 @@
-web: gunicorn mbyb-app.wsgi:application
+web: gunicorn django_mybookyourbook.wsgi:application
