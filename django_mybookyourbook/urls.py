@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.views.static import serve
 from .settings import MEDIA_ROOT
-from accounts.views import index, logout, login, registration
+from accounts.views import index, logout, login, registration, user_profile
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^accounts/logout/$', logout, name="logout"),
     url(r'^accounts/login/$', login, name="login"),
     url(r'^accounts/register/$', registration, name="registration"),
+    url(r'^accounts/profile/$', user_profile, name="profile"),
 ]
 """
     TIJDELIJK UITGESCHAKELD OM INDEX.html te kunnen bouwen met accounts. Hierdoor werkt /posts/ niet
