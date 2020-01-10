@@ -25,7 +25,6 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url='posts/')),
     url(r'^posts/', include('posts.urls')),
     url(r'^accounts/', include(accounts_urls)),
-
 ]
 """
 from accounts.views import index, logout, login, registration, user_profile
