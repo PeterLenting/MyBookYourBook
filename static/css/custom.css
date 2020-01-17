@@ -1,3 +1,9 @@
+/* Sets the padding of the two rows in the fixed-header */
+.no-padding {
+  padding-right: 0;
+  padding-left: 0;  
+
+}
 .navbar-color {
   background-color: #E1CC97;
   color: #663300;
@@ -15,6 +21,11 @@
 /* Sets the color of the toggler-icon */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225, 204, 151, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#header-wrap {
+  padding-right: 0;
+  padding-left: 0;  
 }
 
 .header-text-wrap {
@@ -56,13 +67,13 @@
 }
 
 .btn-secondary {
-  background-color: #663300;
-  color: #E1CC97;
+  background-color: #E1CC97;
+  color: #663300;
   border: 0;
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 180px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
 }
@@ -91,6 +102,6 @@ a {
 
 @media (min-width: 1200px){
 body {
-  padding-top: 55px;
+  padding-top: 150px;
   }
 }

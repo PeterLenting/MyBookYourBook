@@ -10,52 +10,65 @@
         <title>My Book Your Book</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-color fixed-top">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+        <div id="header-wrap" class="container-fluid fixed-top">
+            <div class="row no-padding">
+                <div class="col-12 no-padding">
+                    <nav class="navbar navbar-expand-lg navbar-color">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'get_posts' %}">Home</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'new_post' %}">Add a book</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'registration' %}">Register</a>
-                    </li>
-                    {% endif %}
-                </ul>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'get_posts' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'new_post' %}">Add a book</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registration' %}">Register</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                            
+                    </nav>
+                </div>
             </div>
-            <form id="search-form" class="form-inline my-2 my-lg-0">
-                <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search for books by keyword / author / title" aria-label="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </nav>
-        <div class="row second-header">
-            <div class="col-1 header-logo-wrap">
-                <a href="#">
-                    <img class="header-logo text-center" src="/media/img/mbyb-logo.jpg">
-                </a>
-            </div>
-            <div class="col-1 header-text-wrap">
-                <p class="header-text">MyBook<br>YourBook</p>
+            <div class="row no-padding">
+                <div class="col-12 no-padding">
+                    <div class="row second-header">
+                        <div class="col-1 header-logo-wrap">
+                            <a href="#">
+                                <img class="header-logo text-center" src="/media/img/mbyb-logo.jpg">
+                            </a>
+                        </div>
+                        <div class="col-1 header-text-wrap mr-auto">
+                            <p class="header-text">MyBook<br>YourBook</p>
+                        </div>
+                        <form id="search-form" class="form-inline my-2 my-lg-0">
+                            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search for books by keyword / author / title" aria-label="Search">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>    
             </div>
         </div>
-
 
          
         {% if messages %}
