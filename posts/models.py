@@ -10,19 +10,23 @@ CONDITION_CHOICES = (
 
 YEAR_CHOICES = []
 for r in range(1800, (datetime.datetime.now().year+1)):
-    YEAR_CHOICES.append((r,r))
+    YEAR_CHOICES.append((r, r))
 
 
 class Post(models.Model):
     """
     A single post
-    Title, author, year of print, condition of book, provider, location,
-    publisher, number of pages, sell, rent, price, summary
+    title, author, year of print, condition of book, provider, location,
+    publisher, number of pages, price, summary, created_date, published_date,
+    views, image
     """
     title = models.CharField(max_length=200, null=True)
     author = models.CharField(max_length=200, null=True)
-    year_of_edition = models.IntegerField(choices=YEAR_CHOICES, default=datetime.datetime.now().year)
-    condition_of_book = models.CharField(max_length=10, choices=CONDITION_CHOICES, default='like_new')
+    year_of_edition = models.IntegerField(choices=YEAR_CHOICES,
+                                          default=datetime.datetime.now().year)
+    condition_of_book = models.CharField(max_length=10,
+                                         choices=CONDITION_CHOICES,
+                                         default='like_new')
     provider = models.CharField(max_length=200, null=True)
     location = models.CharField(max_length=200, null=True)
     publisher = models.CharField(max_length=200, null=True)
@@ -30,7 +34,8 @@ class Post(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, default=00)
     summary = models.TextField(max_length=300, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True,
+                                          default=timezone.now)
     views = models.IntegerField(default=0)
     image = models.ImageField(upload_to="img", blank=True, null=True)
 

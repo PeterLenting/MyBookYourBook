@@ -2,67 +2,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Book Your Book</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <!-- Favicon File -->
+        <link rel="shortcut icon" type="image/jpg" href="/media/img/mbyb-logo.jpg">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <title>My Book Your Book</title>
     </head>
     <body>
-        <!-- Fixed masthead -->
-        <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'get_posts' %}"><img src="/media/img/logo.png"></a>
-                    </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'new_post' %}">Add a book</a></li>
-                        <li><a href="{% url 'profile' %}">Profile</a></li>
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li><a href="{% url 'login' %}">Login</a></li>
-                        <li><a href="{% url 'registration' %}">Register</a></li>
-                        {% endif %}
-                        </ul>
-                </div>
-            </div>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-color fixed-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div id="masthead">
-            <div class="container">
-                <div class="row">
-                    <h1> MyBookYourBook
-                        <p id="logo" class="lead">Let the world read</p>
-                    </h1>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'get_posts' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'new_post' %}">Add a book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registration' %}">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search for books by keyword / author / title" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+        <div class="row second-header">
+            <div class="col-1 header-logo-wrap">
+                <a href="#">
+                    <img class="header-logo text-center" src="/media/img/mbyb-logo.jpg">
+                </a>
+            </div>
+            <div class="col-1 header-text-wrap">
+                <p class="header-text">MyBook<br>YourBook</p>
             </div>
         </div>
-        <!-- Area that displats the messages -->
-        <hr> {% if messages %}
+
+
+        <hr> 
+        {% if messages %}
         <div>
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
         {% endif %} 
         
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="panel">
-                        <div class="panel-body">
-                            <!--post entries-->
-                            {% block content %}
-                            {% endblock %}
-                            <!--post entries-->
-                        </div>
-                    </div>
-                </div>
+                <!--post entries-->
+                    {% block content %}
+                    {% endblock %}
+                <!--post entries-->
             </div>
         </div>
         <footer>
