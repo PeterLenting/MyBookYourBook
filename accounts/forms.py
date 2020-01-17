@@ -20,15 +20,17 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.CharField(
         label="Password Confirmation",
         widget=forms.PasswordInput)
-    name = forms.CharField(
-        label="Name")
+    first_name = forms.CharField(
+        label="First name")
+    last_name = forms.CharField(
+        label="Last name")
     residence = forms.CharField(
         label="Residence")
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2', 'name',
-                  'residence']
+        fields = ['email', 'username', 'password1', 'password2', 'first_name',
+                  'last_name', 'residence']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

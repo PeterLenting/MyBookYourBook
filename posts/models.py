@@ -26,7 +26,7 @@ class Post(models.Model):
                                           default=datetime.datetime.now().year)
     condition_of_book = models.CharField(max_length=10,
                                          choices=CONDITION_CHOICES,
-                                         default='like_new')
+                                         default='Like new')
     provider = models.CharField(max_length=200, null=True)
     location = models.CharField(max_length=200, null=True)
     publisher = models.CharField(max_length=200, null=True)

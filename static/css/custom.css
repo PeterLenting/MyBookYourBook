@@ -36,11 +36,11 @@
 
 /* Search Bar */
 
-.form-inline {
+#search-form {
   width: 450px;  
 }
 
-.form-control {
+#search-input {
   width: 80%!important;  
 }
 
@@ -79,6 +79,14 @@ footer {
 
 a {
   color: #212529;
+}
+
+.boldtext {
+  font-weight: bold;  
+}
+
+#postform {
+  padding-bottom: 15px;
 }
 
 @media (min-width: 1200px){

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <h1>New Book</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <h1 class="col-12 text-center">Add your book here</h1>
+    <form id="postform" class="col-md-12 offset-lg-2 col-lg-8" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | as_bootstrap }}
-        <button type="submit" class="btn btn-info">Save</button>
+        <div class="text-center">
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
     </form>
 {% endblock %}
