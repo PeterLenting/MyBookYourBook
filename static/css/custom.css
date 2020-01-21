@@ -38,11 +38,12 @@
 }
 
 .header-logo-wrap {
-  padding-right: 5px;
+  padding-right: 0;
+  padding-left: 0
 }
 
 .header-logo {
-  width: 50%;
+  width: 100%;
 }
 
 /* Search Bar */
@@ -104,4 +105,7 @@ a {
 body {
   padding-top: 150px;
   }
+.header-logo {
+  width: 68%;
+}
 }

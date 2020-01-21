@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
         <!-- Favicon File -->
-        <link rel="shortcut icon" type="image/jpg" href="/media/img/mbyb-logo.jpg">
+        <link rel="shortcut icon" type="image/jpg" href="/media/img/bookshelf.png">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <title>My Book Your Book</title>
     </head>
@@ -46,9 +46,12 @@
                                 {% endif %}
                             </ul>
                         </div>
+                         {% if user.is_authenticated %}
                         <div>
                             <p>Hello {{ user }}</p>
-                        </div>    
+                        </div>   
+                        {% else %} 
+                        {% endif %}
                     </nav>
                 </div>
             </div>
@@ -57,7 +60,7 @@
                     <div class="row second-header">
                         <div class="col-1 header-logo-wrap">
                             <a href="#">
-                                <img class="header-logo text-center" src="/media/img/mbyb-logo.jpg">
+                                <img class="header-logo text-center" src="/media/img/bookshelf.png">
                             </a>
                         </div>
                         <div class="col-1 header-text-wrap mr-auto">
@@ -78,12 +81,6 @@
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
         {% endif %} 
-
-        {% block page_title %}
-        {% endblock %} 
-        
-        {% block page_heading %}
-        {% endblock %} 
         
         <div class="container-fluid">
             <div class="row">
