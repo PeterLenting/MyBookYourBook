@@ -46,7 +46,9 @@
                                 {% endif %}
                             </ul>
                         </div>
-                            
+                        <div>
+                            <p>Hello {{ user }}</p>
+                        </div>    
                     </nav>
                 </div>
             </div>
@@ -76,6 +78,12 @@
             {% for message in messages %} {{ message }} {% endfor %}
         </div>
         {% endif %} 
+
+        {% block page_title %}
+        {% endblock %} 
+        
+        {% block page_heading %}
+        {% endblock %} 
         
         <div class="container-fluid">
             <div class="row">

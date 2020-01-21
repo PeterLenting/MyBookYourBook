@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import UserProfile
 
 
 class UserLoginForm(forms.Form):
@@ -24,13 +25,11 @@ class UserRegistrationForm(UserCreationForm):
         label="First name")
     last_name = forms.CharField(
         label="Last name")
-    residence = forms.CharField(
-        label="Residence")
 
     class Meta:
         model = User
         fields = ['email', 'username', 'password1', 'password2', 'first_name',
-                  'last_name', 'residence']
+                  'last_name']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -50,3 +49,9 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords must match")
 
         return password2
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('location', 'age')

@@ -2,11 +2,10 @@
 
 {% block page_title %}{{ user }}'s Profile{% endblock %} 
 
-{% block page_heading %}{{ user }}'s Profile{% endblock %} 
-
 {% block content %}
 <p class="col-12 text-center"><span class="boldtext">First name: </span>{{ profile.first_name }}</p>
 <p class="col-12 text-center"><span class="boldtext">Last name: </span>{{ profile.last_name }}</p>
-<p class="col-12 text-center"><span class="boldtext">Profile: </span>{{ profile.email }}</p>
-<p class="col-12 text-center"><span class="boldtext">Residence: </span>{{ profile.residence }}</p>
+<p class="col-12 text-center"><span class="boldtext">Email: </span>{{ profile.email }}</p>
+<p class="col-12 text-center"><span class="boldtext">Location: </span>{{ profile.userprofile.location }}</p>
+
 {% endblock %}
