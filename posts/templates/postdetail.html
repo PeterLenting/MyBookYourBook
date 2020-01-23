@@ -1,16 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row">
-        <div class="col-md-2 col-sm-3 text-center">
-            <a class="story-img" href="#">
-                <img src="/media/img/profile.jpg" class="img-circle">
-            </a>
-        </div>
+    <div class="row text-center">
         <div class="col-sm-10 col-md-9">
-            {% if post.image %}
-                <img class="img-blogpost" src="/media/{{ post.image }}">
-            {% endif %}
             <h3>{{ post.title }}</h3>
+            {% if post.image %}
+                <img class="img-post" src="/media/{{ post.image }}">
+            {% endif %}
             <div class="row">
                 <div class="col-xs-9">
                     <p>{{ post.content }}</p>
@@ -21,7 +16,7 @@
                     <p><span class="boldtext">Condition:</span> {{post.condition_of_book}}</p>
                     <p><span class="boldtext">Publisher:</span> {{post.publisher}}</p>
                     <p><span class="boldtext">Pages:</span> {{post.number_of_pages}}</p>
-                    <p><span class="boldtext">Provider:</span> {{post.provider}}</p>
+                    <p><span class="boldtext">Provider:</span> {{ user }}</p>
                     <p><span class="boldtext">Location:</span> {{post.location}}</p>
                     <p><span class="boldtext">Price:</span> {{post.price}}</p>
                     <p><span class="boldtext">Summary:</span> {{ post.summary }}</p>

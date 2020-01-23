@@ -5,15 +5,19 @@
             <div class="col-md-6 col-lg-4 col-xl-2">
                 <h4 class="text-center"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
                 <div class="text-center">
+                    {% if post.image %}
+                    <img class="img-post" src="/media/{{ post.image }}">
+                     {% else %}
                     <a class="story-img" href="{% url 'post_detail' post.id %}">
                         <img src="/media/img/boek4.jpg">
                     </a>
+                     {% endif %}
                 </div>
                 <div class="row">
                     <div class="col-12">
                         <p><span class="boldtext">By:</span> {{post.author}}</p>
                         <p><span class="boldtext">Condition:</span> {{post.condition_of_book}}</p>
-                        <p><span class="boldtext">Provider:</span> {{post.provider}}</p>
+                        <p><span class="boldtext">Provider:</span> {{ user }}</p>
                         <p><span class="boldtext">Location:</span> {{post.location}}</p>
                         <p><span class="boldtext">€</span> {{post.price}}</p>
                         <p><span class="boldtext">Summary: </span>{{post.summary|truncatewords:10}}</p>

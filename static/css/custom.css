@@ -73,6 +73,10 @@
   border: 0;
 }
 
+.img-post {
+  width: 125px;  
+}
+
 body {
   padding-top: 180px;
   background-color: #f2f2f2;
