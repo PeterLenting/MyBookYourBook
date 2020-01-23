@@ -77,6 +77,10 @@
   width: 125px;  
 }
 
+.post-header {
+ min-height: 50px
+ }
+
 body {
   padding-top: 180px;
   background-color: #f2f2f2;
@@ -111,5 +115,11 @@ body {
   }
 .header-logo {
   width: 68%;
+  }
 }
+
+@media (min-width: 1500px){
+.header-logo {
+  width: 50%;
+  }
 }
