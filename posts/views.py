@@ -34,23 +34,45 @@ def post_detail(request, pk):
     return render(request, "postdetail.html", {'post': post})
 
 
-@login_required
-def create_or_edit_post(request, pk=None):
+def edit_post(request, pk=None):
     """
-    Create a view that allows us to create
-    or edit a post depending if the Post ID
-    is null or not
+    Create a view that allows user to edit
+    his own post and a superuser to edit all posts.
+    """
+    post = get_object_or_404(Post, pk=pk)
+    if (request.user == post.provider or
+            request.user.is_superuser):
+        if request.method == "POST":
+            form = PostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save()
+                return redirect(post_detail, post.pk)
+        else:
+            form = PostForm(instance=post)
+    else:
+        return HttpResponseForbidden()
+
+    return render(request, 'postform.html', {'form': form})
+
+
+def new_post(request, pk=None):
+    """
+    Create a view that allows user to add
+    a new book.
     """
     post = get_object_or_404(Post, pk=pk) if pk else None
-    if request.method == "POST":
-        form = PostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.provider = request.user
-            post.save()
-            return redirect(post_detail, post.pk)
+    if not request.user.is_authenticated:
+        return redirect('login')
     else:
-        form = PostForm(instance=post)
+        if request.method == "POST":
+            form = PostForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.provider = request.user
+                post.save()
+                return redirect('get_posts')
+        else:
+            form = PostForm()
     return render(request, 'postform.html', {'form': form})
 
 

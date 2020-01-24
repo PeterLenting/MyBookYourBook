@@ -5,13 +5,13 @@
             <div class="col-md-6 col-lg-4 col-xl-2">
                 <h4 class="text-center post-header"><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
                 <div class="text-center">
-                    {% if post.image %}
-                    <img class="img-post" src="/media/{{ post.image }}">
-                     {% else %}
                     <a class="story-img" href="{% url 'post_detail' post.id %}">
+                    {% if post.image %}
+                        <img class="img-post" src="/media/{{ post.image }}">
+                     {% else %}
                         <img src="/media/img/boek4.jpg">
-                    </a>
                      {% endif %}
+                    </a> 
                 </div>
                 <div class="row">
                     <div class="col-12">
