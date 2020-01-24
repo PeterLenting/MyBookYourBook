@@ -19,7 +19,7 @@
                 <p><span class="boldtext">Price:</span> {{post.price}}</p>
                 <p><span class="boldtext">Summary:</span> {{ post.summary }}</p>
                 <a href="{% url 'get_posts' %}" class="btn btn-info">Back to Home</a>
-                {% if user.is_authenticated %}
+                {% if user == post.provider or user.is_superuser %}
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-info">Edit Post</a>
                 <form action="{% url  'delete_post'  post.id%}" method='POST'>
                     {% csrf_token %}
