@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+from django.contrib import messages
 
 
 def get_posts(request):
@@ -31,6 +34,7 @@ def post_detail(request, pk):
     return render(request, "postdetail.html", {'post': post})
 
 
+@login_required
 def create_or_edit_post(request, pk=None):
     """
     Create a view that allows us to create
@@ -41,8 +45,32 @@ def create_or_edit_post(request, pk=None):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            post = form.save()
+            post = form.save(commit=False)
+            post.provider = request.user
+            post.save()
             return redirect(post_detail, post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'postform.html', {'form': form})
+
+
+def delete_post(request, pk=None):
+    """
+    Create a view that allows user to delete
+    his own post and a superuser to delete all posts.
+    """
+    post_id = int(pk)
+    post = get_object_or_404(Post, pk=post_id)
+    if (request.user == post.provider or
+            request.user.is_superuser):
+        if request.method == 'POST':
+            try:
+                post.delete()
+                messages.success(request,
+                                 'You have successfully deleted your post')
+            except Post.DoesNotExist:
+                messages.warning(request, 'The post could not be deleted')
+    else:
+        return HttpResponseForbidden('You are only allowed to delete your own post')
+
+    return redirect('get_posts')

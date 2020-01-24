@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
 import datetime
+from django.contrib.auth.models import User
 
 CONDITION_CHOICES = (
-    ('like_new', 'Like new'),
+    ('like new', 'Like new'),
     ('good', 'Good'),
     ('used', 'Used'),
 )
@@ -27,7 +28,7 @@ class Post(models.Model):
     condition_of_book = models.CharField(max_length=10,
                                          choices=CONDITION_CHOICES,
                                          default='Like new')
-    provider = models.CharField(max_length=200, null=True)
+    provider = models.ForeignKey(User, null=False, default=1, on_delete=models.SET_DEFAULT)
     location = models.CharField(max_length=200, null=True)
     publisher = models.CharField(max_length=200, null=True)
     number_of_pages = models.IntegerField(null=True)
