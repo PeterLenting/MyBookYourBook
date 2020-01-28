@@ -42,16 +42,16 @@ def edit_product(request, pk=None):
     if (request.user == products.provider or
             request.user.is_superuser):
         if request.method == "POST":
-            form = ProductsForm(request.POST, request.FILES, instance=product)
+            form = ProductForm(request.POST, request.FILES, instance=products)
             if form.is_valid():
                 products = form.save()
-                return redirect(products_detail, products.pk)
+                return redirect(product_detail, products.pk)
         else:
-            form = ProductsForm(instance=product)
+            form = ProductForm(instance=products)
     else:
         return HttpResponseForbidden()
 
-    return render(request, 'productsform.html', {'form': form})
+    return render(request, 'productform.html', {'form': form})
 
 
 def new_product(request, pk=None):
