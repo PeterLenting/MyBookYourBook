@@ -1,11 +1,11 @@
 from django import forms
-from .models import Post
+from .models import Product
 
 
-class PostForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
 
     class Meta:
-        model = Post
+        model = Product
         fields = ('title', 'author', 'condition_of_book', 'year_of_edition',
                   'publisher', 'number_of_pages', 'location',
                   'price', 'image', 'summary')

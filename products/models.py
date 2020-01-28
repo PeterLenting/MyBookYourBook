@@ -14,9 +14,9 @@ for r in range(1800, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
 
-class Post(models.Model):
+class Product(models.Model):
     """
-    A single post
+    A single product
     title, author, year of print, condition of book, provider, location,
     publisher, number of pages, price, summary, created_date, published_date,
     views, image

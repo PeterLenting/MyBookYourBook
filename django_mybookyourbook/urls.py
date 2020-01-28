@@ -23,8 +23,8 @@ from search import urls as urls_search
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
-    url(r'^$', RedirectView.as_view(url='posts/')),
-    url(r'^posts/', include('posts.urls')),
+    url(r'^$', RedirectView.as_view(url='products/')),
+    url(r'^products/', include('products.urls')),
     url(r'^search/', include(urls_search)),
     url(r'^accounts/', include(accounts_urls)),
 ]

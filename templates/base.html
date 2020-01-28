@@ -21,14 +21,14 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'get_posts' %}">Home</a>
+                                    <a class="nav-link" href="{% url 'get_products' %}">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">About</a>
                                 </li>
                                 {% if user.is_authenticated %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'new_post' %}">Add a book</a>
+                                    <a class="nav-link" href="{% url 'new_product' %}">Add a book</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
@@ -59,7 +59,7 @@
                 <div class="col-12 no-padding">
                     <div class="row second-header">
                         <div class="col-1 header-logo-wrap text-right">
-                            <a href="{% url 'get_posts' %}">
+                            <a href="{% url 'get_products' %}">
                                 <img class="header-logo text-center" src="/media/img/bookshelf.png">
                             </a>
                         </div>
