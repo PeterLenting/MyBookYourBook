@@ -8,14 +8,16 @@ def view_cart(request):
 
 
 def add_to_cart(request, id):
-    """Add a quantity of the specified product to the cart"""
+    """Add the specified product to the cart when the user is logged in"""
     quantity = 1
-
     cart = request.session.get('cart', {})
-    if id in cart:
-        cart[id] = int(cart[id]) + quantity      
+    if not request.user.is_authenticated:
+        return redirect('login')
     else:
-        cart[id] = cart.get(id, quantity) 
+        if id in cart:
+            cart[id] = int(cart[id]) + quantity      
+        else:
+            cart[id] = cart.get(id, quantity) 
 
-    request.session['cart'] = cart
+        request.session['cart'] = cart
     return redirect(reverse('get_products'))
