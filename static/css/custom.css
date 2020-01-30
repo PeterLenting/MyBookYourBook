@@ -72,14 +72,32 @@
   color: #663300;
   border: 0;
 }
+.product-wrapper {
+  height: 600px;
+}
 
-.img-product {
-  width: 125px;  
+.product-info-wrapper {
+  height: 275px;
+}
+
+.wrapper-product-img {
+  height: 205px;
+}
+
+.product-img {
+  width: 125px; 
 }
 
 .product-header {
- min-height: 50px
+ min-height: 56px
  }
+
+/*Link to read more sends user from frontpage to productpage*/
+#summary-more {
+  color:#17a2b8;
+  font-weight: bold;
+  font-style: italic; 
+}
 
 body {
   padding-top: 180px;

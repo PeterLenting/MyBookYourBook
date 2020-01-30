@@ -8,11 +8,11 @@
         <div>
             <h3>{{ item.product.title }}</h3>
             <img class="img-product" src="/media/{{ item.product.image }}">
-            <p>{{ item.uct.summary }}</p>
+            <p>{{ item.product.summary }}</p>
             <p>€ {{ item.product.price }}</p>
         </div>
     {% endfor %}
-        <p>Total: € <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+        <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
         <a href="/" class="btn btn-info" role="button">Checkout</a>
     </div>
 

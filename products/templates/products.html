@@ -2,39 +2,38 @@
 {% block content %}
     {% for product in products %}
         
-            <div class="col-md-6 col-lg-4 col-xl-2">
+            <div class="col-md-6 col-lg-4 col-xl-2 product-wrapper">
                 <h4 class="text-center product-header"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h3>
-                <div class="text-center">
-                    <a class="story-img" href="{% url 'product_detail' product.id %}">
+                <div class="text-center wrapper-product-img">
+                    <a class="product-link" href="{% url 'product_detail' product.id %}">
                     {% if product.image %}
-                        <img class="img-product" src="/media/{{ product.image }}">
-                     {% else %}
+                        <img class="product-img" src="/media/{{ product.image }}">
+                    {% else %}
                         <img src="/media/img/boek4.jpg">
-                     {% endif %}
+                    {% endif %}
                     </a> 
                 </div>
-                <div class="row">
+                <div class="row product-info-wrapper">
                     <div class="col-12">
                         <p><span class="boldtext">By:</span> {{product.author}}</p>
                         <p><span class="boldtext">Condition:</span> {{product.condition_of_book}}</p>
                         <p><span class="boldtext">Provider:</span> {{product.provider}}</p>
                         <p><span class="boldtext">Location:</span> {{product.location}}</p>
                         <p><span class="boldtext">€</span> {{product.price}}</p>
-                        <p><span class="boldtext">Summary: </span>{{product.summary|truncatewords:10}}</p>
+                        <p><span class="boldtext">Summary: </span>{{product.summary|truncatewords:10}}...<a href="{% url 'product_detail' product.id %}" id="summary-more"> More</a></p>
                         <!--<p><span class="boldtext">Views:</span> {{product.views}}</p>-->
-                        <p class= "text-center"><a href="{% url 'product_detail' product.id %}" class="btn btn-info" role="button">Read more</a></p> <!--wordt ADD TO BASKET-->
-                        <form method="post" action="{% url 'add_to_cart' product.id %}">
-                            {% csrf_token %}
-                            <div class="input-group">
-                                <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info" type="submit">Add to basket</button>
-                                </span>
-                            </div>
-                        </form>
+                        <!--<p class= "text-center"><a href="{% url 'product_detail' product.id %}" class="btn btn-info" role="button">Read more</a></p> wordt ADD TO BASKET-->
                     </div>
-                </div>
-            </div>
-        
+                </div>            
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit">Add to basket</button>
+                        </span>
+                    </div>
+                </form>
+            </div>        
     {% endfor %}
 {% endblock %}
