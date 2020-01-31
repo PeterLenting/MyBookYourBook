@@ -8,9 +8,14 @@
         <div>
             <h3>{{ item.product.title }}</h3>
             <img class="img-product" src="/media/{{ item.product.image }}">
-            <p>{{ item.product.summary }}</p>
+            <p>{{ item.product.summary|truncatewords:10 }}</p>
             <p>€ {{ item.product.price }}</p>
         </div>
+        <form action='{% url "remove" %}' method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
+            <button class="btn btn-info">Remove book from cart</button>
+        </form>
     {% endfor %}
         <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
         <a href="/" class="btn btn-info" role="button">Checkout</a>

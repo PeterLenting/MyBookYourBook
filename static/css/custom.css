@@ -1,3 +1,8 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 /* Sets the padding of the two rows in the fixed-header */
 .no-padding {
   padding-right: 0;
@@ -103,6 +108,7 @@ body {
   padding-top: 180px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 50px;
 }
 
 .row {
@@ -113,6 +119,12 @@ body {
 footer {
   background-color: #E1CC97;
   color: #663300;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
 }
 
 a {

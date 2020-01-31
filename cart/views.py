@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from products.models import Product
 
 
 # Create your views here.
@@ -15,9 +16,20 @@ def add_to_cart(request, id):
         return redirect('login')
     else:
         if id in cart:
-            cart[id] = int(cart[id]) + quantity      
+            cart[id] = int(cart[id]) + quantity
         else:
-            cart[id] = cart.get(id, quantity) 
+            cart[id] = cart.get(id, quantity)
 
         request.session['cart'] = cart
     return redirect(reverse('get_products'))
+
+
+def remove_item(request):
+    """Removes item from the cart"""
+    id = request.POST['product_id']
+    products = get_object_or_404(Product, pk=id)
+    cart = request.session.get('cart', {})
+    if id in cart:
+        del cart[id]
+    request.session['cart'] = cart
+    return redirect('view_cart')
