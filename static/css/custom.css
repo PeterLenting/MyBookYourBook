@@ -81,10 +81,22 @@ html {
   height: 600px;
 }
 
-.product-info-wrapper {
-  height: 275px;
+.product-info-wrapper .col-12 p {
+  margin-bottom: 3px;    
 }
 
+.product-info-wrapper {
+  height: 240px;
+}
+
+form button {
+  margin-top: 5px;  
+}
+
+/*Textcolor button to delete book by user of superuser*/
+.delete-book {
+  color:red;
+}
 .wrapper-product-img {
   height: 205px;
 }

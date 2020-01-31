@@ -27,7 +27,7 @@ def add_to_cart(request, id):
 def remove_item(request):
     """Removes item from the cart"""
     id = request.POST['product_id']
-    products = get_object_or_404(Product, pk=id)
+    """products = get_object_or_404(Product, pk=id)"""
     cart = request.session.get('cart', {})
     if id in cart:
         del cart[id]
