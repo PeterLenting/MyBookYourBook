@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from products.models import Product
+from django.shortcuts import render, redirect, reverse
+"""from products.models import Product"""
 
 
 # Create your views here.

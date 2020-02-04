@@ -8,4 +8,8 @@
 <p class="col-12 text-center"><span class="boldtext">Email: </span>{{ profile.email }}</p>
 <p class="col-12 text-center"><span class="boldtext">Location: </span>{{ profile.userprofile.location }}</p>
 
+ <div class=" col-12 text-center">
+    <a href="{% url 'edit_profile' %}" class="btn btn-info">Edit my profile</a>
+</div>    
+
 {% endblock %}
