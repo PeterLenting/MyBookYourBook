@@ -21,6 +21,7 @@ class Product(models.Model):
     publisher, number of pages, price, summary, created_date, published_date,
     views, image
     """
+
     title = models.CharField(max_length=200, null=True)
     author = models.CharField(max_length=200, null=True)
     year_of_edition = models.IntegerField(choices=YEAR_CHOICES,
@@ -28,7 +29,11 @@ class Product(models.Model):
     condition_of_book = models.CharField(max_length=10,
                                          choices=CONDITION_CHOICES,
                                          default='Like new')
-    provider = models.ForeignKey(User, null=False, default=1, on_delete=models.SET_DEFAULT)
+    provider = models.ForeignKey(User,
+                                 null=False,
+                                 default=1,
+                                 on_delete=models.SET_DEFAULT,
+                                 related_name="product")
     location = models.CharField(max_length=200, null=True)
     publisher = models.CharField(max_length=200, null=True)
     number_of_pages = models.IntegerField(null=True)

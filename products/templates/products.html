@@ -3,7 +3,7 @@
     {% for product in products %}
         
             <div class="col-md-6 col-lg-4 col-xl-2 product-wrapper">
-                <h4 class="text-center product-header"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h3>
+                <h4 class="text-center product-header"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h4>
                 <div class="text-center wrapper-product-img">
                     <a class="product-link" href="{% url 'product_detail' product.id %}">
                     {% if product.image %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from products.models import Product
 from accounts.forms import (
                             UserLoginForm,
                             UserRegistrationForm,
@@ -87,7 +88,8 @@ def registration(request):
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    user_posts = Product.objects.filter(provider=request.user).order_by('-published_date')
+    return render(request, 'profile.html', {"user": user, 'user_posts': user_posts})
 
 
 @login_required()
