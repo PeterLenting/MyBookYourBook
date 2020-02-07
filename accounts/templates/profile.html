@@ -3,13 +3,13 @@
 {% block page_title %}{{ user }}'s Profile{% endblock %} 
 
 {% block content %}
-<p class="col-12 text-center"><span class="boldtext">First name: </span>{{ profile.first_name }}</p>
-<p class="col-12 text-center"><span class="boldtext">Last name: </span>{{ profile.last_name }}</p>
-<p class="col-12 text-center"><span class="boldtext">Email: </span>{{ profile.email }}</p>
-<p class="col-12 text-center"><span class="boldtext">Location: </span>{{ profile.userprofile.location }}</p>
+<p class="col-12 text-center"><span class="boldtext">First name: </span>{{ user.first_name }}</p>
+<p class="col-12 text-center"><span class="boldtext">Last name: </span>{{ user.last_name }}</p>
+<p class="col-12 text-center"><span class="boldtext">Email: </span>{{ user.email }}</p>
+<p class="col-12 text-center"><span class="boldtext">Location: </span>{{ user.uprofile.location }}</p>
 
  <div class=" col-12 text-center">
-    <a href="{% url 'edit_profile' %}" class="btn btn-info">Edit my profile</a>
+    <a href="{% url 'update_profile' %}" class="btn btn-info">Edit my profile</a>
 </div>    
 
 {% endblock %}

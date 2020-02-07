@@ -2,8 +2,14 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import UserLoginForm, UserRegistrationForm, UserProfileForm, EditProfileForm
-from django.contrib.auth.forms import UserChangeForm
+from accounts.forms import (
+                            UserLoginForm,
+                            UserRegistrationForm,
+                            UserProfileForm,
+                            EditProfileForm,
+                            EditUserProfileForm,
+                            )
+"""from accounts.models import UserProfile"""
 
 
 def index(request):
@@ -34,7 +40,8 @@ def login(request):
                 auth.login(user=user, request=request)
                 return redirect(reverse('get_products'))
             else:
-                login_form.add_error(None, "Your username or password is incorrect")
+                login_form.add_error(None,
+                                     "Your username or password is incorrect")
     else:
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
@@ -48,7 +55,10 @@ def registration(request):
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
         profile_form = UserProfileForm(request.POST)
-
+        if registration_form.is_valid():
+            print("Got this part working")
+        if profile_form.is_valid():
+            print("Got the profile part working")
         if registration_form.is_valid() and profile_form.is_valid():
             user = registration_form.save()
 
@@ -65,6 +75,8 @@ def registration(request):
             else:
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
+        else:
+            print("SOMETHING WENT WRONG")
     else:
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()
@@ -78,14 +90,21 @@ def user_profile(request):
     return render(request, 'profile.html', {"profile": user})
 
 
+@login_required()
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
+        formUserProfile = EditUserProfileForm(request.POST,
+                                              instance=request.user.uprofile)
 
-        if form.is_valid():
-            form.save()
+        if form.is_valid() and formUserProfile.is_valid():
+            user = formUserProfile.save()
+            profile = form.save(commit=False)
+            request.user = user
+            profile.save()
             return redirect('/accounts/profile')
     else:
         form = EditProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'edit_profile.html', args)
+        formUserProfile = EditUserProfileForm(instance=request.user.uprofile)
+        args = {'form': form, 'formUserProfile': formUserProfile}
+        return render(request, 'update_profile.html', args)
