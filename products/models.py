@@ -13,6 +13,11 @@ YEAR_CHOICES = []
 for r in range(1800, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
+is_for_rent = (
+    ('YES', 'YES'),
+    ('NO', 'NO'),
+)
+
 
 class Product(models.Model):
     """
@@ -22,7 +27,7 @@ class Product(models.Model):
     views, image
     """
 
-    title = models.CharField(max_length=200, null=True)
+    title = models.CharField(max_length=250, null=True)
     author = models.CharField(max_length=200, null=True)
     year_of_edition = models.IntegerField(choices=YEAR_CHOICES,
                                           default=datetime.datetime.now().year)
@@ -42,6 +47,12 @@ class Product(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True,
                                           default=timezone.now)
+    is_for_rent = models.CharField(max_length=10,
+                                   choices=is_for_rent,
+                                   default='Yes')
+    rentprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)
+    is_for_sale = models.BooleanField("For sale?", default=False)
+    saleprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)
     views = models.IntegerField(default=0)
     image = models.ImageField(upload_to="img", null=True)
 

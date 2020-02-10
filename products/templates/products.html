@@ -17,9 +17,14 @@
                     <div class="col-12">
                         <p><span class="boldtext">By:</span> {{product.author}}</p>
                         <p><span class="boldtext">Condition:</span> {{product.condition_of_book}}</p>
-                        <p><span class="boldtext">Provider:</span> {{product.provider}}</p>
+                        <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' product.provider.id %}">{{product.provider}}</a></p>
                         <p><span class="boldtext">Location:</span> {{product.location}}</p>
-                        <p><span class="boldtext">€</span> {{product.price}}</p>
+                        {% if product.is_for_sale == True %}
+                        <p><span class="boldtext">For Sale: €</span> {{product.saleprice}}</p>
+                        {% endif %}
+                        {% if product.is_for_rent == 'YES' %}
+                        <p><span class="boldtext">For Rent: €</span> {{product.rentprice}} per week</p>
+                        {% endif %}                        
                         <p><span class="boldtext">Summary: </span>{{product.summary|truncatewords:10}}...<a href="{% url 'product_detail' product.id %}" id="summary-more"> More</a></p>
                         <!--<p><span class="boldtext">Views:</span> {{product.views}}</p>-->
                     </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -10,7 +10,7 @@ from accounts.forms import (
                             EditProfileForm,
                             EditUserProfileForm,
                             )
-"""from accounts.models import UserProfile"""
+from accounts.models import UserProfile
 
 
 def index(request):
@@ -73,6 +73,7 @@ def registration(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
+                return redirect(reverse('get_products'))
             else:
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
@@ -88,17 +89,19 @@ def registration(request):
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    user_posts = Product.objects.filter(provider=request.user).order_by('-published_date')
-    return render(request, 'profile.html', {"user": user, 'user_posts': user_posts})
+    user_posts = Product.objects.filter(provider=request.user).order_by(
+                 '-published_date')
+    return render(request,
+                  'profile.html', {"user": user, 'user_posts': user_posts})
 
 
 @login_required()
 def edit_profile(request):
+    form = EditProfileForm(request.POST)
+    formUserProfile = EditUserProfileForm(request.POST)
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        formUserProfile = EditUserProfileForm(request.POST,
-                                              instance=request.user.uprofile)
-
+        if UserProfile.objects.filter(user=request.user):
+            return redirect('/accounts/profile')
         if form.is_valid() and formUserProfile.is_valid():
             user = formUserProfile.save()
             profile = form.save(commit=False)
@@ -106,7 +109,21 @@ def edit_profile(request):
             profile.save()
             return redirect('/accounts/profile')
     else:
-        form = EditProfileForm(instance=request.user)
-        formUserProfile = EditUserProfileForm(instance=request.user.uprofile)
-        args = {'form': form, 'formUserProfile': formUserProfile}
-        return render(request, 'update_profile.html', args)
+        if UserProfile.objects.filter(user=request.user):
+            form = EditProfileForm(instance=request.user)
+            formUserProfile = EditUserProfileForm(
+                              instance=request.user.uprofile)
+        else:
+            form = EditProfileForm(instance=request.user)
+            formUserProfile = EditUserProfileForm()
+    args = {'form': form, 'formUserProfile': formUserProfile}
+    return render(request, 'update_profile.html', args)
+
+
+def provider_profile(request, pk=None):
+    """The profile of the provider of the book"""
+    provider = get_object_or_404(User, pk=pk)
+    user_posts = Product.objects.filter(provider_id=provider.id).order_by(
+                 '-published_date')
+    return render(request, 'profile.html', {"profile": provider,
+                  'user_posts': user_posts})

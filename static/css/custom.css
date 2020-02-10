@@ -89,6 +89,10 @@ html {
   height: 240px;
 }
 
+.profile-wrapper p {
+  margin-bottom: 3px; 
+}
+
 form button {
   margin-top: 5px;  
 }
@@ -149,6 +153,11 @@ a {
 
 #productform {
   padding-bottom: 15px;
+}
+
+/*Profile Page*/
+#profile-products {
+  height: 460px;  
 }
 
 @media (min-width: 1200px){
