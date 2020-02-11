@@ -4,6 +4,10 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script type="text/javascript" language="Javascript" src="{% static 'js/script.js' %}">
         <!-- Font Awesome File -->
         <script src="https://kit.fontawesome.com/c44d99760e.js" crossorigin="anonymous"></script>
         <!-- Favicon File -->
@@ -50,7 +54,7 @@
                         </div>
                          {% if user.is_authenticated %}
                         <div>
-                            Hello {{ user }}
+                            Hello {{ request.user }}
                              <a href="{% url 'view_cart' %}">
                                 	<i class="fas fa-shopping-cart"></i>
                                     {% if total > 0 %}
@@ -103,7 +107,5 @@
                 <p>Made by Peter Lenting</p>
             </div>
         </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -24,20 +24,20 @@
         <p class="col-12 text-center"><span class="boldtext">Location: </span>{{ user_post.location }} </p>
         <p class="col-12 text-center"><span class="boldtext">Summary: </span>{{ user_post.summary|truncatewords:10}}<a href="{% url 'product_detail' user_post.id %}" id="summary-more"> More</a></p>
     </div>
-    {% endfor %}
+    
 
 {% if user == request.user or request.user.is_superuser %}
 <div class=" col-12 text-center">
     <a href="{% url 'update_profile' %}" class="btn btn-info">Edit my profile</a>
 </div> 
 {% else %}
-<form action="{% url 'add_to_cart' product.id %}" method="post">
+<form action="{% url 'add_to_cart' user_post.id %}" method="post">
     {% csrf_token %}
     <span class="input-group-btn">
         <button class="btn btn-info" type="submit">Add to basket</button>
     </span>
 </form>
 {% endif %}
-
+{% endfor %}
 {% endblock %}
 

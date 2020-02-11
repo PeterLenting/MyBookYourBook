@@ -38,12 +38,22 @@
                     </form>
                 </div>
                 {% else %}
+                {% if product.is_for_rent == 'YES' %}
                 <form action="{% url 'add_to_cart' product.id %}" method="post">
                     {% csrf_token %}
                     <span class="input-group-btn">
                         <button class="btn btn-info" type="submit">Add to basket</button>
                     </span>
                 </form>
+                {% endif %}
+                {% if product.is_for_sale == True %}
+                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit">Contact Provider</button>
+                    </span>
+                </form>
+                {% endif %}
                 {% endif %}
             </div>        
     {% endfor %}
