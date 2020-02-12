@@ -3,6 +3,10 @@ html {
     min-height: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Sets the padding of the two rows in the fixed-header */
 .no-padding {
   padding-right: 0;

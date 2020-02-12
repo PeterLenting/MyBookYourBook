@@ -1,3 +1,5 @@
+$(document).ready(function() {
+    // In productform is_saleprice is hidden untill checkbox is checked.
 $(function() {
   
   // Get the form fields and hidden div
@@ -22,4 +24,4 @@ $(function() {
       $("#id_saleprice").val("");
     }
   });
-});
+})});

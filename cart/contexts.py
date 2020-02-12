@@ -10,6 +10,7 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     cart_items = []
+    cart_ids = []
     total = 0
     quantity = 1
 
@@ -17,5 +18,6 @@ def cart_contents(request):
         product = get_object_or_404(Product, pk=id)
         total += quantity * product.saleprice
         cart_items.append({'id': id, 'quantity': quantity, 'product': product})
+        cart_ids.append(int(id))
 
-    return {'cart_items': cart_items, 'total': total}
+    return {'cart_items': cart_items, 'total': total, "cart_ids": cart_ids}
