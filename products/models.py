@@ -47,9 +47,7 @@ class Product(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True,
                                           default=timezone.now)
-    is_for_rent = models.CharField(max_length=10,
-                                   choices=is_for_rent,
-                                   default='Yes')
+    is_for_rent = models.BooleanField("For rent?", default=False)
     rentprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)
     is_for_sale = models.BooleanField("For sale?", default=False)
     saleprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)

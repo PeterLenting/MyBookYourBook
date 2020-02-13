@@ -21,7 +21,7 @@
                         {% if product.is_for_sale == True %}
                         <p><span class="boldtext">For Sale: €</span> {{product.saleprice}}</p>
                         {% endif %}
-                        {% if product.is_for_rent == 'YES' %}
+                        {% if product.is_for_rent == True %}
                         <p><span class="boldtext">For Rent: €</span> {{product.rentprice}} per week</p>
                         {% endif %}                        
                         <p><span class="boldtext">Summary: </span>{{product.summary|truncatewords:10}}...<a href="{% url 'product_detail' product.id %}" id="summary-more"> More</a></p>
