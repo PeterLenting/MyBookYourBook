@@ -4,19 +4,18 @@ import datetime
 from django.contrib.auth.models import User
 
 CONDITION_CHOICES = (
-    ('like new', 'Like new'),
-    ('good', 'Good'),
-    ('used', 'Used'),
+    ('Like new', 'Like new'),
+    ('Good', 'Good'),
+    ('Used', 'Used'),
 )
 
 YEAR_CHOICES = []
 for r in range(1800, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
-is_for_rent = (
-    ('YES', 'YES'),
-    ('NO', 'NO'),
-)
+my_default_errors = {
+    'required': "Either 'For sale' or 'For rent' (or both) should be checked"
+}
 
 
 class Product(models.Model):
@@ -24,7 +23,7 @@ class Product(models.Model):
     A single product
     title, author, year of print, condition of book, provider, location,
     publisher, number of pages, price, summary, created_date, published_date,
-    views, image
+    views, image, offer
     """
 
     title = models.CharField(max_length=250, null=True)
@@ -48,9 +47,17 @@ class Product(models.Model):
     published_date = models.DateTimeField(blank=True, null=True,
                                           default=timezone.now)
     is_for_rent = models.BooleanField("For rent?", default=False)
-    rentprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)
+    rentprice_per_week = models.DecimalField(max_digits=6,
+                                             decimal_places=2,
+                                             default=00,
+                                             null=True,
+                                             blank=True)
     is_for_sale = models.BooleanField("For sale?", default=False)
-    saleprice = models.DecimalField(max_digits=6, decimal_places=2, default=00)
+    saleprice = models.DecimalField(max_digits=6,
+                                    decimal_places=2,
+                                    default=00,
+                                    null=True,
+                                    blank=True)
     views = models.IntegerField(default=0)
     image = models.ImageField(upload_to="img", null=True)
 

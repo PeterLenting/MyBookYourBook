@@ -85,8 +85,18 @@ html {
   height: 600px;
 }
 
+/*smaller margin-bottom on products.html and productdetail.hmtl and profile.html*/
+
 .product-info-wrapper .col-12 p {
   margin-bottom: 3px;    
+}
+
+.product-detail-wrapper p {
+  margin-bottom: 3px;  
+}
+
+.product-wrapper p {
+  margin-bottom: 3px;  
 }
 
 .product-info-wrapper {

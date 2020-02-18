@@ -13,7 +13,8 @@ def get_products(request):
     and render them to the 'products.html' template
     """
     print("Ran")
-    products = Product.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    products = Product.objects.filter(
+               published_date__lte=timezone.now()).order_by('-published_date')
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
@@ -92,6 +93,7 @@ def delete_product(request, pk=None):
             except Product.DoesNotExist:
                 messages.warning(request, 'The product could not be deleted')
     else:
-        return HttpResponseForbidden('You are only allowed to delete your own products')
+        return HttpResponseForbidden(
+               'You are only allowed to delete your own products')
 
     return redirect('get_products')
