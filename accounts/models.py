@@ -6,7 +6,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,
                                 related_name="uprofile")
     location = models.CharField(max_length=30, blank=True)
-    age = models.IntegerField(default=0)
+    want_to_rent = models.BooleanField("I want to be able to rent books",
+                                       default=False)
 
     def __str__(self):
         return self.user.username

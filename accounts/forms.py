@@ -57,7 +57,7 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = (
             'location',
-            'age')
+            'want_to_rent')
 
 
 class EditUserProfileForm(UserProfileForm):
@@ -66,7 +66,7 @@ class EditUserProfileForm(UserProfileForm):
         model = UserProfile
         fields = (
             'location',
-            )
+            'want_to_rent')
 
 
 class EditProfileForm(UserChangeForm):

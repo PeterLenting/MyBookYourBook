@@ -9,6 +9,7 @@
     <p class="col-12 text-center"><span class="boldtext">Last name: </span>{{ user.last_name }}</p>
     <p class="col-12 text-center"><span class="boldtext">Email: </span>{{ user.email }}</p>
     <p class="col-12 text-center"><span class="boldtext">Location: </span>{{ user.uprofile.location }}</p>
+    <p class="col-12 text-center"><span class="boldtext">Rent? </span>{{ user.uprofile.want_to_rent }}</p>
     <p class="col-12 text-center"><span class="boldtext">Books: </span>
 </div>
 {% for user_post in user_posts %}
