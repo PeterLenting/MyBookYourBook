@@ -36,13 +36,13 @@
                     </form>
                 </div>
                 {% else %}
-                {% if product.is_for_rent == 'YES' and product.id in cart_ids%}   
+                {% if product.is_for_rent == True and product.id in cart_ids%}   
                 <form action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
                     <button class="btn btn-info">Remove from cart</button>
                 </form> 
-                {% elif product.is_for_rent == 'YES' %} 
+                {% elif product.is_for_rent == True %} 
                 <form action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
                     {% csrf_token %}
                     <span class="input-group-btn">
