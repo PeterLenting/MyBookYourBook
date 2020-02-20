@@ -20,6 +20,10 @@ def get_rent_products(request):
     return render(request, "products.html", {'products': products})
 
 
+def user_contact_form(request):
+    return render(request, "usercontactform.html")
+
+
 def get_sale_products(request):
     """
     Create a view that will return a list

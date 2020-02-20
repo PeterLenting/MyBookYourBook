@@ -1,7 +1,8 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .forms import ContactForm
+from django.contrib import messages
 
 # Create your views here. https://wsvincent.com/django-contact-form/
 
@@ -22,7 +23,8 @@ def emailView(request):
                           ['FromMyBookYourBook@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('success')
+            messages.success(request, "You have successfully been logged out")
+            return redirect(reverse('get_products'))
     return render(request, "contact.html", {'form': form})
 
 

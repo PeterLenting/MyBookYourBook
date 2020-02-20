@@ -52,12 +52,9 @@
                 {% endif %}           
                 {% endif %}
                 {% if product.is_for_sale == True and user != product.provider%}
-                <form method="post">
-                    {% csrf_token %}
-                    <span class="input-group-btn">
-                        <button class="btn btn-info" type="submit">Contact Provider</button>
-                    </span>
-                </form>
+                
+                    <a href="{% url 'user_contact_form' %}">Contact Provider</button>
+                
                 {% endif %}
             </div>        
     {% endfor %}
