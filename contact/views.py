@@ -19,7 +19,7 @@ def emailView(request):
                 send_mail(subject + " - " + from_email,
                           message,
                           from_email,
-                          ['{{ user.email }}'])
+                          ['FromMyBookYourBook@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
