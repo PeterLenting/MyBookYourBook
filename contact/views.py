@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
-# Create your views here.
+# Create your views here. https://wsvincent.com/django-contact-form/
 
 
 def emailView(request):
@@ -19,7 +19,7 @@ def emailView(request):
                 send_mail(subject + " - " + from_email,
                           message,
                           from_email,
-                          ['frommybookyourbook@gmail.com'])
+                          ['{{ user.email }}'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
