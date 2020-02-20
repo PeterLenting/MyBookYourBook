@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.views.static import serve
 from .settings import MEDIA_ROOT
-from accounts import urls as accounts_urls
+from accounts import urls as urls_accounts
 from search import urls as urls_search
 from cart import urls as urls_cart
 from about import urls as urls_about
+from contact import urls as urls_contact
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -30,7 +31,8 @@ urlpatterns = [
     url(r'^about/', include(urls_about)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
-    url(r'^accounts/', include(accounts_urls)),
+    url(r'^accounts/', include(urls_accounts)),
+    url(r'^contact/', include(urls_contact)),
 ]
 """
 from accounts.views import index, logout, login, registration, user_profile
