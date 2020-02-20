@@ -23,10 +23,7 @@ def emailView(request):
                           ['FromMyBookYourBook@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request, "You have successfully been logged out")
+            messages.success(request,
+                             "Thank you for you message! We'll get back to you soon.")
             return redirect(reverse('get_products'))
     return render(request, "contact.html", {'form': form})
-
-
-def successView(request):
-    return HttpResponse('Success! Thank you for your message.')
