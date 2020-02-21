@@ -7,7 +7,16 @@ html {
   display: none;
 }
 
-.background {
+.remove-button {
+  padding-left: 0;
+}
+
+.edit-button {
+  padding-left: 0;
+}
+
+/*Sets the backgroundcolor of the for_rent and for_sale part in productlist*/
+.rent-sale-background {
  background-color: #DFDFDF;
  margin-bottom: 2px;   
 }
