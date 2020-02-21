@@ -7,6 +7,10 @@ html {
   display: none;
 }
 
+.background {
+ background-color: #DFDFDF;
+ margin-bottom: 2px;   
+}
 .btn-info {
   box-shadow: 2px 3px#606060;  
 }
