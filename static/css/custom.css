@@ -7,6 +7,33 @@ html {
   display: none;
 }
 
+.btn-info {
+  box-shadow: 2px 3px#606060;  
+}
+
+/*To get dropdownmenu on same hight as other list items in navbar*/
+#dropdownMenuButton {
+  padding: 8px;  
+}
+
+/* Showes the welcoming message in the navbar a bold */
+#hello_user {
+  font-weight: bold;
+}
+
+.margin-bottom {
+  margin-bottom: 4px;  
+}
+
+.rent-sale-box {
+  padding-right: 1px;
+  padding-left: 0;
+}
+
+.rent-sale-button {
+  padding-left: 1px; 
+  padding-right: 0; 
+}
 /* Sets the padding of the two rows in the fixed-header */
 .no-padding {
   padding-right: 0;
@@ -128,7 +155,7 @@ html {
 }
 
 .product-wrapper {
-  height: 600px;
+  height: 715px;
 }
 
 /*smaller margin-bottom on products.html and productdetail.hmtl and profile.html*/
@@ -146,15 +173,11 @@ html {
 }
 
 .product-info-wrapper {
-  height: 240px;
+  height: 290px;
 }
 
 .profile-wrapper p {
   margin-bottom: 3px; 
-}
-
-form button {
-  margin-top: 5px;  
 }
 
 /*Textcolor button to delete book by user of superuser*/
