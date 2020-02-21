@@ -33,7 +33,22 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'about' %}">About</a>
                                 </li>
-                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Books
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="nav-link" href="{% url 'get_products' %}">All books</a>
+                                        <a class="nav-link" href="{% url 'get_sale_products' %}">Sale-only books</a>
+                                        <a class="nav-link" href="{% url 'get_rent_products' %}">Rent-only books</a>
+                                    </div>
+                                </div>
+                            </ul>
+                            <ul class="navbar-nav">
+                                 {% if user.is_authenticated %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'new_product' %}">Add a book</a>
                                 </li>
@@ -51,19 +66,6 @@
                                     <a class="nav-link" href="{% url 'registration' %}">Register</a>
                                 </li>
                                 {% endif %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                                </li>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Books
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="nav-link" href="{% url 'get_products' %}">All books</a>
-                                        <a class="nav-link" href="{% url 'get_sale_products' %}">Sale-only books</a>
-                                        <a class="nav-link" href="{% url 'get_rent_products' %}">Rent-only books</a>
-                                    </div>
-                                </div>
                             </ul>
                         </div>
                          {% if user.is_authenticated %}
