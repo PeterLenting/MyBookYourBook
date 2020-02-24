@@ -7,6 +7,10 @@ html {
   display: none;
 }
 
+p {
+  font-size: 2rem;  
+}
+
 .remove-button {
   padding-left: 0;
 }
@@ -20,6 +24,18 @@ html {
  background-color: #DFDFDF;
  margin-bottom: 2px;   
 }
+
+.rent-sale-box {
+  padding-right: 1px;
+  padding-left: 0;
+}
+
+.rent-sale-button {
+  padding-left: 1px; 
+  padding-right: 0; 
+  min-height: 100vh;
+}
+
 .btn-info {
   box-shadow: 2px 3px#606060;  
 }
@@ -34,19 +50,14 @@ html {
   font-weight: bold;
 }
 
+h3 {
+  font-size: 2.75rem;  
+}
+
 .margin-bottom {
   margin-bottom: 4px;  
 }
 
-.rent-sale-box {
-  padding-right: 1px;
-  padding-left: 0;
-}
-
-.rent-sale-button {
-  padding-left: 1px; 
-  padding-right: 0; 
-}
 /* Sets the padding of the two rows in the fixed-header */
 .no-padding {
   padding-right: 0;
@@ -168,7 +179,7 @@ html {
 }
 
 .product-wrapper {
-  height: 715px;
+  height: 830px;
 }
 
 /*smaller margin-bottom on products.html and productdetail.hmtl and profile.html*/
@@ -260,9 +271,18 @@ a {
 body {
   padding-top: 150px;
   }
+h3 {
+  font-size: 1.75rem;  
+}  
+p {
+  font-size: 1.2rem;   
+}
 .header-logo {
   width: 68%;
   }
+.product-wrapper {
+  height: 715px;
+}
 }
 
 @media (min-width: 1500px){
