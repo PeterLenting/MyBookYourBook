@@ -315,7 +315,7 @@ footer {
 
 /*Profile Page*/
 #profile-products {
-  height: 1000px;  
+  height: 800px;  
 }
 
 @media (min-width: 1200px){
@@ -376,6 +376,6 @@ body {
 
 @media (min-width: 1500px){
 .header-logo {
-  width: 50%;
+  width: 58%;
   }
 }
