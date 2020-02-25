@@ -4,6 +4,19 @@ html {
     min-height: 100%;
 }
 
+/*Padding and margin to make room for fixed-top-navbar and footer*/
+body {
+  padding-top: 280px;
+  background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 50px;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;    
+}
+
 /*To make things not vissible*/
 .hidden {
   display: none;
@@ -188,7 +201,7 @@ h3 {
   width: 100%;
 }
 
-/* Search Bar */
+/*Search Bar*/
 
 #search-form {
   width: 55%;  
@@ -277,16 +290,16 @@ h3 {
   font-style: italic; 
 }
 
-body {
-  padding-top: 280px;
-  background-color: #f2f2f2;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 50px;
+a {
+  color: #212529;
 }
 
-.row {
-  margin-left: 0;
-  margin-right: 0;    
+.boldtext {
+  font-weight: bold;  
+}
+
+#productform {
+  padding-bottom: 15px;
 }
 
 footer {
@@ -298,18 +311,6 @@ footer {
   height: 50px;
   width: 100%;
   overflow: hidden;
-}
-
-a {
-  color: #212529;
-}
-
-.boldtext {
-  font-weight: bold;  
-}
-
-#productform {
-  padding-bottom: 15px;
 }
 
 /*Profile Page*/
