@@ -1,15 +1,40 @@
+/*To make footer stick to bottom*/
 html {
     position: relative;
     min-height: 100%;
 }
 
+/*To make things not vissible*/
 .hidden {
   display: none;
+}
+
+/*To increase readability on mobile-devices the fontsize is doubled*/
+
+li {
+  font-size: 2rem;  
+}
+
+.navbar-toggler {
+  font-size: 3rem;  
+}
+
+.dropdown-toggle {
+  font-size: 2rem;   
 }
 
 p {
   font-size: 2rem;  
 }
+
+/*Products.html -> settings for each product*/
+.product-wrapper {
+  border-right: 2px #DFDFDF solid;
+  border-bottom: 2px #DFDFDF solid;
+  height: 1000px;
+}
+
+/*Products.html -> to make both buttons line out better*/
 
 .remove-button {
   padding-left: 0;
@@ -25,18 +50,27 @@ p {
  margin-bottom: 2px;   
 }
 
+/*Sets the padding of the for_rent and for_sale part in productlist*/
 .rent-sale-box {
   padding-right: 1px;
   padding-left: 0;
 }
 
+/*Sets the padding of the buttons in the for_rent and for_sale part in productlist*/
 .rent-sale-button {
   padding-left: 1px; 
   padding-right: 0; 
 }
 
+/*All buttons on products.html are .btn-info */
 .btn-info {
   box-shadow: 2px 3px#606060;  
+  font-size: 2.1rem;
+}
+
+/*Sets margin on all buttons on products.html*/
+.margin-bottom {
+  margin-bottom: 4px;  
 }
 
 /*To get dropdownmenu on same hight as other list items in navbar*/
@@ -44,25 +78,25 @@ p {
   padding: 8px;  
 }
 
-/* Showes the welcoming message in the navbar a bold */
+/* Shows the welcoming message in the navbar bold */
 #hello_user {
   font-weight: bold;
+  font-size: 2rem;
 }
 
+/*To increase readability on mobile-devices*/
 h3 {
   font-size: 2.75rem;  
 }
 
-.margin-bottom {
-  margin-bottom: 4px;  
-}
+/*Navbar*/
 
-/* Sets the padding of the two rows in the fixed-header */
+/*Sets the padding of the two rows in the fixed-header*/
 .no-padding {
   padding-right: 0;
   padding-left: 0;  
-
 }
+
 .navbar-color {
   background-color: #E1CC97;
   color: #663300;
@@ -77,33 +111,7 @@ h3 {
   border: #E1CC97;  
 }
 
-/* Sets the color of the toggler-icon */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225, 204, 151, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-#header-wrap {
-  padding-right: 0;
-  padding-left: 0;  
-}
-
-.header-text-wrap {
-  padding-left: 0;    
-}
-
-.header-text {
-  font-size: 1.7rem;  
-  margin-bottom: 2px;  
-}
-
-.header-logo-wrap {
-  padding-right: 0;
-  padding-left: 0
-}
-
-.header-logo {
-  width: 100%;
-}
+/*Sets dropdown-item in the Navbar (books) on mobile-devices*/
 
 .show>.btn-secondary.dropdown-toggle {
   background-color: #663300 !important;
@@ -150,14 +158,59 @@ h3 {
   background-color: #E1CC97;  
 }
 
+/* Sets the color of the toggler-icon */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225, 204, 151, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*Header*/
+
+#header-wrap {
+  padding-right: 0;
+  padding-left: 0;  
+}
+
+.header-text-wrap {
+  padding-left: 0;    
+}
+
+.header-text {
+  font-size: 3.3rem;  
+  margin-bottom: 2px;  
+}
+
+.header-logo-wrap {
+  padding-right: 0;
+  padding-left: 0
+}
+
+.header-logo {
+  width: 100%;
+}
+
 /* Search Bar */
 
 #search-form {
-  width: 450px;  
+  width: 55%;  
 }
 
 #search-input {
-  width: 80%!important;  
+  width: 100%!important; 
+  font-size: 2rem; 
+}
+
+.search-button {
+  background-color: #E1CC97;
+  color: #663300;
+  border: 0;   
+  font-size: 2rem;
+  width: 99%;   
+  box-shadow: 2px 3px #2b1d0e;  
+}
+
+.search-button:hover {
+  background-color: #E1CC97;
+  color: #fff;  
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -171,17 +224,14 @@ h3 {
   color: #E1CC97;     
 }
 
-.btn-secondary {
+/*Sets color for books-button*/
+.book-button {
   background-color: #E1CC97;
   color: #663300;
   border: 0;
 }
 
-.product-wrapper {
-  height: 830px;
-}
-
-/*smaller margin-bottom on products.html and productdetail.hmtl and profile.html*/
+/*smaller margin-bottom on products.html and productdetail.html and profile.html*/
 
 .product-info-wrapper .col-12 p {
   margin-bottom: 3px;    
@@ -207,12 +257,13 @@ h3 {
 .delete-book {
   color:red;
 }
+
 .wrapper-product-img {
-  height: 205px;
+  height: 333px;
 }
 
 .product-img {
-  width: 125px; 
+  width: 200px; 
 }
 
 .product-header {
@@ -227,7 +278,7 @@ h3 {
 }
 
 body {
-  padding-top: 180px;
+  padding-top: 280px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 50px;
@@ -272,15 +323,50 @@ body {
   }
 h3 {
   font-size: 1.75rem;  
-}  
+  }  
 p {
   font-size: 1.2rem;   
-}
+  }
 .header-logo {
   width: 68%;
   }
 .product-wrapper {
   height: 715px;
+  }
+.wrapper-product-img {
+  height: 205px;
+  }
+.product-img {
+  width: 125px; 
+  }
+.btn-info {
+  font-size: 1.1rem;  
+  }
+li {
+  font-size: 1rem;  
+  }
+.dropdown-toggle {
+  font-size: 1rem;   
+  }
+.header-text {
+  font-size: 1.7rem; 
+  }
+#search-input {
+  width: 80%!important;  
+  font-size: 1rem;
+  }
+#search-form {
+  width: 450px;  
+  }
+.search-button {
+ font-size: 1rem;
+ width: 16%;
+  }
+body {
+  padding-top: 180px;
+}
+#hello_user {
+  font-size: 1rem;
 }
 }
 

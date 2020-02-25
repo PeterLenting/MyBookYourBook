@@ -37,7 +37,7 @@
                                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                                 </li>
                                 <li class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle book-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Books
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -85,17 +85,17 @@
             <div class="row no-padding">
                 <div class="col-12 no-padding">
                     <div class="row second-header">
-                        <div class="col-1 header-logo-wrap text-right">
+                        <div class="col-2 col-lg-1 header-logo-wrap text-right">
                             <a href="{% url 'get_products' %}">
                                 <img class="header-logo text-center" src="/media/img/bookshelf.png">
                             </a>
                         </div>
-                        <div class="col-1 header-text-wrap mr-auto">
+                        <div class="col-2 col-lg-1 header-text-wrap mr-auto">
                             <p class="header-text">MyBook<br>YourBook</p>
                         </div>
                         <form action="{% url 'search' %}" method="GET" id="search-form" class="form-inline my-2 my-lg-0">
                             <input id="search-input" name="q" class="form-control mr-sm-2" type="text" placeholder="Search for books by keyword / author / title" aria-label="Search">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn btn-secondary search-button my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </div>
                 </div>    
