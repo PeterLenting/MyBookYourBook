@@ -4,6 +4,11 @@ html {
     min-height: 100%;
 }
 
+/*.stick-to-bottom {
+  position: absolute;
+  bottom: 0;  
+}*/
+
 /*Padding and margin to make room for fixed-top-navbar and footer*/
 body {
   padding-top: 280px;
@@ -50,11 +55,11 @@ p {
 /*Products.html -> to make both buttons line out better*/
 
 .remove-button {
-  padding-right: 0;
+  padding-right: 15px;
 }
 
 .edit-button {
-  padding-left: 0;
+  padding-left: 15px;
 }
 
 /*Sets the backgroundcolor of the for_rent and for_sale part in productlist*/
@@ -308,7 +313,7 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 50px;
+  height: 46px;
   width: 100%;
   overflow: hidden;
 }
@@ -377,6 +382,9 @@ body {
   }
 #profile-products {
   height: 715px;  
+  }
+.product-info-wrapper {
+  height: 395px;
   }
 }
 

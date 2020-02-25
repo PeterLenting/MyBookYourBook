@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 {% endif %}
-            <p><span class="boldtext">Summary:</span> {{ product.summary }}</p>
+            <p><span class="boldtext">Summary:</span> {{ product.summary | linebreaks}}</p>
             {% if user == product.provider or user.is_superuser %}
             <a href="{% url 'edit_product' product.id %}" class="btn btn-info">Edit product</a>
             <form action="{% url  'delete_product'  product.id%}" method='post'>
