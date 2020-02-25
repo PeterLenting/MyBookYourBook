@@ -50,7 +50,7 @@ p {
 /*Products.html -> to make both buttons line out better*/
 
 .remove-button {
-  padding-left: 0;
+  padding-right: 0;
 }
 
 .edit-button {
@@ -311,6 +311,12 @@ footer {
   height: 50px;
   width: 100%;
   overflow: hidden;
+}
+
+.sociallinks a{
+    color: #663300;;
+    padding-left: 25px;
+    padding-right: 25px;  
 }
 
 /*Profile Page*/
