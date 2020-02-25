@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-
  
     {% for product in products %}
-
         
             <div class="col-md-6 col-lg-4 col-xl-2 product-wrapper">
                 <h3 class="text-center product-header"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h3>
@@ -52,7 +50,7 @@
                                 <p><span class="boldtext">For Sale:<br>€</span> {{product.saleprice}}</p>
                             </div>
                             <div class="col-md-6 rent-sale-button text-center margin-bottom">
-                                <button class="btn btn-info" href="{% url 'user_contact_form' %}">Contact Seller</button>
+                                <a href="{% url 'user_contact_form' %}" class="btn btn-info">Contact Seller</a>
                             </div>
                         </div>
                         {% endif %}

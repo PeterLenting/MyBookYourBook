@@ -315,7 +315,7 @@ footer {
 
 /*Profile Page*/
 #profile-products {
-  height: 460px;  
+  height: 1000px;  
 }
 
 @media (min-width: 1200px){
@@ -365,10 +365,13 @@ li {
   }
 body {
   padding-top: 180px;
-}
+  }
 #hello_user {
   font-size: 1rem;
-}
+  }
+#profile-products {
+  height: 715px;  
+  }
 }
 
 @media (min-width: 1500px){
