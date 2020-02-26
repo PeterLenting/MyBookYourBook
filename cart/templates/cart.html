@@ -9,7 +9,7 @@
             <h3>{{ item.product.title }}</h3>
             <img class="img-product" src="/media/{{ item.product.image }}">
             <p>{{ item.product.summary|truncatewords:10 }}</p>
-            <p>€ {{ item.product.price }}</p>
+            <p>€ {{ item.product.rentprice_per_week }}</p>
         </div>
         <form action='{% url "remove" %}' method="POST">
             {% csrf_token %}
@@ -18,7 +18,7 @@
         </form>
     {% endfor %}
         <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
-        <a href="/" class="btn btn-info" role="button">Checkout</a>
+        <a href="{% url 'checkout' %}" class="btn btn-info" role="button">Checkout</a>
     </div>
 
 {% endblock %}
