@@ -22,6 +22,7 @@ from search import urls as urls_search
 from cart import urls as urls_cart
 from about import urls as urls_about
 from contact import urls as urls_contact
+from checkout import urls as urls_checkout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,6 +34,7 @@ urlpatterns = [
     url(r'^search/', include(urls_search)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^contact/', include(urls_contact)),
+    url(r'^checkout/', include(urls_checkout)),
 ]
 """
 from accounts.views import index, logout, login, registration, user_profile
