@@ -14,7 +14,7 @@ body {
   padding-top: 280px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
 .row {
@@ -47,8 +47,8 @@ p {
 
 /*Products.html -> settings for each product*/
 .product-wrapper {
-  border-right: 2px #DFDFDF solid;
-  border-bottom: 2px #DFDFDF solid;
+  background-color: #fff;  
+  border: 2px #F2F2F2 solid;
   height: 1000px;
 }
 
@@ -64,7 +64,7 @@ p {
 
 /*Sets the backgroundcolor of the for_rent and for_sale part in productlist*/
 .rent-sale-background {
- background-color: #DFDFDF;
+ background-color: #F2F2F2;
  margin-bottom: 2px;   
 }
 
@@ -308,8 +308,8 @@ a {
 }
 
 footer {
-  background-color: #E1CC97;
-  color: #663300;
+  background-color: #663300;
+  color: #E1CC97;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -319,7 +319,7 @@ footer {
 }
 
 .sociallinks a{
-    color: #663300;;
+    color: #E1CC97;
     padding-left: 25px;
     padding-right: 25px;  
 }

@@ -103,7 +103,7 @@ $(function() {
     if (checkbox2.is(':checked')) {
       checkbox2.prop("required", false);
       checkbox1.prop("required", false);
-    } else if (checkbox2.is(':checked')) {
+    } else if (checkbox1.is(':checked')) {
       checkbox2.prop("required", false);
       checkbox1.prop("required", false);
         } else {  
