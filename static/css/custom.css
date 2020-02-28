@@ -17,6 +17,14 @@ body {
   margin-bottom: 55px;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
+.background-content {
+  background-color: #fff;
+}
+
 .row {
   margin-left: 0;
   margin-right: 0;    
@@ -273,7 +281,8 @@ h3 {
 
 /*Textcolor button to delete book by user of superuser*/
 .delete-book {
-  color:red;
+  background-color:red;
+  border-color: red;
 }
 
 .wrapper-product-img {
@@ -285,7 +294,7 @@ h3 {
 }
 
 .product-header {
- min-height: 56px
+ min-height: 66px
  }
 
 /*Link to read more sends user from frontpage to productpage*/
@@ -343,7 +352,7 @@ p {
   width: 68%;
   }
 .product-wrapper {
-  height: 715px;
+  height: 725px;
   }
 .wrapper-product-img {
   height: 205px;

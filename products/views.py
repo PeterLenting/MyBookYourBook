@@ -6,6 +6,20 @@ from django.http import HttpResponseForbidden
 from django.contrib import messages
 
 
+def get_my_products(request):
+    """
+    Create a view that will return a list
+    of all Products that were published prior to 'now'
+    and render them to the 'products.html' template
+    """
+    products = Product.objects.filter(provider=request.user,
+                                      published_date__lte=timezone.now(
+                                      )).order_by('-published_date')
+    for p in products:
+        print(p)
+    return render(request, "products.html", {'products': products})
+
+
 def get_rent_products(request):
     """
     Create a view that will return a list
