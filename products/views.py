@@ -12,12 +12,16 @@ def get_my_products(request):
     of all Products that were published prior to 'now'
     and render them to the 'products.html' template
     """
-    products = Product.objects.filter(provider=request.user,
-                                      published_date__lte=timezone.now(
-                                      )).order_by('-published_date')
-    for p in products:
-        print(p)
-    return render(request, "products.html", {'products': products})
+
+    if not request.user.is_authenticated:
+        return redirect('login')
+    else:
+        products = Product.objects.filter(provider=request.user,
+                                          published_date__lte=timezone.now(
+                                          )).order_by('-published_date')
+        for p in products:
+            print(p)
+        return render(request, "products.html", {'products': products})
 
 
 def get_rent_products(request):
@@ -28,7 +32,11 @@ def get_rent_products(request):
     """
     products = Product.objects.filter(is_for_rent=True,
                                       published_date__lte=timezone.now(
-                                      )).order_by('-published_date').exclude(provider=request.user)
+                                      )).order_by('-published_date')
+    if request.user.is_authenticated():
+        products = Product.objects.filter(is_for_rent=True,
+                                          published_date__lte=timezone.now(
+                                          )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
@@ -46,7 +54,11 @@ def get_sale_products(request):
     """
     products = Product.objects.filter(is_for_sale=True,
                                       published_date__lte=timezone.now(
-                                      )).order_by('-published_date').exclude(provider=request.user)
+                                      )).order_by('-published_date')
+    if request.user.is_authenticated():
+        products = Product.objects.filter(is_for_sale=True,
+                                          published_date__lte=timezone.now(
+                                          )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
@@ -54,12 +66,16 @@ def get_sale_products(request):
 
 def get_products(request):
     """
-    Create a view that will return a list
-    of all Products that are for rent and that were published prior to 'now'
+    Create a view that will return a listof all Products
+    that are for rent, that were published prior to 'now',
+    that are not published by the logged in user
     and render them to the 'products.html' template
     """
     products = Product.objects.filter(published_date__lte=timezone.now(
-                                      )).order_by('-published_date').exclude(provider=request.user)
+                                      )).order_by('-published_date')
+    if request.user.is_authenticated():
+        products = Product.objects.filter(published_date__lte=timezone.now(
+                                          )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
