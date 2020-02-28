@@ -28,7 +28,7 @@ def get_rent_products(request):
     """
     products = Product.objects.filter(is_for_rent=True,
                                       published_date__lte=timezone.now(
-                                      )).order_by('-published_date')
+                                      )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
@@ -46,7 +46,7 @@ def get_sale_products(request):
     """
     products = Product.objects.filter(is_for_sale=True,
                                       published_date__lte=timezone.now(
-                                      )).order_by('-published_date')
+                                      )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
@@ -58,8 +58,8 @@ def get_products(request):
     of all Products that are for rent and that were published prior to 'now'
     and render them to the 'products.html' template
     """
-    products = Product.objects.filter(
-               published_date__lte=timezone.now()).order_by('-published_date')
+    products = Product.objects.filter(published_date__lte=timezone.now(
+                                      )).order_by('-published_date').exclude(provider=request.user)
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
