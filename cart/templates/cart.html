@@ -4,21 +4,36 @@
 {% block content %}
     {% for item in cart_items %}
     
-    <div class="col-md-6 col-lg-4 col-xl-2">        
-        <div>
-            <h3>{{ item.product.title }}</h3>
-            <img class="img-product" src="/media/{{ item.product.image }}">
-            <p>{{ item.product.summary|truncatewords:10 }}</p>
-            <p>€ {{ item.product.rentprice_per_week }}</p>
+    <div id="cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
+        <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
+        <div class="text-center wrapper-product-img">
+            <a class="product-link" href="{% url 'product_detail' item.product.id %}">
+                <img class="product-img" src="/media/{{ item.product.image }}">
+            </a>
         </div>
-        <form action='{% url "remove" %}' method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
-            <button class="btn btn-info">Remove book from cart</button>
-        </form>
-    {% endfor %}
-        <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
-        <a href="{% url 'checkout' %}" class="btn btn-info" role="button">Checkout</a>
+        <div id="cart-info-wrapper" class="row product-info-wrapper">
+            <div class="col-12">
+                <p><span class="boldtext">By:</span> {{item.product.author}}</p>
+                <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
+                <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
+                <p><span class="boldtext">Location:</span> {{item.product.location}}</p>
+                <p>{{ item.product.summary|truncatewords:20 }}</p>
+                <p><b>Price per week:</b> €{{ item.product.rentprice_per_week }}</p>
+            </div>
+        </div>
+            <form action='{% url "remove" %}' method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
+                <button class="btn btn-info">Remove book from cart</button>
+            </form>
+        
     </div>
-
+    {% endfor %}
+        <div class="row">
+            <div class="col-12">
+                <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
+                <a href="{% url 'checkout' %}" class="btn btn-info" role="button">Checkout</a>
+            </div>
+        </div>
+    
 {% endblock %}
