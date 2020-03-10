@@ -17,11 +17,11 @@
                 <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
                 <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
                 <p><span class="boldtext">Location:</span> {{item.product.location}}</p>
-                <p>{{ item.product.summary|truncatewords:20 }}</p>
+                <p><span class="boldtext">Summary:</span>{{ item.product.summary|truncatewords:20 }}</p>
                 <p><b>Price per week:</b> €{{ item.product.rentprice_per_week }}</p>
             </div>
         </div>
-            <form action='{% url "remove" %}' method="POST">
+            <form class= "text-center" action='{% url "remove" %}' method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
                 <button class="btn btn-info">Remove book from cart</button>

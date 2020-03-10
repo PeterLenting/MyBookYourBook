@@ -43,7 +43,10 @@ def get_rent_products(request):
 
 
 def user_contact_form(request):
-    return render(request, "usercontactform.html")
+    if not request.user.is_authenticated:
+        return redirect('login')
+    else:
+        return render(request, "usercontactform.html")
 
 
 def get_sale_products(request):

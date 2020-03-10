@@ -13,41 +13,43 @@
 {% endblock %}
 
 {% block content %}
-<div class="row row-flex">
-    {% for item in cart_items %}
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-            <div class="panel-body">
-                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
 
-                <div class="caption">
-                    <h3>{{ item.product.title }}</h3>
-                    <p class="product-description">{{ item.product.summary }}</p>
-                    <p>{{ item.quantity }}</p>
-                    <p>€ {{ item.product.rentprice_per_week }} per week</p>
-                </div>
-            </div>
+    {% for item in cart_items %}
+    <div id="cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
+        <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
+        <div class="text-center wrapper-product-img">
+            <a class="product-link" href="{% url 'product_detail' item.product.id %}">
+                <img class="product-img" src="/media/{{ item.product.image }}">
+            </a>
         </div>
+        <div id="cart-info-wrapper" class="row product-info-wrapper">
+            <div class="col-12">
+                <p><span class="boldtext">By:</span> {{item.product.author}}</p>
+                <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
+                <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
+                <p><span class="boldtext">Location:</span> {{item.product.location}}</p>
+                <p><b>Price per week:</b> €{{ item.product.rentprice_per_week }}</p>
+            </div>
+        </div>   
+    </div>
     {% endfor %}
-</div>
-<div class="row">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-</div>
+
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-    <legend>Payment Details</legend>
+    <legend>Order Details</legend>
+    <p>Total:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
 
     <div id="credit-card-errors" style="display: none;">
         <div id="alert-message block-message error" id="stripe-error-message"></div>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         {{ order_form | as_bootstrap }}
     </div>
 
-    <div class="form-group col-md-6">
+    <!--<div class="form-group col-md-6">
         {{ payment_form | as_bootstrap }}
-    </div>
+    </div>-->
 
     {% csrf_token %}
     <div class="form-group col-md-12">
