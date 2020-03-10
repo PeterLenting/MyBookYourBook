@@ -271,8 +271,29 @@ h3 {
   height: 290px;
 }
 
+.profile-wrapper {
+  padding: 0;
+}
+
 .profile-wrapper p {
-  margin-bottom: 3px; 
+  margin-bottom: 0; 
+  background-color: #fff;
+}
+
+.profile-books {
+  font-size: 2rem;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.edit-profile-button {
+  margin-top: 10px;  
+}
+
+.bg-edit-profile-button {
+  background-color: #fff;
+  padding-bottom: 5px;
 }
 
 /*Textcolor button to delete book by user of superuser*/

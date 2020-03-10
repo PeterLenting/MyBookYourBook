@@ -4,31 +4,32 @@
 
 {% block content %}
 <div class="col-12 profile-wrapper">
-    <p class="col-12 text-center"><span class="boldtext">Username: </span>{{ user.uprofile }}</p>
-    <p class="col-12 text-center"><span class="boldtext">First name: </span>{{ user.first_name }}</p>
-    <p class="col-12 text-center"><span class="boldtext">Last name: </span>{{ user.last_name }}</p>
-    <p class="col-12 text-center"><span class="boldtext">Email: </span>{{ user.email }}</p>
-    <p class="col-12 text-center"><span class="boldtext">Location: </span>{{ user.uprofile.location }}</p>
-    <p class="col-12 text-center"><span class="boldtext">Rent? </span>{{ user.uprofile.want_to_rent }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3 text-center profile-books"><span class="boldtext">My profile: </span>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">Username: </span>{{ user.uprofile }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">First name: </span>{{ user.first_name }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">Last name: </span>{{ user.last_name }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">Email: </span>{{ user.email }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">Location: </span>{{ user.uprofile.location }}</p>
+    <p class="offset-xl-3 col-xl-6 offset-xl-3"><span class="boldtext">Rent? </span>{{ user.uprofile.want_to_rent }}</p>
     {% if user == request.user or request.user.is_superuser %}
-    <div class=" col-12 text-center">
-        <a href="{% url 'update_profile' %}" class="btn btn-info">Edit my profile</a>
+    <div class="offset-xl-3 col-xl-6 offset-xl-3 text-center bg-edit-profile-button">
+        <a href="{% url 'update_profile' %}" class="btn btn-info edit-profile-button">Edit my profile</a>
     </div> 
     {% endif %}
-    <p class="col-12 text-center"><span class="boldtext">Books: </span>
+    <p class="col-12 text-center profile-books"><span class="boldtext">My books: </span>
 </div>
 {% for user_post in user_posts %}
-    <div class="col-md-6 col-lg-4 col-xl-2 product-wrapper" id="profile-products">
+    <div class="col-md-6 col-lg-3 col-xl-3 product-wrapper" id="profile-products">
         <h3 class="text-center product-header"><a href="{% url 'product_detail' user_post.id %}">{{ user_post.title }}</a></h3>
         <div class="text-center wrapper-product-img">
             <a class="product-link" href="{% url 'product_detail' user_post.id %}">
                 <img class="product-img" src="/media/{{ user_post.image }}">
             </a>
         </div>
-        <p class="col-12 text-center"><span class="boldtext">By: </span>{{ user_post.author }} </p>
-        <p class="col-12 text-center"><span class="boldtext">Condition: </span>{{ user_post.condition_of_book }} </p>
-        <p class="col-12 text-center"><span class="boldtext">Location: </span>{{ user_post.location }} </p>
-        <p class="col-12 text-center"><span class="boldtext">Summary: </span>{{ user_post.summary|truncatewords:10}}<a href="{% url 'product_detail' user_post.id %}" id="summary-more"> More</a></p>
+        <p class="col-12"><span class="boldtext">By: </span>{{ user_post.author }} </p>
+        <p class="col-12"><span class="boldtext">Condition: </span>{{ user_post.condition_of_book }} </p>
+        <p class="col-12"><span class="boldtext">Location: </span>{{ user_post.location }} </p>
+        <p class="col-12"><span class="boldtext">Summary: </span>{{ user_post.summary|truncatewords:10}}<a href="{% url 'product_detail' user_post.id %}" id="summary-more"> More</a></p>
     </div>
 {% endfor %}
 

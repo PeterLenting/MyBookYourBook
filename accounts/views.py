@@ -12,7 +12,6 @@ from accounts.forms import (
                             )
 from accounts.models import UserProfile
 
-
 def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
@@ -56,10 +55,6 @@ def registration(request):
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
         profile_form = UserProfileForm(request.POST)
-        if registration_form.is_valid():
-            print("Got this part working")
-        if profile_form.is_valid():
-            print("Got the profile part working")
         if registration_form.is_valid() and profile_form.is_valid():
             user = registration_form.save()
 
