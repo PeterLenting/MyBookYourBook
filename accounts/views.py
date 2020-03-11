@@ -12,6 +12,7 @@ from accounts.forms import (
                             )
 from accounts.models import UserProfile
 
+
 def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
@@ -49,6 +50,7 @@ def login(request):
 
 def registration(request):
     """Render the registration page"""
+    checked_box_value = request.POST.get('want_to_rent')
     if request.user.is_authenticated:
         return redirect(reverse('get_products'))
 
@@ -65,11 +67,21 @@ def registration(request):
 
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
-            if user:
+            print("User's value:", user)
+            print("checked_box_value", checked_box_value)
+            if (checked_box_value == 'on' and user):
+                print("In if statement A")
+                auth.login(user=user, request=request)
+                print("** TESTING STUFF ***")
+                print(request.POST.get('want_to_rent'))
+                return redirect('checkout')
+            elif user:
+                print("In if statement B")
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('get_products'))
             else:
+                print("In if statement C")
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
         else:
@@ -77,8 +89,9 @@ def registration(request):
     else:
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()
-    return render(request, 'registration.html', {
-        "registration_form": registration_form, 'profile_form': profile_form})
+        return render(request, 'registration.html', {
+            "registration_form": registration_form,
+            "profile_form": profile_form})
 
 
 def user_profile(request):

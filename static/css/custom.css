@@ -119,7 +119,7 @@ h3 {
 }
 
 .navbar-color {
-  background-color: #E1CC97;
+  background-color: #F2F2F2;
   color: #663300;
 }
 
@@ -247,7 +247,7 @@ h3 {
 
 /*Sets color for books-button*/
 .book-button {
-  background-color: #E1CC97;
+  background-color: #F2F2F2;
   color: #663300;
   border: 0;
 }
@@ -298,8 +298,8 @@ h3 {
 
 /*Textcolor button to delete book by user of superuser*/
 .delete-book {
-  background-color:red;
-  border-color: red;
+  background-color:#FF2828;
+  border-color: #FF2828;
 }
 
 .wrapper-product-img {
@@ -340,17 +340,22 @@ a {
 
 footer {
   background-color: #663300;
-  color: #E1CC97;
+  color: #F2F2F2;
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 46px;
+  height: 57px;
   width: 100%;
   overflow: hidden;
 }
 
+.padding-fa {
+  padding-top: 5px;  
+  padding-bottom: 5px;
+}
+
 .sociallinks a{
-    color: #E1CC97;
+    color: #F2F2F2;
     padding-left: 25px;
     padding-right: 25px;  
 }
@@ -374,7 +379,7 @@ p {
   width: 68%;
   }
 .product-wrapper {
-  height: 725px;
+  height: 735px;
   }
 .wrapper-product-img {
   height: 205px;
