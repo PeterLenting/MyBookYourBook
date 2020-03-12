@@ -84,8 +84,10 @@ def registration(request):
                 print("In if statement C")
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
+                return redirect(reverse('registration'))
         else:
             print("SOMETHING WENT WRONG")
+            return redirect(reverse('registration'))
     else:
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()

@@ -36,7 +36,7 @@
 
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-    <legend>Order Details</legend>
+    <legend>My Details</legend>
     <p>Total:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
 
     <div id="credit-card-errors" style="display: none;">
@@ -47,9 +47,9 @@
         {{ order_form | as_bootstrap }}
     </div>
 
-    <!--<div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         {{ payment_form | as_bootstrap }}
-    </div>-->
+    </div>
 
     {% csrf_token %}
     <div class="form-group col-md-12">

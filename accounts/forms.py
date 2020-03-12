@@ -57,7 +57,10 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = (
             'location',
-            'want_to_rent')
+            'want_to_rent',
+            'have_paid',
+        )
+        widgets = {'have_paid': forms.HiddenInput()}
 
 
 class EditUserProfileForm(UserProfileForm):
@@ -66,7 +69,10 @@ class EditUserProfileForm(UserProfileForm):
         model = UserProfile
         fields = (
             'location',
-            'want_to_rent')
+            'want_to_rent',
+            'have_paid',
+        )
+        widgets = {'have_paid': forms.HiddenInput()}
 
 
 class EditProfileForm(UserChangeForm):
