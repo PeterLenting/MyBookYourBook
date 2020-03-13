@@ -23,7 +23,7 @@ class Product(models.Model):
     A single product
     title, author, year of print, condition of book, provider, location,
     publisher, number of pages, price, summary, created_date, published_date,
-    views, image, offer
+    views, image
     """
 
     title = models.CharField(max_length=250, null=True)

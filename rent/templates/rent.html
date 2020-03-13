@@ -2,16 +2,6 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
-{% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-    //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}';
-    //]]>
-</script>
-<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
-
 {% block content %}
 
     {% for item in cart_items %}
@@ -35,25 +25,24 @@
     {% endfor %}
 
 
-<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-    <legend>My Details</legend>
-    <p>Total:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
-
-    <div id="credit-card-errors" style="display: none;">
-        <div id="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
-
-    <div class="form-group col-md-12">
-        {{ order_form | as_bootstrap }}
-    </div>
-
-    <div class="form-group col-md-12">
-        {{ payment_form | as_bootstrap }}
-    </div>
-
+<form role="form" method="post" id="rent_request_form" action="{% url 'checkout' %}">
+    <legend class="text-center">My Details</legend>
+    <p>Number of books:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
+    <p>Username: {{ request.user }}</p>
+    <p>Name: {{ order.full_name }}</p>
+    <p>Adress: {{ order.street_address }}</p>
+    <p>Town or city: {{ order.town_or_city }}</p>
+    <input class="hidden" id="username" type="text" name="your_name" value="{{ request.user }}">
+    <input class="hidden" id="full_name" type="text" name="your_name" value="{{ order.full_name }}">
+    <input class="hidden" id="street_address" type="text" name="your_name" value="{{ order.street_address }}">
+    <input class="hidden" id="username" type="text" name="your_name" value="{{ order.town_or_city }}">
+    {% for item in cart_items %}
+    <input class="hidden" id="username" type="text" name="your_name" value="ID = {{ item.product.id }}">
+    {% endfor %}
     {% csrf_token %}
-    <div class="form-group col-md-12">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+    <div class="form-group col-md-12 text-center">
+        <input class=" btn btn-info" id="rent_request_btn" name="commit" type="submit" value="Send in rent-request">
     </div>
 </form>
+
 {% endblock %}

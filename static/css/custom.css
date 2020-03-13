@@ -1,3 +1,10 @@
+#rent_request_form {
+  padding-left: 15px; 
+  padding-right: 15px; 
+  padding-top: 10px;
+  background-color: #fff;
+}
+
 /*To make footer stick to bottom*/
 html {
     position: relative;

@@ -20,6 +20,7 @@ def checkout(request):
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
+            order.have_paid = True
             order.date = timezone.now()
             order.save()
 

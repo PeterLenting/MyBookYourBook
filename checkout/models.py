@@ -10,8 +10,7 @@ class Order(models.Model):
     country = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=20, blank=True)
     town_or_city = models.CharField(max_length=40, blank=False)
-    street_address1 = models.CharField(max_length=40, blank=False)
-    street_address2 = models.CharField(max_length=40, blank=False)
+    street_address = models.CharField(max_length=40, blank=False)
     county = models.CharField(max_length=40, blank=False)
     date = models.DateField()
     have_paid = models.BooleanField("I have paid my deposite",
@@ -28,4 +27,4 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return "{0} {1} @ {2}".format(
-            self.quantity, self.product.name, self.product.price)
+            self.quantity, self.product.id, self.product.price)

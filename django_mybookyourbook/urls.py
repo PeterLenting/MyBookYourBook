@@ -21,6 +21,7 @@ from accounts import urls as urls_accounts
 from search import urls as urls_search
 from cart import urls as urls_cart
 from about import urls as urls_about
+from rent import urls as urls_rent
 from contact import urls as urls_contact
 from checkout import urls as urls_checkout
 
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url='products/')),
     url(r'^products/', include('products.urls')),
     url(r'^about/', include(urls_about)),
+    url(r'^rent/', include(urls_rent)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
     url(r'^accounts/', include(urls_accounts)),
