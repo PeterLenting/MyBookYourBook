@@ -4,11 +4,14 @@ from django.db import models
 
 
 class RentRequest(models.Model):
-    number_of_books = models.CharField(max_length=50,
-                                       blank=False)
+    total_amount = models.CharField(max_length=50,
+                                    blank=True,
+                                    )
     username = models.CharField(max_length=50,
-                                blank=False,
-                                default="{{ request.user }}")
-    name = models.CharField(max_length=50, blank=False)
-    address = models.CharField(max_length=50, blank=False)
-    book_id = models.CharField(max_length=30, blank=False)
+                                blank=True)
+    email = models.CharField(max_length=50,
+                             blank=True,
+                             )
+    books = models.CharField(max_length=30,
+                             blank=True,
+                             )

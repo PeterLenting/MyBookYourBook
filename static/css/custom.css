@@ -5,6 +5,10 @@
   background-color: #fff;
 }
 
+.rent-details {
+  padding-left: 15px;
+}
+
 /*To make footer stick to bottom*/
 html {
     position: relative;

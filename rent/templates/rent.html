@@ -24,14 +24,27 @@
     </div>
     {% endfor %}
 
-
-<form role="form" method="post" id="rent_request_form" action="{% url 'checkout' %}">
-    <legend class="text-center">My Details</legend>
-    <p>Number of books:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> {{ total }}</p>
-    <p>Username: {{ request.user }}</p>
-    <p>Name: {{ order.full_name }}</p>
-    <p>Adress: {{ order.street_address }}</p>
-    <p>Town or city: {{ order.town_or_city }}</p>
+    <div>
+        <div>
+            <h2 class="text-center">My Details</h2>
+            <p class="rent-details">Total amount:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total }}</p>
+            <p class="rent-details">Username: {{ request.user }}</p>
+            <p class="rent-details">Name: {{ order.full_name }}</p>
+            <p class="rent-details">Adress: {{ order.street_address }}</p>
+            <p class="rent-details">Town or city: {{ order.town_or_city }}</p>
+        </div>
+        <div>
+            <h2 class="col-12 text-center">Rent</h2>
+            <form class="col-12" method="post">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <div class="form-actions text-center">
+                <button class="btn btn-info" type="submit">Send</button>
+            </div>
+            </form>
+        </div>
+    </div>
+<!--<form role="form" method="post" id="rent_request_form" action="{% url 'rent' %}">
     <input class="hidden" id="username" type="text" name="your_name" value="{{ request.user }}">
     <input class="hidden" id="full_name" type="text" name="your_name" value="{{ order.full_name }}">
     <input class="hidden" id="street_address" type="text" name="your_name" value="{{ order.street_address }}">
@@ -43,6 +56,5 @@
     <div class="form-group col-md-12 text-center">
         <input class=" btn btn-info" id="rent_request_btn" name="commit" type="submit" value="Send in rent-request">
     </div>
-</form>
-
+</form>-->
 {% endblock %}
