@@ -110,20 +110,25 @@ def edit_profile(request):
     form = EditProfileForm(request.POST)
     formUserProfile = EditUserProfileForm(request.POST)
     if request.method == 'POST':
+        print("TEST A")
         if UserProfile.objects.filter(user=request.user):
+            print("TEST B")
             return redirect('/accounts/profile')
         if form.is_valid() and formUserProfile.is_valid():
             user = formUserProfile.save()
             profile = form.save(commit=False)
             request.user = user
             profile.save()
+            print("TEST C")
             return redirect('/accounts/profile')
     else:
         if UserProfile.objects.filter(user=request.user):
+            print("TEST D")
             form = EditProfileForm(instance=request.user)
             formUserProfile = EditUserProfileForm(
                               instance=request.user.uprofile)
         else:
+            print("TEST E")
             form = EditProfileForm(instance=request.user)
             formUserProfile = EditUserProfileForm()
     args = {'form': form, 'formUserProfile': formUserProfile}

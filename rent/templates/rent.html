@@ -35,7 +35,7 @@
         </div>
         <div>
             <h2 class="col-12 text-center">Rent</h2>
-            <form class="col-12" method="post">
+            <form id="rentform" class="col-12" method="POST">
             {% csrf_token %}
             {{ form | as_bootstrap }}
             <div class="form-actions text-center">
@@ -44,17 +44,4 @@
             </form>
         </div>
     </div>
-<!--<form role="form" method="post" id="rent_request_form" action="{% url 'rent' %}">
-    <input class="hidden" id="username" type="text" name="your_name" value="{{ request.user }}">
-    <input class="hidden" id="full_name" type="text" name="your_name" value="{{ order.full_name }}">
-    <input class="hidden" id="street_address" type="text" name="your_name" value="{{ order.street_address }}">
-    <input class="hidden" id="username" type="text" name="your_name" value="{{ order.town_or_city }}">
-    {% for item in cart_items %}
-    <input class="hidden" id="username" type="text" name="your_name" value="ID = {{ item.product.id }}">
-    {% endfor %}
-    {% csrf_token %}
-    <div class="form-group col-md-12 text-center">
-        <input class=" btn btn-info" id="rent_request_btn" name="commit" type="submit" value="Send in rent-request">
-    </div>
-</form>-->
 {% endblock %}

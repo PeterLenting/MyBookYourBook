@@ -350,8 +350,8 @@ a {
 }
 
 footer {
-  background-color: #663300;
-  color: #F2F2F2;
+  background-color: #FFF;
+  color: #663300;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -366,7 +366,7 @@ footer {
 }
 
 .sociallinks a{
-    color: #F2F2F2;
+    color: #663300;
     padding-left: 25px;
     padding-right: 25px;  
 }

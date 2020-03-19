@@ -16,19 +16,22 @@ def rent_view(request):
         product = get_object_or_404(Product, pk=id)
         total += quantity * product.rentprice_per_week
         product_ids.append(id)
-    data = {'username': request.user,
+        y = ','.join(product_ids)  # converting list into string
+    data = {'username': request.user.username,
             'email': user.email,
             'total_amount': total,
-            'books': product_ids}
+            'books': y}
     form = RentRequestForm(initial=data)
     if request.method == "POST":
         if form.is_valid():
+            #print("Test2")
             form.save()
+            request.session['cart'] = {}
         else:
+            #print("Test3")
             messages.error(request,
                            "We were unable to recieve your order")
     else:
-        form = RentRequestForm()
+        form = RentRequestForm(initial=data)
 
-    return render(request, "rent.html",
-                  {"form": form})
+    return render(request, "rent.html", {"form": form})
