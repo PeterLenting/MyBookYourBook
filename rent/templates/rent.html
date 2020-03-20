@@ -5,7 +5,7 @@
 {% block content %}
 
     {% for item in cart_items %}
-    <div id="cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
+    <div id="rent-cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
         <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
         <div class="text-center wrapper-product-img">
             <a class="product-link" href="{% url 'product_detail' item.product.id %}">
@@ -27,17 +27,19 @@
     <div>
         <div>
             <h2 class="text-center">My Details</h2>
-            <p class="rent-details">Total amount:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total }}</p>
+            <p class="rent-details">Total per week:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total }}</p>
             <p class="rent-details">Username: {{ request.user }}</p>
             <p class="rent-details">Name: {{ order.full_name }}</p>
             <p class="rent-details">Adress: {{ order.street_address }}</p>
             <p class="rent-details">Town or city: {{ order.town_or_city }}</p>
         </div>
         <div>
-            <h2 class="col-12 text-center">Rent</h2>
+            <!--<h2 class="col-12 text-center">Rent</h2>-->
             <form id="rentform" class="col-12" method="POST">
+            <div class="hidden">
             {% csrf_token %}
             {{ form | as_bootstrap }}
+            </div>
             <div class="text-center">
                 <button class="btn btn-info" type="submit">Send</button>
             </div>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<div class="col-12 rent-success-page">
+    <p class="text-center">
+    Great, we recieved your order!<br> 
+    We will contact the owners of the books you want to rent and have them contact you.<br>
+    Have a great day!
+    </p>
+    <div class="text-center home-button">
+        <a href="{% url 'get_products' %}" class="btn btn-info">Home</a>
+    </div>
+</div>
+{% endblock %}

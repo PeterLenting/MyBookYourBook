@@ -9,6 +9,24 @@
   padding-left: 15px;
 }
 
+#rent-cart-product-wrapper {
+  height: 700px;
+  }
+
+.rent-success-page {
+  background-color: #FFF  
+}
+
+.checkout-explanation {
+  background-color: #fff;  
+  padding: 10px;
+}
+
+/*Button on rent-success page*/
+.home-button {
+  margin: 10px;  
+}
+
 /*To make footer stick to bottom*/
 html {
     position: relative;
@@ -436,8 +454,8 @@ body {
 .product-info-wrapper {
   height: 395px;
   }
-#cart-product-wrapper {
-  height: 656px;
+#rent-cart-product-wrapper {
+  height: 475px;
   }
 }
 /*To get dropdownmenu on same hight as other list items in navbar*/
