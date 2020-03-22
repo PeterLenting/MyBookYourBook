@@ -26,6 +26,5 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = (
             'full_name', 'street_address', 'postcode', 'town_or_city',
-            'county', 'country', 'phone_number', 'have_paid',
-        )
+            'county', 'country', 'phone_number')
         widgets = {'have_paid': forms.HiddenInput()}
