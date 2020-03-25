@@ -28,28 +28,20 @@
                         </div>
                     </div>
                     {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
-                    <div class="row rent-sale-background">
-                        <div class="col-md-6 rent-sale-box">
-                            <p><span class="boldtext">For Rent:<br> €</span> {{product.rentprice_per_week}} p/w</p>
-                        </div>
-                        <div class="col-md-6 rent-sale-button">
-                            <form class="text-center margin-bottom" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
-                                {% csrf_token %}
-                                <span class="input-group-btn">
-                                    <button id="add_to_cart_button-{{ forloop.counter }}" class="btn btn-info btn-block" type="submit" >Add to cart</button>
-                                </span>
-                            </form> 
-                        </div> 
-                    </div>       
+                    <form class="margin-bottom" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
+                    {% csrf_token %}
+                        <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
+                            <p><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> For Rent: </span> €{{product.rentprice_per_week}} p/w</p> 
+                        </button> 
+                    </form>    
                     {% endif %}
                     {% if product.is_for_sale == True and user != product.provider%}
                     <div class="row rent-sale-background">
-                        <div class="col-md-6 rent-sale-box">
-                            <p><span class="boldtext">For Sale:<br>€</span> {{product.saleprice}}</p>
-                        </div>
-                        <div class="col-md-6 rent-sale-button text-center margin-bottom">
-                            <a href="{% url 'user_contact_form' %}" class="btn btn-info btn-block">Contact Seller</a>
-                        </div>
+                        <a href="{% url 'user_contact_form' %}" class="btn btn-info btn-block" id="contact-user-button">
+                            <div class="col-md-12 rent-sale-button margin-bottom">
+                                <p><i class="fas fa-envelope-square"></i><span class="boldtext"> For Sale: </span> €{{product.saleprice}}</p>
+                            </div>
+                        </a>
                     </div>
                     {% endif %}
                     <p><span class="boldtext">Summary: </span>{{product.summary|truncatewords:10}}<a href="{% url 'product_detail' product.id %}" id="summary-more"> More</a></p>

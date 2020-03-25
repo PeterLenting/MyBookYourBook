@@ -31,6 +31,8 @@ def checkout(request):
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id'],
                 )
+                order.have_paid = True
+                print(order.have_paid)
                 print("E")
                 order.save()
                 messages.error(request,
