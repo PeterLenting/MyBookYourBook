@@ -4,6 +4,7 @@ from .models import Product
 from .forms import ProductForm
 from django.http import HttpResponseForbidden
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 def get_my_products(request):

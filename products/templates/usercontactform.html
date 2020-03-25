@@ -1,16 +1,4 @@
 {% extends 'base.html' %}
-{% block content %}
-<form id="contact-form">
-        <label>Name</label>
-        <input type="text" name="user_name">
-        <label>Email</label>
-        <input type="email" name="user_email">
-        <label>Message</label>
-        <textarea name="message"></textarea>
-        <input type="submit" value="Send">
-    </form>
-{% endblock %}
-
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
@@ -25,3 +13,14 @@
             });
         }
     </script>
+{% block content %}
+<form id="contact-form">
+        <label>Name</label>
+        <input type="text" name="user_name">
+        <label>Email</label>
+        <input type="email" name="user_email">
+        <label>Message</label>
+        <textarea name="message"></textarea>
+        <input type="submit" value="Send">
+    </form>
+{% endblock %}
