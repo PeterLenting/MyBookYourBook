@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     
-        <div class="col-sm-10 col-md-12 text-center product-detail-wrapper">
-            <h3>{{ product.title }}</h3>
+        <div class="col-sm-10 offset-md-2 col-md-8 product-detail-wrapper">
+            <h3 class="text-center">{{ product.title }}</h3>
             {% if product.image %}
-            <img class="img-product" src="/media/{{ product.image }}">
+            <div class="text-center">
+                <img class="img-product" src="/media/{{ product.image }}">
+            </div>
             {% endif %}
             <p>{{ product.content }}</p>
             <p><span class="boldtext">Published on:</span> {{ product.published_date }}</p>
@@ -16,43 +18,28 @@
             <p><span class="boldtext">Pages:</span> {{product.number_of_pages}}</p>
             <p><span class="boldtext">Location:</span> {{product.location}}</p>
             {% if product.is_for_rent == True and product.id in cart_ids%}   
-                <div class="row rent-sale-background">
-                    <div class="col-md-6 rent-sale-box">
-                        <p><span class="boldtext">For Rent: €</span> {{product.rentprice_per_week}} p/w</p>
+            <form class="margin-bottom col-md-4 rent-sale-background" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
+                <button class="row rent-sale-background btn btn-info btn-block margin-bottom" id="remove-from-cart-button"><i class="fas fa-shopping-cart" id="remove-from-cart-cart"></i> Remove from cart</button>
+            </form>
+            {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
+            <form class="margin-bottom col-md-4 rent-sale-background" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
+            {% csrf_token %}
+                <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
+                    <p><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> For Rent: </span> €{{product.rentprice_per_week}} p/w</p> 
+                </button> 
+            </form>        
+            {% endif %}
+            {% if product.is_for_sale == True and user != product.provider%}
+            <div class="row rent-sale-background col-md-4">
+                <a href="{% url 'user_contact_form' %}" class="btn btn-info btn-block" id="contact-user-button">
+                    <div class="col-md-12 rent-sale-button margin-bottom">
+                        <p><i class="fas fa-envelope-square"></i><span class="boldtext"> For Sale: </span> €{{product.saleprice}}</p>
                     </div>
-                    <div class="col-md-6 rent-sale-button">
-                        <form class="margin-bottom" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
-                            {% csrf_token %}
-                            <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
-                            <button class="btn btn-info">Remove from cart</button>
-                        </form> 
-                    </div>
-                </div>
-                {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
-                <div class="row rent-sale-background">
-                    <div class="col-md-6 rent-sale-box">
-                        <p><span class="boldtext">For Rent:<br> €</span> {{product.rentprice_per_week}} p/w</p>
-                    </div>
-                    <div class="col-md-6 rent-sale-button">
-                        <form class="text-center margin-bottom" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
-                            {% csrf_token %}
-                            <span class="input-group-btn">
-                                <button id="add_to_cart_button-{{ forloop.counter }}" class="btn btn-info" type="submit" >Add to cart</button>
-                            </span>
-                        </form> 
-                    </div> 
-                </div>       
-                {% endif %}
-                {% if product.is_for_sale == True and user != product.provider%}
-                <div class="row rent-sale-background">
-                    <div class="col-md-6 rent-sale-box">
-                        <p><span class="boldtext">For Sale:<br>€</span> {{product.saleprice}}</p>
-                    </div>
-                    <div class="col-md-6 rent-sale-button text-center margin-bottom">
-                        <a href="{% url 'user_contact_form' %}" class="btn btn-info">Contact Seller</a>
-                    </div>
-                </div>
-                {% endif %}
+                </a>
+            </div>
+            {% endif %}
             <p><span class="boldtext">Summary:</span> {{ product.summary | linebreaks}}</p>
             {% if user == product.provider or user.is_superuser %}
             <a href="{% url 'edit_product' product.id %}" class="btn btn-info">Edit product</a>
@@ -61,6 +48,8 @@
                 <button class="btn btn-info" type='submit' onclick="return confirm('Are you sure you want to delete this book?')">Remove product</button>
             </form>
             {% endif %}
-            <a href="{% url 'get_products' %}" class="btn btn-info">Home</a>
+            <div class="text-center">
+                <a href="{% url 'get_products' %}" class="btn btn-info">Home</a>
+            </div>
         </div>
 {% endblock %}
