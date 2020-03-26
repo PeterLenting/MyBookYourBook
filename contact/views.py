@@ -17,6 +17,7 @@ def emailView(request):
             data = {'from_email': user.email}
             form = ContactForm(initial=data)
         else:
+            print(user.email)
             form = ContactForm(request.POST)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
