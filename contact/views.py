@@ -22,11 +22,12 @@ def emailView(request):
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
                 message = form.cleaned_data['message']
+                to_email = ['pplenting@gmail.com']
                 try:
                     send_mail(subject + " - " + from_email,
                               message,
                               from_email,
-                              ['frommybookyourbook@gmail.com'])
+                              to_email)
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
                 messages.success(request,
