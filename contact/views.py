@@ -12,23 +12,21 @@ def emailView(request):
     if not request.user.is_authenticated:
         return redirect('login')
     else:
-        user = User.objects.get(username=request.user.username)
         if request.method == 'GET':
+            user = User.objects.get(username=request.user.username)
             data = {'from_email': user.email}
             form = ContactForm(initial=data)
         else:
-            print(user.email)
             form = ContactForm(request.POST)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
                 message = form.cleaned_data['message']
-                to_email = [user.email]
                 try:
                     send_mail(subject + " - " + from_email,
                               message,
                               from_email,
-                              to_email)
+                              ['frommybookyourbook@gmail.com'])
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
                 messages.success(request,

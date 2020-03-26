@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from .views import (get_products, product_detail, delete_product, new_product,
                     edit_product, get_rent_products, get_sale_products,
-                    user_contact_form, get_my_products)
+                    user_contact_form_view, get_my_products)
 from cart.views import remove_item
 
 urlpatterns = [
@@ -14,5 +14,5 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/edit/$', edit_product, name='edit_product'),
     url(r'^(?P<pk>\d+)/delete/$', delete_product, name='delete_product'),
     url(r'^remove/', remove_item, name='remove'),
-    url(r'^usercontactform/', user_contact_form, name='user_contact_form')
+    url(r'^usercontactform/', user_contact_form_view, name='user_contact_form')
 ]

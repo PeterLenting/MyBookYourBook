@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, UserContact
 
 
 class ProductForm(forms.ModelForm):
@@ -10,3 +10,10 @@ class ProductForm(forms.ModelForm):
                   'publisher', 'number_of_pages', 'location',
                   'is_for_sale', 'saleprice', 'is_for_rent',
                   'rentprice_per_week', 'image', 'summary')
+
+
+class UserContactForm(forms.ModelForm):
+
+    class Meta:
+        model = UserContact
+        fields = ('from_email', 'subject', 'message')

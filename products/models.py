@@ -63,3 +63,10 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.title
+
+
+class UserContact(models.Model):
+
+    from_email = models.EmailField(null=True)
+    subject = models.CharField(max_length=50, null=True)
+    message = models.TextField(max_length=500, null=True)

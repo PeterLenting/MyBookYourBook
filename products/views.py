@@ -1,10 +1,40 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils import timezone
 from .models import Product
+from .forms import UserContactForm
 from .forms import ProductForm
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
+
+
+def user_contact_form_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    else:
+        if request.method == 'GET':
+            user = User.objects.get(username=request.user.username)
+            data = {'from_email': user.email}
+            form = UserContactForm(initial=data)
+        else:
+            form = UserContactForm(request.POST)
+            if form.is_valid():
+                subject = form.cleaned_data['subject']
+                from_email = form.cleaned_data['from_email']
+                message = form.cleaned_data['message']
+                to_email = [user.email]
+                try:
+                    send_mail(subject,
+                              message,
+                              from_email,
+                              to_email)
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+                messages.success(request,
+                                 "Your message has been send, you can continue shopping")
+                return redirect(reverse('get_products'))
+        return render(request, "usercontactform.html", {'form': form})
 
 
 def get_my_products(request):
@@ -41,13 +71,6 @@ def get_rent_products(request):
     for p in products:
         print(p)
     return render(request, "products.html", {'products': products})
-
-
-def user_contact_form(request):
-    if not request.user.is_authenticated:
-        return redirect('login')
-    else:
-        return render(request, "usercontactform.html")
 
 
 def get_sale_products(request):
