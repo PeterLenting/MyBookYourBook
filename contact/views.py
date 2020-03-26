@@ -22,7 +22,7 @@ def emailView(request):
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
                 message = form.cleaned_data['message']
-                to_email = ['user.email']
+                to_email = user.email
                 try:
                     send_mail(subject + " - " + from_email,
                               message,
