@@ -12,8 +12,8 @@ def emailView(request):
     if not request.user.is_authenticated:
         return redirect('login')
     else:
+        user = User.objects.get(username=request.user.username)
         if request.method == 'GET':
-            user = User.objects.get(username=request.user.username)
             data = {'from_email': user.email}
             form = ContactForm(initial=data)
         else:
