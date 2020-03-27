@@ -139,6 +139,16 @@ p {
   padding-left: 0;
 }
 
+#sale-button {
+  margin-top: 8px;
+  margin-bottom: 8px;  
+}
+
+.margin-form {
+  margin-top: 8px;
+  margin-bottom: 8px;   
+}
+
 /*Sets the padding of the buttons in the for_rent and for_sale part in productlist*/
 .rent-sale-button {
   padding-left: 1px; 
@@ -164,6 +174,11 @@ p {
 /*Sets margin on all buttons on products.html*/
 .margin-bottom {
   margin-bottom: 4px;  
+}
+
+.edit-delete-button {
+  margin-bottom: 4px;
+  margin-top: 10px;  
 }
 
 /* Shows the welcoming message in the navbar bold */
@@ -414,7 +429,7 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 53px;
+  height: 57px;
   width: 100%;
   overflow: hidden;
 }

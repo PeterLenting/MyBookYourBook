@@ -9,11 +9,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 
 
-def user_contact_form_view(request):
+def user_contact_form_view(request, pk):
     if not request.user.is_authenticated:
         return redirect('login')
     else:
         if request.method == 'GET':
+            product = get_object_or_404(Product, pk=pk)
             user = User.objects.get(username=request.user.username)
             data = {'from_email': user.email}
             form = UserContactForm(initial=data)
@@ -23,7 +24,7 @@ def user_contact_form_view(request):
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
                 message = form.cleaned_data['message']
-                to_email = [user.email]
+                to_email = [product.provider.email]
                 try:
                     send_mail(subject,
                               message,
@@ -34,7 +35,8 @@ def user_contact_form_view(request):
                 messages.success(request,
                                  "Your message has been send, you can continue shopping")
                 return redirect(reverse('get_products'))
-        return render(request, "usercontactform.html", {'form': form})
+        return render(request, "usercontactpage.html",
+                      {'form': form, 'product': product})
 
 
 def get_my_products(request):

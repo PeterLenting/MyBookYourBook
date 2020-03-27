@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap_tags %}
+{% block content %}
+
+
+    <div class="col-6 product-detail-wrapper">
+        <h3 class="text-center">{{ product.title }}</h3>
+        {% if product.image %}
+        <div class="text-center">
+            <img class="img-product" src="/media/{{ product.image }}">
+        </div>
+        {% endif %}
+        <p>{{ product.content }}</p>
+        <p><span class="boldtext">Published on:</span> {{ product.published_date }}</p>
+        <p><span class="boldtext">Author:</span> {{product.author}}</p>
+        <p><span class="boldtext">Edition:</span> {{product.year_of_edition}}</p>
+        <p><span class="boldtext">Condition:</span> {{product.condition_of_book}}</p>
+        <p><span class="boldtext">Publisher:</span> {{product.publisher}}</p>
+        <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' product.provider.id %}">{{product.provider}}</a></p>
+        <p><span class="boldtext">Pages:</span> {{product.number_of_pages}}</p>
+        <p><span class="boldtext">Location:</span> {{product.location}}</p>
+    </div>
+    <div class="col-6">
+        <h1 class="col-12 text-center">Contact {{ product.provider }}</h1>
+        <form class="col-md-12 offset-lg-2 col-lg-8" method="post">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <div class="form-actions text-center">
+            <input type="hidden" id="email_to" name="email_to" value="{{ to_email }}">
+            <button class="btn btn-info" type="submit">Send</button>
+            </div>
+        </form>
+    </div>    
+
+{% endblock %}
