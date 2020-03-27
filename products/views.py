@@ -14,12 +14,12 @@ def user_contact_form_view(request, pk):
         return redirect('login')
     else:
         if request.method == 'GET':
-            product = get_object_or_404(Product, pk=pk)
             user = User.objects.get(username=request.user.username)
             data = {'from_email': user.email}
             form = UserContactForm(initial=data)
         else:
             form = UserContactForm(request.POST)
+            product = get_object_or_404(Product, pk=pk)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
