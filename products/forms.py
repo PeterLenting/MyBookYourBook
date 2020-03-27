@@ -16,4 +16,4 @@ class UserContactForm(forms.ModelForm):
 
     class Meta:
         model = UserContact
-        fields = ('from_email', 'subject', 'message')
+        fields = ('subject', 'message')

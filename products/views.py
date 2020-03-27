@@ -11,18 +11,22 @@ from django.contrib.auth.models import User
 
 def user_contact_form_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
+    user = User.objects.get(username=request.user.username)
     if not request.user.is_authenticated:
         return redirect('login')
     else:
         if request.method == 'GET':
-            user = User.objects.get(username=request.user.username)
-            data = {'from_email': user.email}
+            data = {'subject': "I would like to buy " + product.title,
+                    'message': "Dear " + product.provider.first_name +
+                    ", \n\nI would like to buy your copy of " + product.title +
+                    ". \nYou can contact me at " + user.email +
+                    ".\n\nKind regards, " + user.first_name}
             form = UserContactForm(initial=data)
         else:
             form = UserContactForm(request.POST)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
-                from_email = form.cleaned_data['from_email']
+                from_email = [user.email]
                 message = form.cleaned_data['message']
                 to_email = [product.provider.email]
                 try:
