@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 
 def user_contact_form_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
     if not request.user.is_authenticated:
         return redirect('login')
     else:
@@ -19,7 +20,6 @@ def user_contact_form_view(request, pk):
             form = UserContactForm(initial=data)
         else:
             form = UserContactForm(request.POST)
-            product = get_object_or_404(Product, pk=pk)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
                 from_email = form.cleaned_data['from_email']
