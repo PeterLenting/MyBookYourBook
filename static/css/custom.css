@@ -32,6 +32,10 @@
   color: #17a2b8;
 }
 
+.fa-shopping-cart {
+  color: #17a2b8;  
+}
+
 #contact-user-button {
   color: black;
   background-color: #F2F2F2;
@@ -69,7 +73,7 @@ body {
   padding-top: 280px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 55px;
+  margin-bottom: 105px;
 }
 
 .container-fluid {
@@ -100,6 +104,14 @@ li {
   font-size: 3rem;  
 }
 
+.navbar {
+  font-weight: bold;  
+}
+
+.dropdown {
+  font-weight: bold;  
+}
+
 .dropdown-toggle {
   font-size: 2rem;   
 }
@@ -112,7 +124,7 @@ p {
 .product-wrapper {
   background-color: #fff;  
   border: 2px #F2F2F2 solid;
-  height: 900px;
+  height: 900px! important;
 }
 
 /*Products.html -> to make both buttons line out better*/
@@ -202,16 +214,24 @@ h3 {
 
 .navbar-color {
   background-color: #F2F2F2;
-  color: #663300;
+  color: #17a2b8;
 }
 
 .nav-link {
   color: #663300;
 }
 
+.nav-item {
+  color: #17a2b8;
+}
+
+.nav-link {
+  color: #17a2b8;  
+}
+
 .navbar-toggler {
-  background-color: #663300;
-  border: #E1CC97;  
+  background-color: #17a2b8;
+  border: #17a2b8;  
 }
 
 /*Sets dropdown-item in the Navbar (books) on mobile-devices*/
@@ -429,9 +449,14 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 57px;
+  height: 105px;
   width: 100%;
   overflow: hidden;
+}
+
+#footer-text p {
+  font-size: 2rem;  
+  margin-bottom: 0;
 }
 
 .padding-fa {
@@ -464,7 +489,7 @@ p {
   width: 63%;
   }
 .product-wrapper {
-  height: 625px;
+  height: 625px!important;
   }
 .wrapper-product-img {
   height: 205px;
@@ -516,7 +541,9 @@ body {
 }
 /*To get dropdownmenu on same hight as other list items in navbar*/
 #dropdownMenuButton {
-  padding: 8px;  
+  padding: 8px; 
+  font-weight: bold; 
+  color: #17a2b8;
   }
 }
 
