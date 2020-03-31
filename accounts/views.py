@@ -7,7 +7,7 @@ from accounts.forms import (
                             UserLoginForm,
                             UserRegistrationForm,
                             UserProfileForm,
-                            EditProfileForm,
+                            EditUserForm,
                             EditUserProfileForm,
                             )
 from accounts.models import UserProfile
@@ -59,12 +59,9 @@ def registration(request):
         profile_form = UserProfileForm(request.POST)
         if registration_form.is_valid() and profile_form.is_valid():
             user = registration_form.save()
-
             profile = profile_form.save(commit=False)
             profile.user = user
-
             profile.save()
-
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
             print("User's value:", user)
@@ -91,7 +88,7 @@ def registration(request):
     else:
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()
-        return render(request, 'registration.html', {
+    return render(request, 'registration.html', {
             "registration_form": registration_form,
             "profile_form": profile_form})
 
@@ -105,33 +102,56 @@ def user_profile(request):
                   'profile.html', {"user": user, 'user_posts': user_posts})
 
 
-@login_required()
-def edit_profile(request):
-    form = EditProfileForm(request.POST)
-    formUserProfile = EditUserProfileForm(request.POST)
+@login_required
+def update_profile(request):
+    user = User.objects.get(email=request.user.email)
+    # form = EditUserForm(request.POST)
+    # formUserProfile = EditUserProfileForm(request.POST)
     if request.method == 'POST':
-        print("TEST A")
-        if UserProfile.objects.filter(user=request.user):
-            print("TEST B")
-            return redirect('/accounts/profile')
-        if form.is_valid() and formUserProfile.is_valid():
-            user = formUserProfile.save()
-            profile = form.save(commit=False)
-            request.user = user
-            profile.save()
-            print("TEST C")
-            return redirect('/accounts/profile')
+        edit_user_form = EditUserForm(
+            request.POST,
+            instance=request.user
+        )
+        user_profile_form = UserProfileForm(
+            request.POST,
+            instance=request.user.uprofile
+        )
+        if edit_user_form.is_valid() and user_profile_form.is_valid():
+            edit_user_form.save()
+            user_profile_form.save()
+            messages.success(request, f"profile updated successfully")
+            return redirect(reverse("update_profile"))
     else:
-        if UserProfile.objects.filter(user=request.user):
-            print("TEST D")
-            form = EditProfileForm(instance=request.user)
-            formUserProfile = EditUserProfileForm(
-                              instance=request.user.uprofile)
-        else:
-            print("TEST E")
-            form = EditProfileForm(instance=request.user)
-            formUserProfile = EditUserProfileForm()
-    args = {'form': form, 'formUserProfile': formUserProfile}
+        edit_user_form = EditUserForm(
+            instance=request.user
+        )
+        user_profile_form = UserProfileForm(
+            instance=request.user.uprofile
+        )
+    #     print("TEST A")
+    #     if UserProfile.objects.filter(user=request.user):
+    #         print("TEST B")
+    #         print(form.is_valid())
+    #         print(formUserProfile.is_valid())
+    #         # return redirect('/accounts/profile')
+    #     if form.is_valid() and formUserProfile.is_valid():
+    #         user = formUserProfile.save()
+    #         profile = form.save(commit=False)
+    #         request.user = user
+    #         profile.save()
+    #         print("TEST C")
+    #         return redirect('/accounts/profile')
+    # else:
+    #     if UserProfile.objects.filter(user=request.user):
+    #         print("TEST D")
+    #         form = EditUserForm(instance=request.user)
+    #         formUserProfile = EditUserProfileForm(
+    #                           instance=request.user.uprofile)
+    #     else:
+    #         print("TEST E")
+    #         form = EditUserForm(instance=request.user)
+    #         formUserProfile = EditUserProfileForm()
+    args = {'form': edit_user_form, 'formUserProfile': user_profile_form, 'user': user}
     return render(request, 'update_profile.html', args)
 
 

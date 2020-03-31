@@ -43,10 +43,10 @@ class UserRegistrationForm(UserCreationForm):
         password2 = self.cleaned_data.get('password2')
 
         if not password1 or not password2:
-            raise ValidationError("Please confirm your password")
+            raise forms.ValidationError("Please confirm your password")
 
         if password1 != password2:
-            raise ValidationError("Passwords must match")
+            raise forms.ValidationError("Passwords must match")
 
         return password2
 
@@ -63,7 +63,7 @@ class UserProfileForm(forms.ModelForm):
         widgets = {'have_paid': forms.HiddenInput()}
 
 
-class EditUserProfileForm(UserProfileForm):
+class EditUserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
@@ -75,8 +75,7 @@ class EditUserProfileForm(UserProfileForm):
         widgets = {'have_paid': forms.HiddenInput()}
 
 
-class EditProfileForm(UserChangeForm):
-    password = None
+class EditUserForm(forms.ModelForm):
 
     class Meta:
         model = User
