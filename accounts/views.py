@@ -8,14 +8,7 @@ from accounts.forms import (
                             UserRegistrationForm,
                             UserProfileForm,
                             EditUserForm,
-                            EditUserProfileForm,
                             )
-from accounts.models import UserProfile
-
-
-def index(request):
-    """Return the index.html file"""
-    return render(request,  'index.html')
 
 
 @login_required
@@ -64,26 +57,18 @@ def registration(request):
             profile.save()
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
-            print("User's value:", user)
-            print("checked_box_value", checked_box_value)
             if (checked_box_value == 'on' and user):
-                print("In if statement A")
                 auth.login(user=user, request=request)
-                print("** TESTING STUFF ***")
-                print(request.POST.get('want_to_rent'))
                 return redirect('checkout')
             elif user:
-                print("In if statement B")
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('get_products'))
             else:
-                print("In if statement C")
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
                 return redirect(reverse('registration'))
         else:
-            print("SOMETHING WENT WRONG")
             return redirect(reverse('registration'))
     else:
         registration_form = UserRegistrationForm()

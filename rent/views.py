@@ -31,7 +31,7 @@ def rent_view(request):
         if form.is_valid():
             form.save()
             request.session['cart'] = {}
-            return redirect('rent_succes')
+            return redirect('rent_success')
         else:
             print(form.errors)
             messages.error(request,

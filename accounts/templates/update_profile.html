@@ -11,8 +11,9 @@
     <form class="col-md-12 offset-lg-2 col-lg-8" method="POST">
         {% csrf_token %}
         {{ form | as_bootstrap }}
-        {{ formUserProfile | as_bootstrap }}       
-        <button type="submit">Submit</button>
+        {{ formUserProfile | as_bootstrap }}
+        <p class="rent-message">* To quite or start renting, send us an email trough our <a href="{% url 'contact' %}" target="_blank">contact-form</a></p>       
+        <button type="submit" href="{% url 'checkout' %}">Submit</button>
     </form>
     <br>
 </div>

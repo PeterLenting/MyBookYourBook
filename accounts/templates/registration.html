@@ -8,6 +8,7 @@
     {% csrf_token %} 
     {{ registration_form | as_bootstrap }}
     {{ profile_form | as_bootstrap }}
+    <p class="rent-message">* A 30 euro depostie is required to be able to rent books. <a href="{% url 'about' %}" target="_blank">Read more</a></p> 
     <div class="text-center">
         <button type="submit" class="btn btn-info">Register</button>
     </div>
