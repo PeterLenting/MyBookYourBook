@@ -164,7 +164,7 @@ def new_product(request, pk=None):
                 product = form.save(commit=False)
                 product.provider = request.user
                 product.save()
-                return redirect('get_products')
+                return redirect('get_my_products')
         else:
             form = ProductForm()
     return render(request, 'productform.html', {'form': form})
