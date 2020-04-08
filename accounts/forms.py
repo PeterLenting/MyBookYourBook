@@ -62,16 +62,16 @@ class UserProfileForm(forms.ModelForm):
         widgets = {'have_paid': forms.HiddenInput()}
 
 
-class EditUserProfileForm(forms.ModelForm):
+# class EditUserProfileForm(forms.ModelForm):
 
-    class Meta:
-        model = UserProfile
-        fields = (
-            'location',
-            'want_to_rent',
-            'have_paid',
-        )
-        widgets = {'have_paid': forms.HiddenInput()}
+#     class Meta:
+#         model = UserProfile
+#         fields = (
+#             'location',
+#             'want_to_rent',
+#             'have_paid',
+#         )
+#         widgets = {'have_paid': forms.HiddenInput()}
 
 
 class EditUserForm(forms.ModelForm):
