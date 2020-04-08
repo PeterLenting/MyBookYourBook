@@ -73,7 +73,7 @@ body {
   padding-top: 280px;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 75px;
+  margin-bottom: 80px;
 }
 
 .container-fluid {
@@ -237,48 +237,51 @@ h3 {
 /*Sets dropdown-item in the Navbar (books) on mobile-devices*/
 
 .show>.btn-secondary.dropdown-toggle {
-  background-color: #663300 !important;
-  border-color: #663300;
-  color: #E1CC97;  
-}
-
-.show>.btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(102,51,0,.5);  
+  background-color: #fff !important;
+  border-color: #fff; 
 }
 
 .show>.btn-secondary.dropdown-toggle:active {
-  background-color: #663300 !important;
-  border-color: #663300;
-  color: #E1CC97;  
+  background-color: #fff;
+  border-color: #FFF !important;  
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active {
-  background-color: #663300 !important;
-  border-color: #663300;
-  color: #E1CC97;  
+  border-color: #fff !important;  
 }
 
 #dropdownMenuBottom:active {
-  background-color: #663300;
-  color: #E1CC97;
+  background-color: #fff;
 }
 
 .dropdown button:hover {
-  background-color: #663300;
-  color: #E1CC97;
+  /* background-color: #663300; */
+  color: #0056b3!important; 
 }
 
 .dropdown button:active {
-  background-color: #663300;
+  background-color: #fff;
   color: #E1CC97;
 }
 
 .dropdown-menu a {
-  background-color: #E1CC97;  
+  background-color: #fff;  
 }
 
 .dropdown .dropdown-menu {
-  background-color: #E1CC97;  
+  background-color: #fff;  
+}
+
+.btn-secondary:hover {
+  background-color: #fff;
+}
+
+.show>.btn-secondary.dropdown-toggle {
+  background-color: #fff;  
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: #fff;    
 }
 
 /* Sets the color of the toggler-icon */
@@ -350,7 +353,6 @@ h3 {
 /*Sets color for books-button*/
 .book-button {
   background-color: #F2F2F2;
-  color: #663300;
   border: 0;
 }
 
