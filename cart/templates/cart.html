@@ -29,11 +29,18 @@
         
     </div>
     {% endfor %}
+    
+    {% if item in cart_items %}
         <div class="row">
             <div class="col-12">
                 <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
                 <a href="{% url 'rent' %}" class="btn btn-info" role="button">Let's rent</a>
             </div>
         </div>
+    {% else %}
+        <div>
+            <p>There are no items in your cart yet...</p>
+        </div>    
+    {% endif %}
     
 {% endblock %}
