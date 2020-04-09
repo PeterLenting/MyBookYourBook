@@ -8,6 +8,7 @@ from accounts.forms import (
                             UserRegistrationForm,
                             UserProfileForm,
                             EditUserForm,
+                            EditUserProfileForm,
                             )
 
 
@@ -97,7 +98,7 @@ def update_profile(request):
             request.POST,
             instance=request.user
         )
-        user_profile_form = UserProfileForm(
+        user_profile_form = EditUserProfileForm(
             request.POST,
             instance=request.user.uprofile
         )
@@ -110,7 +111,7 @@ def update_profile(request):
         edit_user_form = EditUserForm(
             instance=request.user
         )
-        user_profile_form = UserProfileForm(
+        user_profile_form = EditUserProfileForm(
             instance=request.user.uprofile
         )
     #     print("TEST A")
