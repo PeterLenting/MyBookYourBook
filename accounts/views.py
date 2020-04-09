@@ -16,7 +16,6 @@ from accounts.forms import (
 def logout(request):
     """Log the user out"""
     auth.logout(request)
-    messages.success(request, "You have successfully been logged out")
     return redirect(reverse('get_products'))
 
 
@@ -51,27 +50,38 @@ def registration(request):
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
         profile_form = UserProfileForm(request.POST)
+        print(registration_form.errors)
         if registration_form.is_valid() and profile_form.is_valid():
+            print(registration_form.errors)
+            print(profile_form.errors)
+            print("TEST A")
             user = registration_form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
+            print("TEST B")
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
             if (checked_box_value == 'on' and user):
                 auth.login(user=user, request=request)
+                print("TEST C")
                 return redirect('checkout')
             elif user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
+                print("TEST D")
                 return redirect(reverse('get_products'))
             else:
                 messages.error(request,
                                "Sorry, we are unable to register your account at this time")
                 return redirect(reverse('registration'))
         else:
+            print("TEST E")
+            print(registration_form.errors)
+            print(profile_form.errors)
             return redirect(reverse('registration'))
     else:
+        print("TEST A1")
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()
     return render(request, 'registration.html', {

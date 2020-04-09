@@ -17,7 +17,7 @@
                 <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
                 <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
                 <p><span class="boldtext">Location:</span> {{item.product.location}}</p>
-                <p><span class="boldtext">Summary:</span>{{ item.product.summary|truncatewords:20 }}</p>
+                <p><span class="boldtext">Summary:</span> {{ item.product.summary|truncatewords:20 }}</p>
                 <p><b>Price per week:</b> €{{ item.product.rentprice_per_week }}</p>
             </div>
         </div>
@@ -30,17 +30,17 @@
     </div>
     {% endfor %}
     
-    {% if item in cart_items %}
+
         <div class="row">
             <div class="col-12">
                 <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
                 <a href="{% url 'rent' %}" class="btn btn-info" role="button">Let's rent</a>
             </div>
         </div>
-    {% else %}
-        <div>
+
+        <!--<div>
             <p>There are no items in your cart yet...</p>
-        </div>    
-    {% endif %}
+        </div>  -->  
+
     
 {% endblock %}

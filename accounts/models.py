@@ -9,7 +9,8 @@ class UserProfile(models.Model):
     want_to_rent = models.BooleanField("I want to be able to rent books*",
                                        default=False)
     have_paid = models.BooleanField("I have paid my deposite",
-                                    default=False)
+                                    default=False,
+                                    blank=True)
 
     def __str__(self):
         return self.user.username
