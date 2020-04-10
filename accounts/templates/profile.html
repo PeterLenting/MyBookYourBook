@@ -33,5 +33,10 @@
     </div>
 {% endfor %}
 
+{% if user_posts %}
+{% else %}
+<div>You're not offering any books yet. Why not start now?</div>
+{% endif %}
+
 {% endblock %}
 

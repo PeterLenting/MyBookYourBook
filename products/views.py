@@ -10,11 +10,11 @@ from django.contrib.auth.models import User
 
 
 def user_contact_form_view(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    user = User.objects.get(username=request.user.username)
     if not request.user.is_authenticated:
         return redirect('login')
     else:
+        product = get_object_or_404(Product, pk=pk)
+        user = User.objects.get(username=request.user.username)
         if request.method == 'GET':
             data = {'subject': "I would like to buy " + product.title,
                     'message': "Dear " + product.provider.first_name +

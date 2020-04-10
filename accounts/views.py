@@ -153,8 +153,11 @@ def update_profile(request):
 
 def provider_profile(request, pk=None):
     """The profile of the provider of the book"""
-    provider = get_object_or_404(User, pk=pk)
-    user_posts = Product.objects.filter(provider_id=provider.id).order_by(
-                 '-published_date')
-    return render(request, 'profile.html', {"user": provider,
-                  'user_posts': user_posts})
+    if not request.user.is_authenticated:
+        return redirect('login')
+    else:
+        provider = get_object_or_404(User, pk=pk)
+        user_posts = Product.objects.filter(provider_id=provider.id).order_by(
+                        '-published_date')
+        return render(request, 'profile.html', {"user": provider,
+                        'user_posts': user_posts})

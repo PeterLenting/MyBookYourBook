@@ -297,21 +297,29 @@ h3 {
 }
 
 .header-text-wrap {
-  padding-left: 0;    
+  padding-left: 0;  
+  background-color: #FFF;  
 }
 
 .header-text {
   font-size: 3.3rem;  
   margin-bottom: 2px;  
+  color: black;
+  font-weight: bold;
 }
 
 .header-logo-wrap {
   padding-right: 0;
-  padding-left: 0
+  padding-left: 5;
+  background-color: #FFF;
 }
 
 .header-logo {
   width: 100%;
+}
+
+.col-2 {
+  max-width: 100%;    
 }
 
 /*Search Bar*/
@@ -326,10 +334,11 @@ h3 {
 }
 
 .search-button {
-  background-color: #E1CC97;
-  color: #663300;
+  background-color: #17a2b8;
+  color: black;
   border: 0;   
   font-size: 2rem;
+  font-weight: bold;
   width: 99%;   
   box-shadow: 2px 3px #2b1d0e;  
 }
@@ -346,8 +355,7 @@ h3 {
 }
 
 .second-header {
-  background-color: #663300;
-  color: #E1CC97;     
+  background-color: #FFF;     
 }
 
 /*Sets color for books-button*/
@@ -496,11 +504,8 @@ h3 {
 p {
   font-size: 1.2rem;   
   }
-.header-logo {
-  width: 63%;
-  }
 .product-wrapper {
-  height: 625px!important;
+  height: 640px!important;
   }
 .wrapper-product-img {
   height: 205px;
@@ -549,7 +554,7 @@ body {
 #rent-cart-product-wrapper {
   height: 475px;
   }
-}
+
 /*To get dropdownmenu on same hight as other list items in navbar*/
 #dropdownMenuButton {
   padding: 8px; 
@@ -560,6 +565,10 @@ body {
 
 @media (min-width: 1500px){
 .header-logo {
-  width: 40%;
+  width: 74%;
   }
+.header-text {
+  font-size: 2.4rem;
+  } 
 }
+  
