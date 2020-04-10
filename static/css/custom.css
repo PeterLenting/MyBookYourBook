@@ -43,6 +43,10 @@
   text-align: left;   
 }
 
+.user-contact-form {
+  padding-bottom: 15px;  
+}
+
 .rent-success-page {
   background-color: #FFF  
 }
@@ -174,14 +178,17 @@ p {
   border-color: #f2f2f2;
 }
 
+.btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b
+}
+
+    ;
+
 .btn-info p {
   color: black
 }
-
-.btn-info:hover {
-  background-color: #F2F2F2  
-}
-  
+ 
 
 /*Sets margin on all buttons on products.html*/
 .margin-bottom {
@@ -358,6 +365,16 @@ h3 {
   background-color: #FFF;     
 }
 
+/*To get dropdownmenu on same hight as other list items in navbar*/
+#dropdownMenuButton {
+  padding: 1px; 
+  font-weight: bold; 
+  color: #17a2b8;
+  }
+
+#dropdown-link {
+  font-size: 1.5rem;
+}
 /*Sets color for books-button*/
 .book-button {
   background-color: #F2F2F2;
@@ -413,6 +430,10 @@ h3 {
 .rent-message {
   font-size: 1rem;
   font-style: italic;  
+}
+
+#rent-button {
+  color: black;  
 }
 
 .bg-edit-profile-button {
@@ -553,13 +574,6 @@ body {
   }
 #rent-cart-product-wrapper {
   height: 475px;
-  }
-
-/*To get dropdownmenu on same hight as other list items in navbar*/
-#dropdownMenuButton {
-  padding: 8px; 
-  font-weight: bold; 
-  color: #17a2b8;
   }
 }
 
