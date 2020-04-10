@@ -309,7 +309,7 @@ h3 {
 }
 
 .header-text {
-  font-size: 3.3rem;  
+  font-size: 3rem;  
   margin-bottom: 2px;  
   color: black;
   font-weight: bold;
@@ -370,6 +370,7 @@ h3 {
   padding: 1px; 
   font-weight: bold; 
   color: #17a2b8;
+  padding-top: 8px;
   }
 
 #dropdown-link {
