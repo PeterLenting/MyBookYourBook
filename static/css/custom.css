@@ -545,7 +545,7 @@ li {
   font-size: 1rem;   
   }
 .header-text {
-  font-size: 1.7rem; 
+  font-size: 1.8rem; 
   }
 #search-input {
   width: 80%!important;  
@@ -580,10 +580,27 @@ body {
 
 @media (min-width: 1500px){
 .header-logo {
-  width: 74%;
+  width: 100%;
   }
 .header-text {
   font-size: 2.4rem;
   } 
 }
-  
+
+@media (min-width: 1800px){
+.header-text {
+  font-size: 2.7rem;
+  } 
+}
+
+@media (min-width: 2000px){
+.header-text {
+  font-size: 3rem;
+  } 
+}
+
+@media (min-width: 2200px){
+.header-text {
+  font-size: 3.3rem;
+  } 
+}
