@@ -68,7 +68,6 @@ def registration(request):
                 return redirect('checkout')
             elif user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
                 print("TEST D")
                 return redirect(reverse('get_products'))
             else:
