@@ -376,6 +376,7 @@ h3 {
 #dropdown-link {
   font-size: 1.5rem;
 }
+
 /*Sets color for books-button*/
 .book-button {
   background-color: #F2F2F2;
@@ -516,6 +517,14 @@ footer {
   height: 800px;  
 }
 
+@media (min-width: 992px){
+  .product-info-wrapper p {
+  font-size: 1.2rem;   
+  }
+  #dropdown-link {
+  font-size: 1rem;
+  }  
+}
 
 @media (min-width: 1100px){
   .product-wrapper {
@@ -527,9 +536,6 @@ footer {
 h3 {
   font-size: 1.75rem;  
   }  
-p {
-  font-size: 1.2rem;   
-  }
 .product-wrapper {
   height: 800px!important;
   }
@@ -552,15 +558,15 @@ li {
   font-size: 1.8rem; 
   }
 #search-input {
-  width: 80%!important;  
-  font-size: 1rem;
+  font-size: 1.8rem;
+  width: 80%!important;
   }
 #search-form {
   width: 50%;  
   }
 .search-button {
- font-size: 1rem;
- width: 16%;
+ font-size: 1.5rem;
+ width: 17%;
   }
 body {
   padding-top: 180px;
