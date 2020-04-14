@@ -29,6 +29,10 @@ def user_contact_form_view(request, pk):
                 from_email = [user.email]
                 message = form.cleaned_data['message']
                 to_email = [product.provider.email]
+                print(subject)
+                print(message)
+                print(from_email)
+                print(to_email)
                 try:
                     send_mail(subject,
                               message,

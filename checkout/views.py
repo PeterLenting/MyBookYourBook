@@ -24,22 +24,27 @@ def checkout(request):
             order.date = timezone.now()
             print("C")
             try:
-                print("D")
                 customer = stripe.Charge.create(
                     amount=3000,
                     currency="EUR",
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id'],
                 )
+                print("D")
                 order.have_paid = True
                 print(order.have_paid)
                 print("E")
                 order.save()
+            except stripe.error.CardError:
+                messages.error(request, "Your card was declined!")
+            if customer.paid:
+                print("PAID")
                 messages.error(request,
                                "You have successfully paid, start shopping :)")
                 return redirect(reverse('profile'))
-            except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
+            else:
+                messages.error(request, "Unable to take payment")
+                print("Unable to take payment")
         else:
             print(payment_form.errors)
             messages.error(request,

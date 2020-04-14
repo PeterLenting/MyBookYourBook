@@ -13,27 +13,6 @@
 {% endblock %}
 
 {% block content %}
-
-<!--    {% for item in cart_items %}
-    <div id="cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
-        <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
-        <div class="text-center wrapper-product-img">
-            <a class="product-link" href="{% url 'product_detail' item.product.id %}">
-                <img class="product-img" src="/media/{{ item.product.image }}">
-            </a>
-        </div>
-        <div id="cart-info-wrapper" class="row product-info-wrapper">
-            <div class="col-12">
-                <p><span class="boldtext">By:</span> {{item.product.author}}</p>
-                <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
-                <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
-                <p><span class="boldtext">Location:</span> {{item.product.location}}</p>
-                <p><b>Price per week:</b> €{{ item.product.rentprice_per_week }}</p>
-            </div>
-        </div>   
-    </div>
-    {% endfor %}
--->
 <div class="offset-lg-2 col-lg-8">
     <div class="checkout-explanation">
         <legend class="text-center">Deposite</legend>

@@ -93,6 +93,17 @@ body {
   margin-right: 0;    
 }
 
+/*When user has no books of his own (profile.html)*/
+.no-books {
+  font-size: 2rem;
+  font-weight: bold; 
+}
+
+.no-books-link {
+   color: #17a2b8;
+   font-style: italic;
+}
+
 /*To make things not vissible*/
 .hidden {
   display: none;
@@ -342,7 +353,6 @@ h3 {
 
 .search-button {
   background-color: #17a2b8;
-  color: black;
   border: 0;   
   font-size: 2rem;
   font-weight: bold;
@@ -415,7 +425,7 @@ h3 {
 }
 
 .profile-books {
-  font-size: 2rem;
+  font-size: 3rem;
   background-color: #fff;
   margin-top: 20px;
   padding: 0;
@@ -518,12 +528,29 @@ footer {
 }
 
 @media (min-width: 992px){
-  .product-info-wrapper p {
+#hello_user {
+  font-size: 1.4rem;   
+  padding-left: 10px;
+  } 
+#dropdownMenuButton {
+  font-size: 1.4rem;     
+  }
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-size: 1.4rem;  
+}
+.product-info-wrapper p {
   font-size: 1.2rem;   
   }
-  #dropdown-link {
+#dropdown-link {
   font-size: 1rem;
   }  
+p {
+  font-size: 1.2rem;  
+  }
+.no-books {
+  font-size: 1.4rem;
+  }
+
 }
 
 @media (min-width: 1100px){
@@ -533,6 +560,9 @@ footer {
 }
 
 @media (min-width: 1200px){
+.profile-books {
+  font-size: 2rem;
+  }
 h3 {
   font-size: 1.75rem;  
   }  
@@ -570,9 +600,6 @@ li {
   }
 body {
   padding-top: 180px;
-  }
-#hello_user {
-  font-size: 1rem;
   }
 #profile-products {
   height: 715px;  
