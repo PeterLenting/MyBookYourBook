@@ -26,7 +26,7 @@ def user_contact_form_view(request, pk):
             form = UserContactForm(request.POST)
             if form.is_valid():
                 subject = form.cleaned_data['subject']
-                from_email = [user.email]
+                from_email = user.email
                 message = form.cleaned_data['message']
                 to_email = [product.provider.email]
                 print(subject)
