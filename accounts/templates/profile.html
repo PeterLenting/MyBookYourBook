@@ -35,7 +35,9 @@
 
 {% if user_posts %}
 {% else %}
-<div><p class="no-books">You're not offering any books yet. Why not <a class="no-books-link" href="{% url 'new_product' %}">start now</a>?<p></div>
+<div class="col-12 text-center no-books-wrapper">
+    <p class="no-books">You're not offering any books yet. Why not <a class="no-books-link" href="{% url 'new_product' %}">start now</a>?<p>
+</div>
 {% endif %}
 
 {% endblock %}

@@ -104,6 +104,10 @@ body {
    font-style: italic;
 }
 
+.no-books-wrapper {
+  padding-top: 10px;  
+}
+
 /*To make things not vissible*/
 .hidden {
   display: none;
@@ -361,8 +365,12 @@ h3 {
 }
 
 .search-button:hover {
-  background-color: #E1CC97;
   color: #fff;  
+}
+
+.no-search-results {
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -560,6 +568,10 @@ p {
 }
 
 @media (min-width: 1200px){
+.product-detail-wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+  }
 .profile-books {
   font-size: 2rem;
   }
@@ -588,7 +600,7 @@ li {
   font-size: 1.8rem; 
   }
 #search-input {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   width: 80%!important;
   }
 #search-form {
@@ -613,6 +625,12 @@ body {
 #rent-cart-product-wrapper {
   height: 475px;
   }
+}
+
+@media (min-width: 1350px){
+.header-text {
+  font-size: 2.1rem;
+  } 
 }
 
 @media (min-width: 1500px){
@@ -646,14 +664,14 @@ body {
 body {
   padding-top: 210px;
   }
-.product-wrapper {
-  height: 600px!important;
-  }
 }
 
 @media (min-width: 2100px){
 body {
   padding-top: 220px;
+  }
+.product-wrapper {
+  height: 660px;
   }
 }
 
@@ -663,5 +681,11 @@ body {
   } 
 body {
   padding-top: 230px;
+  }
+}
+
+@media (min-width: 2400px){
+body {
+  padding-top: 240px;
   }
 }
