@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
+from django.contrib.auth.models import User
+from accounts.models import UserProfile
 # from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
@@ -33,12 +35,17 @@ def checkout(request):
                 print("D")
                 order.have_paid = True
                 print(order.have_paid)
-                print("E")
+                print(request.session['user_email'])
+                user = User.objects.get(email=request.session['user_email'])
+                order.user = user
                 order.save()
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
             if customer.paid:
                 print("PAID")
+                user_profile = UserProfile.objects.filter(user=order.user).first()
+                user_profile.have_paid = True
+                user_profile.save()
                 messages.error(request,
                                "You have successfully paid, start shopping :)")
                 return redirect(reverse('profile'))

@@ -55,13 +55,64 @@ This way, the person who bought the book can earn a little bit of money back and
 
 ### Design
 
+Based on comparable webshops like Bookdepository.com, Amazon.com and the Dutch Bol.com. Using a similar design gives the users a familiar feeling. 
+An important part of all these sites is the Search-bar. Users come here and know what they want, which book they want to read. The search-bar makes it very easy to find the right book.
 
 ## Features
 
 ### Existing features
 
+**Navigation bar**
+
+**Footer**
+
+Contains links to (not yet existing) social media pages: Twitter, Facebook, Instagram and Youtube.
+
+**Homepage(products)**
+
+Shows all the books on offer, except for the books of the user that is logged in. Not all the information of each book is shown for clarity-reasons. 
+To read more about a book, simply click on the title, the image or ‘more…’ at the end of the summary.
+To buy a book, simply click on the ‘For Sale-button’. The user will be taken to the usercontactpage(LINK). If the user is not logged-in, he will be taken to the login-page.
+
+**Rentpage**
+
+**UserContactPage**
+
+Allows the logged in user to send a message to the user that is selling the book the request user wants to buy. The book is shown together with a form with a default format. 
+All the user has to do is hit send. The selling user will get an email and it’s up to them to get it all done.
+
+**Registrationpage**
+
+User gets a form to fill in some basic data. 
+At the end the checkbox states “I want to be able to rent books”. If checked after sending in the form the user is led to the Checkout-page (LINK). 
+If not checked, the registration is completed after sending in the form. The user is led his profile page (LINK) and encouraged to upload his first book.
+
+**Checkoutpage**
+
+User gets a form to make a deposit of 30 euro. The message at the top of the page states…. 
+After sending in the form, the user gets a message that his payment was successful (or that it wasn’t). And he is encouraged to start renting.
+
+**Aboutpage**
+
+Shows the user why the MyBookYourBook is set up and who the buying and renting works.
+
+**Profilepage**
+
+Shows the users profile and the books he has on offer. 
+On this page the user can edit his profile and edit and delete his books.
+
+**Contactpage**
+
+User can use this form to send a message (email) to MyBookYourBook.
+
+**Loginpage**
+
+**Reset-passwordpage**
+
+
 ### Features left to implement
-There are loads od extra feature that could be build to make this platform even more appealing:
+There are loads of extra feature that could be build to make this platform even more appealing:
+
 **Implement Google maps** - So users can search on proximity of books on offer. This makes it easier for the users to take care of the logistics.
 
 **Automate rent-process** - So user can see his saldo.

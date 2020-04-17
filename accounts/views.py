@@ -32,6 +32,8 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
+                request.session['user_id'] = user.id
+                request.session['user_email'] = user.email
                 return redirect(reverse('get_products'))
             else:
                 login_form.add_error(None,
@@ -64,10 +66,14 @@ def registration(request):
                                      password=request.POST['password1'])
             if (checked_box_value == 'on' and user):
                 auth.login(user=user, request=request)
+                request.session['user_id'] = user.id
+                request.session['user_email'] = user.email
                 print("TEST C")
                 return redirect('checkout')
             elif user:
                 auth.login(user=user, request=request)
+                request.session['user_id'] = user.id
+                request.session['user_email'] = user.email
                 print("TEST D")
                 return redirect(reverse('get_products'))
             else:

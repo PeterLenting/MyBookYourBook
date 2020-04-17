@@ -689,13 +689,15 @@ body {
   }
 }
 
+@media (min-width: 1700px){
+body {
+  padding-top: 205px;
+  }
+
 @media (min-width: 1800px){
 .header-text {
   font-size: 2.7rem;
   } 
-body {
-  padding-top: 200px;
-  }
 #cart-product-wrapper {
   height: 650px;  
   }
@@ -736,6 +738,6 @@ body {
 
 @media (min-width: 2400px){
 body {
-  padding-top: 240px;
+  padding-top: 340px;
   }
 }
