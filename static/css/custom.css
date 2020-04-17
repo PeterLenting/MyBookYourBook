@@ -49,6 +49,15 @@
   color: #17a2b8;  
 }
 
+.fa-shopping-cart:hover {
+  color: #138496;  
+}
+
+#contact-user-button:hover {
+  background-color: #138496;
+  border-color: #117a8b   
+}
+
 #contact-user-button {
   color: black;
   background-color: #F2F2F2;
@@ -252,16 +261,16 @@ h3 {
   color: #17a2b8;
 }
 
-.nav-link {
-  color: #663300;
-}
-
 .nav-item {
   color: #17a2b8;
 }
 
 .nav-link {
   color: #17a2b8;  
+}
+
+.nav-link:hover {
+  color: #138496;  
 }
 
 .navbar-toggler {
@@ -272,26 +281,29 @@ h3 {
 /*Sets dropdown-item in the Navbar (books) on mobile-devices*/
 
 .show>.btn-secondary.dropdown-toggle {
-  background-color: #fff !important;
-  border-color: #fff; 
+  background-color: #F2F2F2 !important;
+  border-color: #F2F2F2; 
 }
 
 .show>.btn-secondary.dropdown-toggle:active {
-  background-color: #fff;
-  border-color: #FFF !important;  
+  background-color: #F2F2F2;
+  border-color: #F2F2F2 !important;  
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active {
-  border-color: #fff !important;  
+  border-color: #F2F2F2 !important;  
 }
 
-#dropdownMenuBottom:active {
-  background-color: #fff;
+#dropdownMenuButton:active {
+  background-color: #F2F2F2;
+  color: #138496;
+  border-color: #F2F2F2;
 }
 
-.dropdown button:hover {
-  /* background-color: #663300; */
-  color: #0056b3!important; 
+#dropdownMenuButton:hover {
+  background-color: #F2F2F2;
+  color: #138496;
+  border-color: #F2F2F2;
 }
 
 .dropdown button:active {
@@ -308,15 +320,15 @@ h3 {
 }
 
 .btn-secondary:hover {
-  background-color: #fff;
+  background-color: #F2F2F2;
 }
 
 .show>.btn-secondary.dropdown-toggle {
-  background-color: #fff;  
+  background-color: #F2F2F2;  
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active {
-  background-color: #fff;    
+  background-color: #F2F2F2;    
 }
 
 /* Sets the color of the toggler-icon */
@@ -379,6 +391,8 @@ h3 {
 
 .search-button:hover {
   color: #fff;  
+  background-color: #138496;
+  border-color: #117a8b;
 }
 
 .no-search-results {
@@ -477,7 +491,7 @@ h3 {
 /*Textcolor button to delete book by user of superuser*/
 .delete-book {
   background-color:#FF2828;
-  border-color: #FF2828;
+  border-color: #F2F2F2;
 }
 
 .wrapper-product-img {
@@ -489,7 +503,7 @@ h3 {
 }
 
 .product-header {
- min-height: 76px;
+ min-height: 114px;
  padding-top: 10px;
  }
 
@@ -579,6 +593,9 @@ p {
   }
 #cart-product-wrapper {
   height: 925px;  
+  }
+.product-header {
+ min-height: 76px;
   }
 }
 
