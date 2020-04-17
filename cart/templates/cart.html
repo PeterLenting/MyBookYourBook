@@ -24,7 +24,7 @@
             <form class= "text-center" action='{% url "remove" %}' method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
-                <button class="btn btn-info">Remove book from cart</button>
+                <button id="remove-from-cart" class="btn btn-info">Remove book from cart</button>
             </form>
         
     </div>
@@ -39,7 +39,7 @@
         </div>
 {% else %}
         <div>
-            <p>There are no items in your cart yet...</p>
+            <p>There are no items in your cart...</p>
         </div>   
 {% endif %}
     

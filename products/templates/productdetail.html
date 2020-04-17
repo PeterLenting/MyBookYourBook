@@ -9,7 +9,7 @@
     </div>
     {% endif %}
     <p>{{ product.content }}</p>
-    <p><span class="boldtext">Published on:</span> {{ product.published_date }}</p>
+    <p><span class="boldtext">Added:</span> {{ product.published_date }}</p>
     <p><span class="boldtext">Author:</span> {{product.author}}</p>
     <p><span class="boldtext">Edition:</span> {{product.year_of_edition}}</p>
     <p><span class="boldtext">Condition:</span> {{product.condition_of_book}}</p>
@@ -18,24 +18,24 @@
     <p><span class="boldtext">Pages:</span> {{product.number_of_pages}}</p>
     <p><span class="boldtext">Location:</span> {{product.location}}</p>
     {% if product.is_for_rent == True and product.id in cart_ids%}   
-    <form class="margin-bottom col-lg-4 rent-sale-background" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
+    <form class="margin-bottom col-lg-6 rent-sale-background margin-form" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
         {% csrf_token %}
         <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
-        <button class="row rent-sale-background btn btn-info btn-block margin-bottom" id="remove-from-cart-button"><i class="fas fa-shopping-cart" id="remove-from-cart-cart"></i> Remove from cart</button>
+        <button class="row rent-sale-background btn btn-info btn-block margin-bottom" id="remove-from-cart-button"><i class="fas fa-shopping-cart" id="remove-from-cart-cart"></i> Remove book</button>
     </form>
     {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
-    <form class="margin-bottom col-lg-4 rent-sale-background" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
+    <form class="margin-bottom col-lg-6 rent-sale-background margin-form" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
     {% csrf_token %}
         <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
-            <p id="rent-button"><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> For Rent: </span> €{{product.rentprice_per_week}} pw</p> 
+            <p id="rent-button"><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> Rent: </span> €{{product.rentprice_per_week}} pw</p> 
         </button> 
     </form>        
     {% endif %}
     {% if product.is_for_sale == True and user != product.provider%}
-    <div class="row rent-sale-background col-md-6">
+    <div class="row rent-sale-background col-md-6" id="sale-button">
         <a href="{% url 'user_contact_page' product.id %}" class="btn btn-info btn-block" id="contact-user-button">
             <div class="col-md-12 rent-sale-button margin-bottom">
-                <p><i class="fas fa-envelope-square"></i><span class="boldtext"> For Sale: </span> €{{product.saleprice}}</p>
+                <p><i class="fas fa-envelope-square"></i><span class="boldtext"> Buy: </span> €{{product.saleprice}}</p>
             </div>
         </a>
     </div>
