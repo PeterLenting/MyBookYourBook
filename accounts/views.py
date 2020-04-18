@@ -12,49 +12,43 @@ from accounts.forms import (
                             )
 
 
+# Form lets the user register with the default UserRegistrationForm
+# and the extension UserProfileForm. If the user checks the
+# want_to_rent checkbox, he is taken to the checkout page,
+# if no, the registration is complete and the user is taken to
+# the homepage.
 def registration(request):
-    """Render the registration page"""
     checked_box_value = request.POST.get('want_to_rent')
     if request.user.is_authenticated:
         return redirect(reverse('get_products'))
     if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
         profile_form = UserProfileForm(request.POST)
-        print(registration_form.errors)
         if registration_form.is_valid() and profile_form.is_valid():
-            print(registration_form.errors)
-            print(profile_form.errors)
-            print("TEST A")
             user = registration_form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            print("TEST B")
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
             if (checked_box_value == 'on' and user):
                 auth.login(user=user, request=request)
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
-                print("TEST C")
                 return redirect('checkout')
             elif user:
                 auth.login(user=user, request=request)
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
-                print("TEST D")
                 return redirect(reverse('get_products'))
             else:
                 messages.error(request,
-                               "Sorry, we are unable to register your account at this time")
+                               "Sorry, we are unable to register \
+                               your account at this time")
                 return redirect(reverse('registration'))
         else:
-            print("TEST E")
-            print(registration_form.errors)
-            print(profile_form.errors)
             return redirect(reverse('registration'))
     else:
-        print("TEST A1")
         registration_form = UserRegistrationForm()
         profile_form = UserProfileForm()
     return render(request, 'registration.html', {
@@ -65,9 +59,7 @@ def registration(request):
 # If a user is not logged in, the login view lets him log in.
 # After fillingin and sendin in a valid login form, the user is logged in.
 # The logged in user is send to the homepage.
-
 def login(request):
-    """Return a login page"""
     if request.user.is_authenticated:
         return redirect(reverse('get_products'))
     if request.method == "POST":
@@ -100,7 +92,6 @@ def logout(request):
 
 # Let's the logged in user take a look at his own profile.
 # Shows some personal data and all the books he has on offer.
-
 def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
@@ -113,7 +104,6 @@ def user_profile(request):
 # Let's the logged in user update his own profile.
 # If EditUserForm and EditUserProfileForm are valid the profile is updated,
 # and the user is send to his updated profile.
-
 @login_required
 def update_profile(request):
     user = User.objects.get(email=request.user.email)
@@ -146,7 +136,6 @@ def update_profile(request):
 # Let's logged in user look at other users profile
 # Logged in user can click on the name of the provider of each book.
 # In the profile some data and all the books the provider offers are shown.
-
 def provider_profile(request, pk=None):
     if not request.user.is_authenticated:
         return redirect('login')

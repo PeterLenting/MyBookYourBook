@@ -11,6 +11,7 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
 
+
 # How the user pays his deposit:
 # After checking the want_to_rent checkbox in the UserProfileForm
 # user is taken to the checkout page.
@@ -18,7 +19,6 @@ stripe.api_key = settings.STRIPE_SECRET
 # If both are valid 30 euro is paid have_paid is set to True,
 # so Admin can see the user has paid.
 # When all is successfull user is send to his Profile page.
-
 @login_required()
 def checkout(request):
     if request.method == "POST":
@@ -41,7 +41,8 @@ def checkout(request):
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
             if customer.paid:
-                user_profile = UserProfile.objects.filter(user=order.user).first()
+                user_profile = UserProfile.objects.filter(
+                               user=order.user).first()
                 user_profile.have_paid = True
                 user_profile.save()
                 messages.info(request,
