@@ -6,10 +6,13 @@ from django.contrib import messages
 from products.models import Product
 
 
-def rent_success_view(request):
-    """Return the rent_success.html file"""
-    return render(request,  'rent_success.html')
-
+# How the user rents a book:
+# After adding books to his cart, the logged in user goes to his Cart page.
+# On the Cart page logged in user can see the books that are is his cart,
+# and has the possibility to remove books from his cart.
+# If all is good, the Let's rent button takes him to the (hidden) rent form.
+# After sending in the form, Admin can see which user wants what books.
+# Users is send to rent_succes page.
 
 @login_required()
 def rent_view(request):
@@ -33,10 +36,15 @@ def rent_view(request):
             request.session['cart'] = {}
             return redirect('rent_success')
         else:
-            print(form.errors)
             messages.error(request,
                            "We were unable to recieve your order")
     else:
         form = RentRequestForm(initial=data)
 
     return render(request, "rent.html", {"form": form})
+
+
+# If the rent-process is succesfull user is taken to rent_succes page.
+def rent_success_view(request):
+    """Return the rent_success.html file"""
+    return render(request,  'rent_success.html')
