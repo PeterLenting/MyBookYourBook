@@ -119,6 +119,9 @@ def update_profile(request):
         if edit_user_form.is_valid() and user_profile_form.is_valid():
             edit_user_form.save()
             user_profile_form.save()
+            messages.success(request,
+                             "You have successfully paid, \
+                             start shopping :)")
             return redirect(reverse("profile"))
     else:
         edit_user_form = EditUserForm(

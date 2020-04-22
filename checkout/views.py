@@ -45,8 +45,9 @@ def checkout(request):
                                user=order.user).first()
                 user_profile.have_paid = True
                 user_profile.save()
-                messages.info(request,
-                              "You have successfully paid, start shopping :)")
+                messages.success(request,
+                                 "You have successfully paid, \
+                                 start shopping :)")
                 return redirect(reverse('profile'))
             else:
                 messages.error(request, "Unable to take payment")

@@ -100,8 +100,10 @@
 
          
         {% if messages %}
-        <div>
-            {% for message in messages %} {{ message }} {% endfor %}
+        <div class= "col-12 text-center message">
+            {% for message in messages %} 
+                {{ message }} 
+            {% endfor %}
         </div>
         {% endif %} 
         

@@ -1,7 +1,5 @@
 {% extends 'base.html' %} 
 
-{% block page_title %}{{ user }}'s Profile{% endblock %} 
-
 {% block content %}
 <div class="col-12 profile-wrapper">
     <p class="offset-xl-3 col-xl-6 offset-xl-3 text-center profile-books"><span class="boldtext">Profile: </span>
@@ -18,6 +16,7 @@
     {% endif %}
     <p class="col-12 text-center profile-books"><span class="boldtext">My books: </span>
 </div>
+
 {% for user_post in user_posts %}
     <div class="col-md-6 col-lg-3 col-xl-3 product-wrapper" id="profile-products">
         <h3 class="text-center product-header"><a href="{% url 'product_detail' user_post.id %}">{{ user_post.title }}</a></h3>

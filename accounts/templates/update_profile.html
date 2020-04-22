@@ -13,7 +13,9 @@
         {{ form | as_bootstrap }}
         {{ formUserProfile | as_bootstrap }}
         <p class="rent-message">* To quite or start renting, send us an email trough our <a href="{% url 'contact' %}" target="_blank">contact-form</a></p>       
-        <button type="submit" href="{% url 'checkout' %}">Submit</button>
+        <div class="text-center col-md-12">
+            <button class="btn btn-info" type="submit" href="{% url 'checkout' %}">Submit</button>
+        </div>    
     </form>
     <br>
 </div>
