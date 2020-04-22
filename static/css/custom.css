@@ -89,11 +89,6 @@ html {
     min-height: 100%;
 }
 
-/*.stick-to-bottom {
-  position: absolute;
-  bottom: 0;  
-}*/
-
 /*Padding and margin to make room for fixed-top-navbar and footer*/
 body {
   padding-top: 280px;
@@ -492,6 +487,24 @@ h3 {
 
 #rent-button {
   color: black;  
+}
+
+.make-deposit-wrapper {
+  background-color: #A9A9A9;
+  color: #FFF;  
+  border-radius: 25px;
+  padding: 10px;
+  box-shadow: 4px 5px#606060;
+  margin-bottom: 10px;
+}
+
+#link-deposit-wrapper {
+  color: #FFF;
+  font-weight: bold;  
+}
+
+.deposit-button{
+  margin-bottom: 5px;
 }
 
 .bg-edit-profile-button {

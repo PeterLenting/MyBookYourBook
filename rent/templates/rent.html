@@ -6,6 +6,18 @@
 
 <div class="rent-details-wrapper col-md-6 col-lg-3 col-xl-3">
     <div>
+        {% if user.uprofile.want_to_rent == True %}
+        <div class="make-deposit-wrapper">
+            <p>To be able to rent books a deposit of 30 euro's is required.<br> 
+            The deposite is used to pay the owner of the books you are renting.<br>
+            Read more about the terms and conditions on our <a href="{% url 'about' %}" id="link-deposit-wrapper">About-page</a>.
+            </p>
+            <div class="text-center">
+                <a href="{% url 'checkout' %}" class="btn btn-info deposit-button">Make your deposit</a>
+            </div>
+        </div>
+        {% else %}
+        {% endif %}
         <h3 class="text-center">Details</h3>
         <p class="rent-details"><span class="boldtext">Username:</span> {{ request.user }}</p>
         <p class="rent-details"><span class="boldtext">Email:</span> {{ user.email }}</p>
@@ -18,13 +30,13 @@
         {% csrf_token %}
         {{ form | as_bootstrap }}
         </div>
-        {% if user.uprofile.want_to_rent == True %}
+        {% if user.uprofile.want_to_rent == False %}
         <div class="text-center">
             <button class="btn btn-info" type="submit">Send</button>
         </div>
+        </form>
         {% else %}
         {% endif %}
-        </form>
     </div>
 </div>
 

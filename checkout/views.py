@@ -44,6 +44,7 @@ def checkout(request):
                 user_profile = UserProfile.objects.filter(
                                user=order.user).first()
                 user_profile.have_paid = True
+                user_profile.want_to_rent = True
                 user_profile.save()
                 messages.success(request,
                                  "You have successfully paid, \
