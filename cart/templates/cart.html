@@ -2,7 +2,21 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-    {% for item in cart_items %}
+{% if cart_items %}
+        <div class="row">
+            <div class="col-12">
+                <p><span class="boldtext">Number of books: </span><span aria-hidden="true"></span>{{ total }}</p>
+                <p><span class="boldtext">Total price: € </span><span aria-hidden="true"></span>{{ total_prices }}</p>
+                <a href="{% url 'rent' %}" class="btn btn-info" role="button">Let's rent</a>
+            </div>
+        </div>
+{% else %}
+        <div>
+            <p>There are no items in your cart...</p>
+        </div>   
+{% endif %}
+
+{% for item in cart_items %}
     
     <div id="cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
         <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
@@ -28,20 +42,6 @@
             </form>
         
     </div>
-    {% endfor %}
-    
-{% if cart_items %}
-        <div class="row">
-            <div class="col-12">
-                <p><span class="boldtext">Number of books: </span><span aria-hidden="true"></span>{{ total }}</p>
-                <p><span class="boldtext">Total price: € </span><span aria-hidden="true"></span>{{ total_prices }}</p>
-                <a href="{% url 'rent' %}" class="btn btn-info" role="button">Let's rent</a>
-            </div>
-        </div>
-{% else %}
-        <div>
-            <p>There are no items in your cart...</p>
-        </div>   
-{% endif %}
+{% endfor %}
     
 {% endblock %}

@@ -5,12 +5,12 @@
   background-color: #fff;
 }
 
-.rent-details {
-  padding-left: 15px;
+.rent-details-wrapper {
+  margin-top: 5px; 
 }
 
 #rent-cart-product-wrapper {
-  height: 700px;
+  height: 725px;
   }
 
 #cart-product-wrapper {

@@ -4,6 +4,27 @@
 
 {% block content %}
 
+<div class="rent-details-wrapper col-md-6 col-lg-3 col-xl-3">
+    <div>
+        <h3 class="text-center">Details</h3>
+        <p class="rent-details"><span class="boldtext">Username:</span> {{ request.user }}</p>
+        <p class="rent-details"><span class="boldtext">Email:</span> {{ user.email }}</p>
+        <p class="rent-details"><span class="boldtext">Number of books:</span> {{ total }}</p>
+        <p class="rent-details"><span class="boldtext">Total per week:</span> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total_prices }}</p>
+    </div>
+    <div>
+        <form id="rentform" class="col-12" method="POST">
+        <div class="hidden">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info" type="submit">Send</button>
+        </div>
+        </form>
+    </div>
+</div>
+
     {% for item in cart_items %}
     <div id="rent-cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
         <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
@@ -13,7 +34,7 @@
             </a>
         </div>
         <div id="cart-info-wrapper" class="row product-info-wrapper">
-            <div class="col-12">
+            <div class="col-12 no-padding">
                 <p><span class="boldtext">By:</span> {{item.product.author}}</p>
                 <p><span class="boldtext">Condition:</span> {{item.product.condition_of_book}}</p>
                 <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' item.product.provider.id %}">{{item.product.provider}}</a></p>
@@ -24,25 +45,4 @@
     </div>
     {% endfor %}
 
-    <div>
-        <div>
-            <h2 class="text-center">Details</h2>
-            <p class="rent-details"><span class="boldtext">Username:</span> {{ request.user }}</p>
-            <p class="rent-details"><span class="boldtext">Email:</span> {{ user.email }}</p>
-            <p class="rent-details"><span class="boldtext">Number of books:</span> {{ total }}</p>
-            <p class="rent-details"><span class="boldtext">Total per week:</span> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total_prices }}</p>
-        </div>
-        <div>
-            <!--<h2 class="col-12 text-center">Rent</h2>-->
-            <form id="rentform" class="col-12" method="POST">
-            <div class="hidden">
-            {% csrf_token %}
-            {{ form | as_bootstrap }}
-            </div>
-            <div class="text-center">
-                <button class="btn btn-info" type="submit">Send</button>
-            </div>
-            </form>
-        </div>
-    </div>
 {% endblock %}
