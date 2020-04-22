@@ -716,6 +716,9 @@ body {
 body {
   padding-top: 210px;
   }
+#cart-product-wrapper {
+  height: 700px;  
+  }  
 }
 
 @media (min-width: 2100px){
