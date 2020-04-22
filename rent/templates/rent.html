@@ -18,9 +18,12 @@
         {% csrf_token %}
         {{ form | as_bootstrap }}
         </div>
+        {% if user.uprofile.want_to_rent == True %}
         <div class="text-center">
             <button class="btn btn-info" type="submit">Send</button>
         </div>
+        {% else %}
+        {% endif %}
         </form>
     </div>
 </div>

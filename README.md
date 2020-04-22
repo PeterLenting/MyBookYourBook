@@ -185,12 +185,10 @@ The logo is made by [Freepik](https://www.flaticon.com/authors/freepik), on [Fla
 
 ### Code
 I wrote all the code myself, with help and inspiration from the users of StackOverflow.com. Questions and answers on that site pointed me in the right direction more than once. 
-The Code Institute tutor-team also helped me understand why sometimes some code wasn't working.
+The Code Institute tutor-team also helped me understand why sometimes some code wasn't working. https://wsvincent.com/django-contact-form/
 
 
 ## Disclaimer
 The content of this website is for educational purposes only.
 
 [![Build Status](https://travis-ci.org/PeterLenting/MyBookYourBook.svg?branch=master)](https://travis-ci.org/PeterLenting/MyBookYourBook)
-
-Bron van uitbreiding User Model profile.html: https://www.youtube.com/watch?v=Tja4I_rgspI

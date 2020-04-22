@@ -5,9 +5,13 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 
-# Create your views here. https://wsvincent.com/django-contact-form/
 
-
+# The logged in user can send an email to MyBookYourBook by using send_mail
+# The user.email is filled in by default and the receiving
+# address is frommybookyourbook@gmail.com.
+# If the ContactForm is filled in valid the email is send.
+# After the email is send successfully the user is send to the
+# homepage and sees a message.
 def emailView(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -30,6 +34,7 @@ def emailView(request):
                 except BadHeaderError:
                     return HttpResponse('Invalid header found.')
                 messages.success(request,
-                                 "Thank you for you message! We'll get back to you soon.")
+                                 "Thank you for you message! \
+                                 We'll get back to you soon.")
                 return redirect(reverse('get_products'))
         return render(request, "contact.html", {'form': form})

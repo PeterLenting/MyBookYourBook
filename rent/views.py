@@ -34,7 +34,12 @@ def rent_view(request):
         if form.is_valid():
             form.save()
             request.session['cart'] = {}
-            return redirect('rent_success')
+            messages.success(request,
+                             "Great, we recieved your order!\
+                             <br/>We will contact the owners of the books \
+                             you want to rent and have them contact you.\
+                             <br/>Have a great day!")
+            return redirect('get_products')
         else:
             messages.error(request,
                            "We were unable to recieve your order")
@@ -44,7 +49,7 @@ def rent_view(request):
     return render(request, "rent.html", {"form": form})
 
 
-# If the rent-process is succesfull user is taken to rent_succes page.
+# If the rent-process is successfull user is taken to rent_succes page.
 def rent_success_view(request):
     """Return the rent_success.html file"""
     return render(request,  'rent_success.html')

@@ -102,7 +102,7 @@
         {% if messages %}
         <div class= "col-12 text-center message">
             {% for message in messages %} 
-                {{ message }} 
+                {{ message | safe}} 
             {% endfor %}
         </div>
         {% endif %} 

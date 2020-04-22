@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, reverse
 
 # Renders cart contents page
 def view_cart(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     return render(request, "cart.html")
 
 
