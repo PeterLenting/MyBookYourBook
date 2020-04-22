@@ -13,10 +13,6 @@ YEAR_CHOICES = []
 for r in range(1800, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((r, r))
 
-my_default_errors = {
-    'required': "Either 'For sale' or 'For rent' (or both) should be checked"
-}
-
 
 class Product(models.Model):
     """

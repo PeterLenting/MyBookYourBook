@@ -26,12 +26,11 @@
 
     <div>
         <div>
-            <h2 class="text-center">My Details</h2>
-            <p class="rent-details">Total per week:<span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total }}</p>
-            <p class="rent-details">Username: {{ request.user }}</p>
-            <!--<p class="rent-details">Name: {{ order.full_name }}</p>
-            <p class="rent-details">Adress: {{ order.street_address }}</p>
-            <p class="rent-details">Town or city: {{ order.town_or_city }}</p>-->
+            <h2 class="text-center">Details</h2>
+            <p class="rent-details"><span class="boldtext">Username:</span> {{ request.user }}</p>
+            <p class="rent-details"><span class="boldtext">Email:</span> {{ user.email }}</p>
+            <p class="rent-details"><span class="boldtext">Number of books:</span> {{ total }}</p>
+            <p class="rent-details"><span class="boldtext">Total per week:</span> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total_prices }}</p>
         </div>
         <div>
             <!--<h2 class="col-12 text-center">Rent</h2>-->

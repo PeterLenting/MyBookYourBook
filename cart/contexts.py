@@ -12,6 +12,7 @@ def cart_contents(request):
     cart_items = []
     cart_ids = []
     total = 0
+    total_prices = 0
     quantity = 1
 
     for id, quantity in cart.items():
@@ -19,5 +20,9 @@ def cart_contents(request):
         total += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'product': product})
         cart_ids.append(int(id))
+        total_prices += product.rentprice_per_week
 
-    return {'cart_items': cart_items, 'total': total, "cart_ids": cart_ids}
+    return {'cart_items': cart_items,
+            'total': total,
+            'cart_ids': cart_ids,
+            'total_prices': total_prices}

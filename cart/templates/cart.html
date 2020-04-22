@@ -33,7 +33,8 @@
 {% if cart_items %}
         <div class="row">
             <div class="col-12">
-                <p>Total: € <span aria-hidden="true"></span>{{ total }}</p>
+                <p><span class="boldtext">Number of books: </span><span aria-hidden="true"></span>{{ total }}</p>
+                <p><span class="boldtext">Total price: € </span><span aria-hidden="true"></span>{{ total_prices }}</p>
                 <a href="{% url 'rent' %}" class="btn btn-info" role="button">Let's rent</a>
             </div>
         </div>
