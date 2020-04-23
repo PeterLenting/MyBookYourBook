@@ -507,6 +507,10 @@ h3 {
   margin-bottom: 5px;
 }
 
+#link-about {
+  font-weight: bold;  
+}
+
 .bg-edit-profile-button {
   background-color: #fff;
   padding-bottom: 5px;
@@ -592,7 +596,8 @@ footer {
   padding-left: 10px;
   } 
 #dropdownMenuButton {
-  font-size: 1.4rem;     
+  font-size: 1.4rem;    
+  margin-left: .5rem; 
   }
 .navbar-expand-lg .navbar-nav .nav-link {
   font-size: 1.4rem;  

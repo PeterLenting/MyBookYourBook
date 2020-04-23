@@ -14,13 +14,25 @@
 
 {% block content %}
 <div class="offset-lg-2 col-lg-8">
+    {% if user.uprofile.have_paid == True %}
     <div class="checkout-explanation">
-        <legend class="text-center">Deposite</legend>
-        <p>To be able to rent books a deposit of 30 euro's is required.<br> 
-        The deposite is used to pay the owner of the books you are renting.<br>
-        <a href="{% url 'about' %}"><i>Read more about the terms and conditions on our About-page</i></a>.
+        <legend class="text-center">New deposit</legend>
+        <p>As you now, to be able to rent books a deposit of 30 euro's is required.<br> 
+        This deposite is used to pay the owner of the books you are renting.<br>
+        If you want to make an extra 30 euro deposit, you can do this by sending in this form.<br>
+        The new deposit will be added to your current balance and you'll get an email with your new balance.<br>
+        Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
         </p>
     </div>
+    {% elif user.uprofile.have_paid == False %}
+    <div class="checkout-explanation">
+        <legend class="text-center">Deposit</legend>
+        <p>To be able to rent books a deposit of 30 euro's is required.<br> 
+        The deposite is used to pay the owner of the books you are renting.<br>
+        Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
+        </p>
+    </div>
+    {% endif %}
     <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
         <legend class="text-center">My Details</legend>
         <div id="credit-card-errors" style="display: none;">
