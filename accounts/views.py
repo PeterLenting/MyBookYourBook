@@ -119,7 +119,14 @@ def update_profile(request):
         if edit_user_form.is_valid() and user_profile_form.is_valid():
             edit_user_form.save()
             user_profile_form.save()
-            return redirect(reverse("profile"))
+            print(user.uprofile.have_paid)
+            print(user.uprofile.want_to_rent)
+            if user.uprofile.have_paid is True and user.uprofile.want_to_rent is True:
+                return redirect(reverse("profile"))
+            elif user.uprofile.have_paid is False and user.uprofile.want_to_rent is True:
+                return redirect('checkout')
+            else:
+                return redirect(reverse("profile"))
     else:
         edit_user_form = EditUserForm(
             instance=request.user

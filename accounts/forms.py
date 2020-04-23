@@ -68,6 +68,7 @@ class EditUserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = (
             'location',
+            'want_to_rent',
             'have_paid',
         )
         widgets = {'have_paid': forms.HiddenInput()}
