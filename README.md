@@ -52,17 +52,35 @@ I really like to read. Some books I like to read, but have no need to keep them.
 This way, the person who bought the book can earn a little bit of money back and someone with a smaller budget can read a book for a small amount of money. 
 
 ### User stories
+As a visitor, I want:
+
+1. To search for certain books, in order to rent them.
+2. To search for certain books, in order to buy them.
+3. To send a message to MyBookYourBook, in order to get answers to my questions.
+4. To make a deposit, in order to be able to rent books.
+5. To send a message to another user who is offering a book, in order to but it.
+6. To add a book to the site, in order to sell it.
+7. To update my profile, in order to change my emailaddress.
 
 ### Design
 
-Based on comparable webshops like Bookdepository.com, Amazon.com and the Dutch Bol.com. Using a similar design gives the users a familiar feeling. 
-An important part of all these sites is the Search-bar. Users come here and know what they want, which book they want to read. The search-bar makes it very easy to find the right book.
+The design is based on comparable webshops like Bookdepository.com, Amazon.com and the Dutch Bol.com. Using a similar design gives the users a familiar feeling. 
+An important part of all these sites is the Search-bar. Users come here and know what they want, which book they want to read. The search-bar makes it very easy to find the right book
+The colorschema is basic and neutral with the 'Bright Cyan' (#17a2b8) sticking out. The images (covers of the books) are quite noisy and divers, so the rest of the site should have a clean look and feel.
+The Roboto-font is easy on the eye and has a nice, clean look.
 
 ## Features
 
 ### Existing features
 
 **Navigation bar**
+
+Tha navigation bar contains links to all the important pages: 
+Home, About, Contact, Books (dropdown with 'All books', 'Books for sale', 'Books for rent' and 'My books'), Login and Register when the user is not logged in. 
+Home, About, Contact, Books (dropdown with 'All books', 'Books for sale', 'Books for rent' and 'My books'), Add a book, Make (new) deposite, Profile, Logout, a welcome message and a shoppingcart when the user is logged in. 
+'Make deposite' is shown when the user hasn't made a deposite yet. When the user has made a prior deposite 'Make new deposite' is shown.
+On mobile and tablet the navigation bar is a navbar-toggler (Bootstrap), on desktop the navbar is fully shown op top of the page. 
+The fixed-top class (Bootstrap) is added to keep the footer sticked to the top at all time.
 
 **Footer**
 
