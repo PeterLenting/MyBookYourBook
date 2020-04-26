@@ -148,10 +148,10 @@ def delete_product(request, pk=None):
     return redirect('get_products')
 
 
-# Lets the logged in user send and email to another userusing send_mail
+# Lets the logged in user send and email to another user using send_mail
 # On clicking the Buy button for a book the user is taken
 # to the usercontactpage. There a default email is set up
-# using the het email and first name of the request.user and of
+# using the email and first name of the request.user and of
 # the provider of the book and the title of the book.
 # The email is send to the provider of the book.
 def user_contact_form_view(request, pk):

@@ -14,7 +14,7 @@
   }
 
 #cart-product-wrapper {
-  height: 1000px;  
+  height: 1050px;  
 }
 
 #cart-info-wrapper {
@@ -507,6 +507,7 @@ h3 {
   margin-bottom: 5px;
 }
 
+/*Link to the about-page*/
 #link-about {
   font-weight: bold;  
 }
@@ -522,12 +523,19 @@ h3 {
   border-color: #F2F2F2;
 }
 
+/*Height of the wrapper of the image of the book on the product-page*/
 .wrapper-product-img {
   height: 333px;
 }
 
+/*Width of the image of the book on the rent-page*/
 .product-img {
   width: 200px; 
+}
+
+/*Width of the image of the book on the productdetail-page*/
+.img-product-detail {
+  width: 225px; 
 }
 
 .product-header {
@@ -686,8 +694,11 @@ body {
 #profile-products {
   height: 715px;  
   }
+#cart-product-wrapper {
+height: 945px;  
+  }
 #cart-info-wrapper {
-  height: 350px; 
+  height: 575px; 
   }
 .product-info-wrapper {
   height: 395px;
@@ -703,6 +714,9 @@ body {
   } 
 #cart-info-wrapper {
   height: 440px; 
+  }
+#cart-product-wrapper {
+    height: 825px;  
   }
 }
 
@@ -731,7 +745,7 @@ body {
   font-size: 2.7rem;
   } 
 #cart-product-wrapper {
-  height: 650px;  
+  height: 675px;  
   }
 #cart-info-wrapper {
   height: 325px; 
@@ -769,6 +783,9 @@ body {
 body {
   padding-top: 230px;
   }
+#cart-product-wrapper {
+  height: 675px;  
+  } 
 }
 
 @media (min-width: 2400px){

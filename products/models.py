@@ -18,7 +18,7 @@ class Product(models.Model):
     """
     A single product
     title, author, year of print, condition of book, provider, location,
-    publisher, number of pages, price, summary, created_date, published_date,
+    publisher, number of pages, summary, created_date, published_date,
     views, image
     """
 
@@ -37,7 +37,6 @@ class Product(models.Model):
     location = models.CharField(max_length=100, null=True)
     publisher = models.CharField(max_length=50, null=True)
     number_of_pages = models.IntegerField(null=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2, default=00)
     summary = models.TextField(max_length=400, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True,

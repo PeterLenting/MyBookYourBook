@@ -47,9 +47,3 @@ def rent_view(request):
         form = RentRequestForm(initial=data)
 
     return render(request, "rent.html", {"form": form})
-
-
-# If the rent-process is successfull user is taken to rent_succes page.
-def rent_success_view(request):
-    """Return the rent_success.html file"""
-    return render(request,  'rent_success.html')

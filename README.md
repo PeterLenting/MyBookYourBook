@@ -5,7 +5,7 @@ Reading is fun and reading books creates understanding.
 So it’s important to give everyone the opportunity to read as many books as they want. 
 MyBookYourBook will help people achieve that.
 
-- [View the page here](https://mbyb-app.herokuapp.com/)
+- [View the page here](https://mbyb-app.herokuapp.com/). This application is hosted on Heroku using a Postgres (MySQL Database).
 - [View the Github Repository here](https://github.com/PeterLenting/MyBookYourBook)
 
 ## Contents table
@@ -32,7 +32,7 @@ MyBookYourBook will help people achieve that.
    - [Content](https://github.com/PeterLenting/MyBookYourBook#content)
    - [Media](https://github.com/PeterLenting/MyBookYourBook#media)
    - [Code](https://github.com/PeterLenting/MyBookYourBook#code)
-   - [Acknowledgements](https://github.com/PeterLenting/MSP3#acknowledgements)
+   - [Acknowledgements](https://github.com/PeterLenting/MyBookYourBook#acknowledgements)
 7. [Disclaimer](https://github.com/PeterLenting/MyBookYourBook#disclaimer)
 
 ## UX
@@ -90,29 +90,45 @@ Contains links to (not yet existing) social media pages: Twitter, Facebook, Inst
 
 Shows all the books on offer, except for the books of the user that is logged in. Not all the information of each book is shown for clarity-reasons. 
 To read more about a book, simply click on the title, the image or ‘more…’ at the end of the summary.
-To buy a book, simply click on the ‘For Sale-button’. The user will be taken to the usercontactpage(LINK). If the user is not logged-in, he will be taken to the login-page.
-
-**Rentpage**
+To buy a book, simply click on the ‘Buy-button’. The logged-in user will be taken to the [Usercontact-page](https://github.com/PeterLenting/MyBookYourBook#UserContactPage). If the user is not logged-in, he will be taken to the login-page.
+To rent a book, simply click on the ‘Rent-button’. If the user is logged in, the book will be added to the shoppingcart and the button changes to 'Remove book'. If the user is not logged-in, he will be taken to the login-page.
 
 **UserContactPage**
 
-Allows the logged in user to send a message to the user that is selling the book the request user wants to buy. The book is shown together with a form with a default format. 
-All the user has to do is hit send. The selling user will get an email and it’s up to them to get it all done.
+On clicking the Buy-button for a book the user is taken to the usercontactpage. 
+There a default email is set up using the email and first name of the request.user and the provider of the book and the title of the book.
+Besides that the book the request.user wants to buy is shown.
+The email is send to the provider of the book. It’s up to them to get it all done.
+
+**Rentpage**
+
+Shows the number of books in the shoppingcart, the total rentprice per week and the books that are in the cart. Gives option to remove each book from the cart. 
+"Let's rent"-button takes user to the rent page.
+If cart is empty: "There are no items in your cart..."
+
+**Rentpage**
+
+Shows the username of request.user, his email, the number of books in the cart and the total rentprice per week. Besides that the books in the cart are shown.
+On clicking the "send"-button, a form is send to YourBookMyBook.com with all the details.
+The user is send to the homepage and sees a message: 
+"Great, we recieved your order!
+We will contact the owners of the books you want to rent and have them contact you.
+Have a great day!"
 
 **Registrationpage**
 
 User gets a form to fill in some basic data. 
-At the end the checkbox states “I want to be able to rent books”. If checked after sending in the form the user is led to the Checkout-page (LINK). 
-If not checked, the registration is completed after sending in the form. The user is led his profile page (LINK) and encouraged to upload his first book.
+At the end the checkbox states “I want to be able to rent books”. If checked after sending in the form the user is led to the [Checkout-page](https://github.com/PeterLenting/MyBookYourBook#Checkoutpage). 
+If not checked, the registration is completed after sending in the form. The user is led his [Profile-page](https://github.com/PeterLenting/MyBookYourBook#Profilepage) and encouraged to upload his first book.
 
 **Checkoutpage**
 
-User gets a form to make a deposit of 30 euro. The message at the top of the page states…. 
-After sending in the form, the user gets a message that his payment was successful (or that it wasn’t). And he is encouraged to start renting.
+User gets a form to make a deposit of 30 euro. There are two possible messages at the top of the page. One for the user that makes his first deposit and oen for the user that has made a deposit before. 
+After sending in the form, the user gets a message that his payment was successfull (or that it wasn’t). And he is encouraged to start renting.
 
 **Aboutpage**
 
-Shows the user why the MyBookYourBook is set up and who the buying and renting works.
+Shows the user why the MyBookYourBook is set up and how the buying and renting works.
 
 **Profilepage**
 
@@ -121,12 +137,15 @@ On this page the user can edit his profile and edit and delete his books.
 
 **Contactpage**
 
-User can use this form to send a message (email) to MyBookYourBook.
+User can use this form to send a message (email) to MyBookYourBook. From email is filled in by default.
 
 **Loginpage**
 
+Allows the user with an account to login. User can also request a new password, or sign up when he is a new user.
+
 **Reset-passwordpage**
 
+If the user has forgotten his password or simply wants to change it, can can request an email and after clicking on the link in the email change his password.
 
 ### Features left to implement
 There are loads of extra feature that could be build to make this platform even more appealing:
@@ -134,8 +153,6 @@ There are loads of extra feature that could be build to make this platform even 
 **Implement Google maps** - So users can search on proximity of books on offer. This makes it easier for the users to take care of the logistics.
 
 **Automate rent-process** - So user can see his saldo.
-
-**Update-profile for want_to_rent** -
 
 **Swap Option** - Build an option for users to swap books (I have this books on offer and am looking for that book).
 
@@ -158,13 +175,21 @@ There are loads of extra feature that could be build to make this platform even 
 
 •	[Font Awesome](https://fontawesome.com/) for the icons in the footer of the website.
 
-•	Paint to edit the images used.
-
-•	Google Chrome developer tools.
+•   [Django 1.11.24](https://www.djangoproject.com/) for rapid development and use of database.
 
 •	[Github](https://github.com/) for version control and for users to view the deployed version of the website.
 
 •   [Heroku](https://www.heroku.com/) to deploy the project.
+
+•   [PostgreSQL](https://www.postgresql.org/) for the database, provided by heroku.
+
+•   [Stripe](https://www.stripe.com/) as payment platform to validate and accept credit card payments securely.
+
+•   [Travis](https://travis-ci.org/) for continuous integration.
+
+•	Paint to edit the images used.
+
+•	Google Chrome developer tools.
 
 
 ### Browsers
@@ -189,8 +214,33 @@ The following **validation services** were used to check the validity of the cod
 
 •	JSHint was used to validate JavaScript.
 
-## Deployment
+### Improvements after testing
 
+As said, testing was done all through the development of the project, so lot of improvements were made during and after testing. A few examples:
+
+•   **Messages** The messages shown after the user had done something (like paid successfully), didn't stand out. By changing the styles the do now.
+
+•   **Rent only after paying** Only if the user has paid his deposit he is able to send in the rent-request. At first every user could send in the form, which was off course not the way it was intended. 
+So by adding if user.uprofile.have_paid == True to rent.html the user who has not paid yet, is asked to make a deposit first. If the user has paid he can proceed with sending in the form.
+
+•   **Update want_to_rent** At first it was not possible for a user updating his profile to update his answer on "want_to_rent" (which is required to be able to pay the deposit which is required to rent books.)
+I fixed that by adding to the update_profile view:
+
+
+            ```
+             if user.uprofile.have_paid is True and user.uprofile.want_to_rent is True:
+                return redirect(reverse("profile"))
+            elif user.uprofile.have_paid is False and user.uprofile.want_to_rent is True:
+                return redirect('checkout')
+            else:
+                return redirect(reverse("profile"))
+            ```
+
+•   **Responsiveness** While testing it appeared not all devices showed the grid as expected, so adjustments had to be made using CSS Media Queries.
+
+
+## Deployment
+The repository for the project is available on [GitHub](https://github.com/PeterLenting/MyBookYourBook) and can be downloaded.
 
 ## Credits
 
