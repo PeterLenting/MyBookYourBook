@@ -27,7 +27,7 @@ MyBookYourBook will help people achieve that.
    - [Browsers](https://github.com/PeterLenting/MyBookYourBook#browsers)
    - [Automated testing](https://github.com/PeterLenting/MyBookYourBook#automated-testing)
 5. [Deployment](https://github.com/PeterLenting/MSP3#deployment)
-   - [How to add this project to your local workspace](https://github.com/PeterLenting/MSP3#How-to-add-this-project-to-your-local-workspace)
+   - [How to add this project to your local workspace](https://github.com/PeterLenting/MyBookYourBook#How-to-add-this-project-to-your-local-workspace)
 6. [Credits](https://github.com/PeterLenting/MyBookYourBook#credits)
    - [Content](https://github.com/PeterLenting/MyBookYourBook#content)
    - [Media](https://github.com/PeterLenting/MyBookYourBook#media)
@@ -109,7 +109,7 @@ If cart is empty: "There are no items in your cart..."
 **Rentpage**
 
 Shows the username of request.user, his email, the number of books in the cart and the total rentprice per week. Besides that the books in the cart are shown.
-On clicking the "send"-button, a form is send to YourBookMyBook.com with all the details.
+On clicking the "send"-button, a form is send to MyBookYourBook.com with all the details.
 The user is send to the homepage and sees a message: 
 "Great, we recieved your order!
 We will contact the owners of the books you want to rent and have them contact you.
@@ -195,7 +195,6 @@ There are loads of extra feature that could be build to make this platform even 
 ### Browsers
 The page was tested in Chrome, Internet Explorer and Firefox.
 
-
 ## Testing
 
 ### Responsive testing
@@ -203,7 +202,22 @@ The responsiveness of the page was tested at all times during the development of
 
 ### Manual testing
 
-I created, read, updated and deleted posts myself and had other people testing it as well during the development. This is a reliable way of discovering whether everything works as it should:
+I created, updated, deleted, rented, bought, signed in and out, and contacted myself and had other people testing the project as well during the development. This is a reliable way of discovering whether everything works as it should:
+
+**Search** - To search for certain books, in order to rent them.
+**Buy a book** - 
+**Rent a book** - 
+**Ask a question** - 
+**Sign up** - 
+**Sign in** - 
+**Sign out** - 
+**Update Profile** - 
+**Add a book** - 
+**Edit a book** - 
+**Delete a book** - 
+**Change my password** - 
+**Make deposit** - 
+
 
 ### Automated Testing
 The following **validation services** were used to check the validity of the code:
@@ -240,7 +254,30 @@ I fixed that by adding to the update_profile view:
 
 
 ## Deployment
-The repository for the project is available on [GitHub](https://github.com/PeterLenting/MyBookYourBook) and can be downloaded.
+The repository for the project is available on [GitHub](https://github.com/PeterLenting/MyBookYourBook).
+
+The project was built using Gitpod. I committed the project and pushed it up to Github. Then I made a connection between Github and Heroku to deploy the project.
+
+**Requirements and Procfile** - A requirements.txt file is used to specify the dependencies required for the application. A Procfile is used to specify to Heroku the commands that are executed by the app on startup.
+
+**Connection between Github and Heroku** - On Heroku Dashboard the “Deploy” tab was chosen and the "GitHub" pane selected. Then the option to auto-deploy the project whenever it’s pushed to on Github was activated, the IP, PORT and my connection string in Heroku settings specified and finally, when scrolled down to "Manual deploy" "Master" branch was deployed.
+
+### How to add this project to your local workspace
+To clone this project from GitHub:
+
+• Go to the project's repository.
+
+• Under the repository name, click "Clone or download".
+
+• In the "Clone with HTTPs" section, copy the URL.
+
+• In your IDE open Git Bash.
+
+• Change your current working directory to the location you want the cloned directory to be made in.
+
+• Type git clone, and paste the URL you copied before.
+
+• Hit Enter. The process of cloning will now be completed.
 
 ## Credits
 
@@ -254,7 +291,6 @@ The logo is made by [Freepik](https://www.flaticon.com/authors/freepik), on [Fla
 ### Code
 I wrote all the code myself, with help and inspiration from the users of StackOverflow.com. Questions and answers on that site pointed me in the right direction more than once. 
 The Code Institute tutor-team also helped me understand why sometimes some code wasn't working. https://wsvincent.com/django-contact-form/
-
 
 ## Disclaimer
 The content of this website is for educational purposes only.

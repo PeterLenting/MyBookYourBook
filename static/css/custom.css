@@ -148,7 +148,9 @@ li {
 }
 
 .navbar-toggler {
-  font-size: 3rem;  
+  font-size: 3rem;
+  background-color: #17a2b8;
+  border: #17a2b8;
 }
 
 .navbar {
@@ -226,8 +228,6 @@ p {
   border-color: #117a8b
 }
 
-    ;
-
 .btn-info p {
   color: black
 }
@@ -277,11 +277,6 @@ h3 {
 
 .nav-link:hover {
   color: #138496;  
-}
-
-.navbar-toggler {
-  background-color: #17a2b8;
-  border: #17a2b8;  
 }
 
 /*Sets dropdown-item in the Navbar (books) on mobile-devices*/
@@ -363,7 +358,7 @@ h3 {
 
 .header-logo-wrap {
   padding-right: 0;
-  padding-left: 5;
+  padding-left: 5px;
   background-color: #FFF;
 }
 
@@ -645,7 +640,7 @@ p {
 @media (min-width: 1200px){
 .message {
   font-size: large;
-}
+  }
 .product-detail-wrapper {
   padding-left: 100px;
   padding-right: 100px;
@@ -739,6 +734,7 @@ body {
 body {
   padding-top: 205px;
   }
+}
 
 @media (min-width: 1800px){
 .header-text {
