@@ -13,7 +13,7 @@ MyBookYourBook will help people achieve that.
    - [What is it?](https://github.com/PeterLenting/MyBookYourBook#what-is-it)
    - [Who is the target audience](https://github.com/PeterLenting/MyBookYourBook#who-is-the-target-audience)
    - [The Goal](https://github.com/PeterLenting/MyBookYourBook#the-goal)
-   - [Mock-ups](https://github.com/PeterLenting/MSP3#mock-ups)
+   - [Mock-ups](https://github.com/PeterLenting/MyBookYourBook#mock-ups)
    - [User stories](https://github.com/PeterLenting/MyBookYourBook#user-stories)
    - [Design](https://github.com/PeterLenting/MyBookYourBook#design)
 2. [Features](https://github.com/PeterLenting/MyBookYourBook#features)
@@ -93,7 +93,7 @@ Contains links to (not yet existing) social media pages: Twitter, Facebook, Inst
 
 Shows all the books on offer, except for the books of the user that is logged in. Not all the information of each book is shown for clarity-reasons. 
 To read more about a book, simply click on the title, the image or ‘more…’ at the end of the summary.
-To buy a book, simply click on the ‘Buy-button’. The logged-in user will be taken to the [Usercontact-page](https://github.com/PeterLenting/MyBookYourBook#UserContactPage). If the user is not logged-in, he will be taken to the login-page.
+To buy a book, simply click on the ‘Buy-button’. The logged-in user will be taken to the Usercontact-page. If the user is not logged-in, he will be taken to the login-page.
 To rent a book, simply click on the ‘Rent-button’. If the user is logged in, the book will be added to the shoppingcart and the button changes to 'Remove book'. If the user is not logged-in, he will be taken to the login-page.
 
 **UserContactPage**
@@ -121,8 +121,8 @@ Have a great day!"
 **Registrationpage**
 
 User gets a form to fill in some basic data. 
-At the end the checkbox states “I want to be able to rent books”. If checked after sending in the form the user is led to the [Checkout-page](https://github.com/PeterLenting/MyBookYourBook#Checkoutpage). 
-If not checked, the registration is completed after sending in the form. The user is led his [Profile-page](https://github.com/PeterLenting/MyBookYourBook#Profilepage) and encouraged to upload his first book.
+At the end the checkbox states “I want to be able to rent books”. If checked after sending in the form the user is led to the Checkout-page. 
+If not checked, the registration is completed after sending in the form. The user is led to his Profile-page and encouraged to upload his first book.
 
 **Checkoutpage**
 
@@ -240,7 +240,7 @@ The Send-button sends the email to MyBookYourBook and takes the user to products
 **Register** - When a user is not logged in, he can hit the Register-button in the navbar to register.
 
 On top of the form there is a link to the sign in page, for when the user allready has an account. 
-The form contains: Username, Email address, Password, Password Confirmation, First name, Last name, Location and a checkbox "I want to be able to rent(-out) books". The first seven field are required.
+The form contains: Username, Email address, Password, Password Confirmation, First name, Last name, Location and a checkbox "I want to be able to rent books". The first seven field are required.
 
 If the form is filled in correctly and the checkbox is not checked, the user is logged in and taken to profile.html where is profile is shown.
 
@@ -258,7 +258,7 @@ Other options are "Oeps, I forgot my password", which takes the user to password
 **Update Profile** - A logged in user hits the Profile-button in the Navbar. This shows profile.html. 
 Hitting the Edit my profile-button takes the user to update_profile.html where the profile can be updated.
 
-First Name, Last Name, Location and I want to be able to rent(-out) books (checkbox) can be changed. 
+First Name, Last Name, Location and I want to be able to rent books (checkbox) can be changed. 
 After making the changes, with a still valid form, hitting the Submit-button takes the user to profile.html where the updated profile is shown.
 When the checked is checked, and wasn't checked before, the user is taken to checkout.html. A message with an explanation is shown, with the order_form and the payment-form. 
 If the form is filled in correctly (all fields required), the user is taken to profile.html and gets a message: "You have successfully paid, start shopping :)".
@@ -288,7 +288,8 @@ If the form is filled in correctly (all fields required), the user is taken to p
 ### Automated Testing
 The following **validation services** were used to check the validity of the code:
 
-•	W3C Markup Validation Service was used to validate HTML.
+•	W3C Markup Validation Service was used to validate HTML. 
+    It shows errors for using ID's in the "product-wrapper", which is used multiple times in the {% for product in products %} statements.
 
 •	W3C CSS validation was used to validate CSS and showed no errors.
 

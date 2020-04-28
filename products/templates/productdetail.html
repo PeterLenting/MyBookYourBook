@@ -34,7 +34,7 @@
     {% if product.is_for_sale == True and user != product.provider%}
     <div class="row rent-sale-background col-md-6" id="sale-button">
         <a href="{% url 'user_contact_page' product.id %}" class="btn btn-info btn-block" id="contact-user-button">
-            <div class="col-md-12 rent-sale-button margin-bottom">
+            <div class="col-md-12 rent-sale-button">
                 <p><i class="fas fa-envelope-square"></i><span class="boldtext"> Buy: </span> €{{product.saleprice}}</p>
             </div>
         </a>
