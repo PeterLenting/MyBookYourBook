@@ -5,6 +5,10 @@
   background-color: #fff;
 }
 
+.form-control {
+  font-size: 1.8rem;  
+}
+
 .rent-details-wrapper {
   margin-top: 5px; 
 }
@@ -66,7 +70,8 @@
 }
 
 .user-contact-form {
-  padding-bottom: 15px;  
+  padding-bottom: 15px; 
+  font-size: 2rem; 
 }
 
 .rent-success-page {
@@ -502,6 +507,11 @@ h3 {
   margin-bottom: 5px;
 }
 
+/*register.html, link to sign in page*/
+.sign-in-link-background {
+  background-color: #FFF;  
+}
+
 /*Link to the about-page*/
 #link-about {
   font-weight: bold;  
@@ -593,6 +603,18 @@ footer {
   height: 800px;  
 }
 
+@media (min-width: 800px){
+.btn-info {
+  font-size: 1.5rem;
+  }
+.user-contact-form {
+  font-size: 1rem; 
+  }
+.form-control {
+  font-size: 1rem;  
+  }
+}
+
 @media (min-width: 992px){
 #hello_user {
   font-size: 1.4rem;   
@@ -629,15 +651,30 @@ p {
 .product-header {
  min-height: 76px;
   }
+.header-logo {
+  width: 90%;
+  }
+h3 {
+  font-size: 1.75rem;  
+  } 
 }
 
 @media (min-width: 1100px){
-  .product-wrapper {
+body {
+  padding-top: 225px;
+  }
+.product-wrapper {
   height: 1350px;
+  }
+.header-logo {
+  width: 80%;
   }
 }
 
 @media (min-width: 1200px){
+.header-logo {
+  width: 100%;
+  }
 .message {
   font-size: large;
   }
@@ -647,10 +684,7 @@ p {
   }
 .profile-books {
   font-size: 2rem;
-  }
-h3 {
-  font-size: 1.75rem;  
-  }  
+  } 
 .product-wrapper {
   height: 800px;
   }
@@ -704,6 +738,9 @@ height: 945px;
 }
 
 @media (min-width: 1350px){
+body {
+  padding-top: 190px;
+  }
 .header-text {
   font-size: 2.1rem;
   } 
@@ -723,7 +760,7 @@ height: 945px;
   height: 700px;
   }
 body {
-  padding-top: 190px;
+  padding-top: 210px;
   }
 #cart-product-wrapper {
   height: 800px;  
@@ -732,11 +769,14 @@ body {
 
 @media (min-width: 1700px){
 body {
-  padding-top: 205px;
+  padding-top: 215px;
   }
 }
 
 @media (min-width: 1800px){
+body {
+  padding-top: 220px;
+  }
 .header-text {
   font-size: 2.7rem;
   } 
@@ -748,6 +788,12 @@ body {
   }
 }
 
+@media (min-width: 1900px){
+body {
+  padding-top: 225px;
+  }
+}
+
 @media (min-width: 2000px){
 .header-logo {
   width: 90%;
@@ -756,7 +802,7 @@ body {
   font-size: 2.9rem;
   } 
 body {
-  padding-top: 210px;
+  padding-top: 230px;
   }
 #cart-product-wrapper {
   height: 700px;  
@@ -765,7 +811,7 @@ body {
 
 @media (min-width: 2100px){
 body {
-  padding-top: 220px;
+  padding-top: 235px;
   }
 .product-wrapper {
   height: 660px;
@@ -777,7 +823,7 @@ body {
   font-size: 3.3rem;
   } 
 body {
-  padding-top: 230px;
+  padding-top: 240px;
   }
 #cart-product-wrapper {
   height: 675px;  

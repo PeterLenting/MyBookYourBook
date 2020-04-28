@@ -11,7 +11,8 @@
     <form class="col-md-12 offset-lg-2 col-lg-8" method="POST">
         {% csrf_token %}
         {{ form | as_bootstrap }}
-        {{ formUserProfile | as_bootstrap }}      
+        {{ formUserProfile | as_bootstrap }}    
+        <p class="rent-message">* A 30 euro depostie is required to be able to rent(-out) books. <a href="{% url 'about' %}" target="_blank">Read more</a></p>   
         <div class="text-center col-md-12">
             <button class="btn btn-info" type="submit" href="{% url 'checkout' %}">Submit</button>
         </div>    

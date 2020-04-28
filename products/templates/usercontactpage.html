@@ -4,7 +4,7 @@
 {% block content %}
 
     <div class="col-lg-6">
-        <h1 class="col-12 text-center">Contact {{ product.provider }}</h1>
+        <h3 class="col-12 text-center">Contact {{ product.provider }}</h3>
         <form class="col-md-12 offset-lg-2 col-lg-8 user-contact-form" method="post">
             {% csrf_token %}
             {{ form | as_bootstrap }}

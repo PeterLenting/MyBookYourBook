@@ -40,7 +40,7 @@ def registration(request):
                 auth.login(user=user, request=request)
                 request.session['user_id'] = user.id
                 request.session['user_email'] = user.email
-                return redirect(reverse('get_products'))
+                return redirect(reverse('profile'))
             else:
                 messages.error(request,
                                "Sorry, we are unable to register \

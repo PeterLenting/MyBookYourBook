@@ -82,6 +82,9 @@ Home, About, Contact, Books (dropdown with 'All books', 'Books for sale', 'Books
 On mobile and tablet the navigation bar is a navbar-toggler (Bootstrap), on desktop the navbar is fully shown op top of the page. 
 The fixed-top class (Bootstrap) is added to keep the footer sticked to the top at all time.
 
+**Second-header**
+Contains the logo of MyBookYourBook and the searchbar. Searching for books can be done on title, author, location and condition of the book. 
+
 **Footer**
 
 Contains links to (not yet existing) social media pages: Twitter, Facebook, Instagram and Youtube.
@@ -100,7 +103,7 @@ There a default email is set up using the email and first name of the request.us
 Besides that the book the request.user wants to buy is shown.
 The email is send to the provider of the book. It’s up to them to get it all done.
 
-**Rentpage**
+**Cartpage**
 
 Shows the number of books in the shoppingcart, the total rentprice per week and the books that are in the cart. Gives option to remove each book from the cart. 
 "Let's rent"-button takes user to the rent page.
@@ -123,7 +126,7 @@ If not checked, the registration is completed after sending in the form. The use
 
 **Checkoutpage**
 
-User gets a form to make a deposit of 30 euro. There are two possible messages at the top of the page. One for the user that makes his first deposit and oen for the user that has made a deposit before. 
+User gets a form to make a deposit of 30 euro (I am using Stripe here). There are two possible messages at the top of the page. One for the user that makes his first deposit and oen for the user that has made a deposit before. 
 After sending in the form, the user gets a message that his payment was successfull (or that it wasn’t). And he is encouraged to start renting.
 
 **Aboutpage**
@@ -204,18 +207,72 @@ The responsiveness of the page was tested at all times during the development of
 
 I created, updated, deleted, rented, bought, signed in and out, and contacted myself and had other people testing the project as well during the development. This is a reliable way of discovering whether everything works as it should:
 
-**Search** - To search for certain books, in order to rent them.
-**Buy a book** - 
-**Rent a book** - 
-**Ask a question** - 
-**Sign up** - 
-**Sign in** - 
-**Sign out** - 
-**Update Profile** - 
+**Search** - Searching for books by title, author, location and condition of the book. 
+Type in the searchword in the inputfield, hit search and the results is shown, with the book that was uploaded the last as first. 
+The books of the request.user are shown in the searchresults as well.
+
+**Buy a book** - Choose a book and hit the Buy-button. If the user is not logged in, he is send to login.html. If the user is logged in, he is send to usercontactpage.html.
+
+There a filled in form is shown. The header shows "Contact product.providermessage", the subject is "I would like to buy product.title", 
+the message contains product.provider.first_name, product.title, user.email, user.first_name.
+Also shown on this page: the book the request.user wants to buy with some details.
+On sending the form, the provider of the books gets an email with the content shown and mybookyourbook@gmail.com as sender.
+The request.user gets the message: "Your message has been send, you can continue shopping" and is send to products.html.
+
+**Rent a book** - Choose a book and hit the Rent-button. If the user is not logged in, he is send to login.html. If the user is logged in, the book is added to his cart.
+
+In the top right corner of the screen next to the shopping cart, the user can see the number of books in his cart. 
+When the user is done adding books to his cart, he can click on the cart to be taken to cart.html. 
+This shows the number of books in the shoppingcart, the total rentprice per week and the books that are in the cart. There is an option to remove each book from the cart. 
+If the cart is empty: "There are no items in your cart..."
+The Let's rent-button takes user to rent.html.
+
+If the request.user has made a deposit (have_paid == True): The details of the cart are shown again with also his username and his emailadres. The Send-button sends the form to MyBookYourBook.
+After the form is send the user gets a message: "Great, we recieved your order! We will contact the owners of the books you want to rent and have them contact you. Have a great day!"
+
+If the request.user has not made a deposit (have_paid == False): He is asked to make a deposit. The Make your deposit-button takes the user to checkout.html. After making a deposit the user can rent the books.
+
+**Ask a question** - Hit the Contact-button in the navbar. If request.user is not logged in, he is send to login.html. If the user is logged in, he is send to contact.html.
+
+A form is shown with "Contact us" as a header. From email is allready filled in with the email of the request.user. Subject and Message need to filled in by the user.
+The Send-button sends the email to MyBookYourBook and takes the user to products.html. There a message is shown: "Thank you for you message! We'll get back to you soon."
+
+**Register** - When a user is not logged in, he can hit the Register-button in the navbar to register.
+
+On top of the form there is a link to the sign in page, for when the user allready has an account. 
+The form contains: Username, Email address, Password, Password Confirmation, First name, Last name, Location and a checkbox "I want to be able to rent(-out) books". The first seven field are required.
+
+If the form is filled in correctly and the checkbox is not checked, the user is logged in and taken to profile.html where is profile is shown.
+
+If the form is filled in correctly and the checkbox is checked, the user is logged in and taken to checkout.html. A message with an explanation is shown, with the order_form and the payment-form. 
+If the form is filled in correctly (all fields required), the user is taken to profile.html and gets a message: "You have successfully paid, start shopping :)".
+
+**Sign in** - When the user is not logged in, the Login-button in the navbar takes him to login.html. There Username and Password need to be filled in, before hitting the Login-button.
+When something is wrong, a message is shown: "Your username or password is incorrect".
+If all is well, the user is logged in and send to the homepage. His name is shown in the top right corner of the navbar.
+
+Other options are "Oeps, I forgot my password", which takes the user to password-reset.html, and No account yet? Sign up!, which takes the user to registration.html.
+
+**Logout** - Hitting logout in the navbar signs out the user and removes his name from the top right corner.
+
+**Update Profile** - A logged in user hits the Profile-button in the Navbar. This shows profile.html. 
+Hitting the Edit my profile-button takes the user to update_profile.html where the profile can be updated.
+
+Email address, First Name, Last Name, Location and I want to be able to rent(-out) books (checkbox) can be changed. 
+After making the changes, with a still valid form, hitting the Submit-button takes the user to profile.html where the updated profile is shown.
+When the checked is checked, and wasn't checked before, the user is taken to checkout.html. A message with an explanation is shown, with the order_form and the payment-form. 
+If the form is filled in correctly (all fields required), the user is taken to profile.html and gets a message: "You have successfully paid, start shopping :)".
+
+**Look at another users Profile** - 
+
 **Add a book** - 
+
 **Edit a book** - 
+
 **Delete a book** - 
+
 **Change my password** - 
+
 **Make deposit** - 
 
 
