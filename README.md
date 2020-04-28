@@ -15,8 +15,9 @@ MyBookYourBook will help people achieve that.
    - [What is it?](https://github.com/PeterLenting/MyBookYourBook#what-is-it)
    - [Who is the target audience](https://github.com/PeterLenting/MyBookYourBook#who-is-the-target-audience)
    - [The Goal](https://github.com/PeterLenting/MyBookYourBook#the-goal)
-   - [Mock-ups](https://github.com/PeterLenting/MyBookYourBook#mock-ups)
    - [User stories](https://github.com/PeterLenting/MyBookYourBook#user-stories)
+   - [Mock-ups](https://github.com/PeterLenting/MyBookYourBook#mock-ups)
+   - [Final site](https://github.com/PeterLenting/MyBookYourBook#final-site)
    - [Design](https://github.com/PeterLenting/MyBookYourBook#design)
 2. [Features](https://github.com/PeterLenting/MyBookYourBook#features)
    - [Existing features](https://github.com/PeterLenting/MyBookYourBook#existing-features)
@@ -46,21 +47,6 @@ There are multiple platforms where anybody can sell or buy books. The renting-pa
 It is different from a library, because by stimulating people to rent out their own books the supply of popular books will be a lot bigger. 
 In libraries the waiting list for popular books can be very long. 
 
-### Mock-ups
-[Mock-up of the desktop version of product-detail](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-upProduct-page.JPG).
-
-[Mock-up of the desktop version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-up.JPG).
-
-[Mock-up of the mobile version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/MobileMock-up.JPG).
-
-### Final site
-
-[Mobile Version of the site (profile-page)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Mobile.JPG).
-
-[Tablet Version of the site (product-detail)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/tablet.JPG).
-
-[Desktop Version of the site (homepage)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Desktop.JPG)
-
 ### Who is the target audience?
 People who love to read paper books. 
 
@@ -78,6 +64,24 @@ As a visitor, I want:
 5. To send a message to another user who is offering a book, in order to but it.
 6. To add a book to the site, in order to sell it.
 7. To update my profile, in order to change my location.
+
+### Mock-ups
+[Mock-up of the desktop version of product-detail](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-upProduct-page.JPG).
+
+[Mock-up of the desktop version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-up.JPG).
+
+[Mock-up of the mobile version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/MobileMock-up.JPG).
+
+### Final site
+
+[Mobile Version of the site (profile-page)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Mobile.JPG).
+
+[Tablet Version of the site (product-detail)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/tablet.JPG).
+
+[Desktop Version of the site (homepage)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Desktop.JPG)
+
+The difference between the mock-ups and the final site is pretty obvious... While making the mock-ups, I was trying to give the site a bit of that "Drink-Coffee-Read-A-Book"-feeling.
+During the development I admitted that wasn't really working out. So I decided to change the design and make clean, fresh and modern. 
 
 ### Design
 

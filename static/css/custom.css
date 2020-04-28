@@ -511,8 +511,12 @@ h3 {
   font-weight: bold;  
 }
 
-.deposit-button{
+.deposit-button {
   margin-bottom: 5px;
+}
+
+.password-reset {
+  font-size: 2rem;  
 }
 
 /*register.html, link to sign in page*/
@@ -670,7 +674,10 @@ h3 {
   } 
 #rent-button {
   font-size: 1.2rem;  
-}  
+  }
+.password-reset {
+  font-size: 1.5rem;  
+  }    
 }
 
 @media (min-width: 1100px){
