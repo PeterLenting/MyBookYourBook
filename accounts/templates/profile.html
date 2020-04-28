@@ -22,7 +22,7 @@
         <h3 class="text-center product-header"><a href="{% url 'product_detail' user_post.id %}">{{ user_post.title }}</a></h3>
         <div class="text-center wrapper-product-img">
             <a class="product-link" href="{% url 'product_detail' user_post.id %}">
-                <img class="product-img" src="/media/{{ user_post.image }}">
+                <img class="product-img" src="/media/{{ user_post.image }}" alt="{{ user_post.title }}">
             </a>
         </div>
         <p class="col-12"><span class="boldtext">By: </span>{{ user_post.author }} </p>

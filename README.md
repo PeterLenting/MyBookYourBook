@@ -60,7 +60,7 @@ As a visitor, I want:
 4. To make a deposit, in order to be able to rent books.
 5. To send a message to another user who is offering a book, in order to but it.
 6. To add a book to the site, in order to sell it.
-7. To update my profile, in order to change my emailaddress.
+7. To update my profile, in order to change my location.
 
 ### Design
 
@@ -258,22 +258,31 @@ Other options are "Oeps, I forgot my password", which takes the user to password
 **Update Profile** - A logged in user hits the Profile-button in the Navbar. This shows profile.html. 
 Hitting the Edit my profile-button takes the user to update_profile.html where the profile can be updated.
 
-Email address, First Name, Last Name, Location and I want to be able to rent(-out) books (checkbox) can be changed. 
+First Name, Last Name, Location and I want to be able to rent(-out) books (checkbox) can be changed. 
 After making the changes, with a still valid form, hitting the Submit-button takes the user to profile.html where the updated profile is shown.
 When the checked is checked, and wasn't checked before, the user is taken to checkout.html. A message with an explanation is shown, with the order_form and the payment-form. 
 If the form is filled in correctly (all fields required), the user is taken to profile.html and gets a message: "You have successfully paid, start shopping :)".
 
-**Look at another users Profile** - 
+**Look at another users Profile** - To view the Profile of another user, simply click on the name of the Provider of a book. This will take the request.user to the Profile of that user. 
+The request.user needs to be logged in to see the profile, otherwise the user will be taken to the login-page. On the Profile-page the details of the user and the books he has on offer are vissible.
 
-**Add a book** - 
+**Add a book** - To add a book, the request.user needs to be logged in. Simply click on the Add a book-button in the navbar and get taken to productform.html. 
+The header above the form reeds: "Add your book here". The Title, Author, Condition of book, Year of edition, Publisher, Number of pages, Location, Image and Summary need to filled in.
+From the two checkboxes (For Sale and For Rent), at least one needs to be checked. On checking each of the boxes another field (Saleprice or Rentprice per week) shows and needs to be filled in.
+After saving a valid form, request.user is taken to products/my_products/.
 
-**Edit a book** - 
+**Edit a book** - Every user can edit his own books when logged in. Find these books on products/my_products/ or in your Profile. Then hit the Edit-button and the filled in form of the book is shown.
+After saving a valid (changed) form, request.user is taken to productdetail.html.
 
-**Delete a book** - 
+**Delete a book** - Every user can delete his own books when logged in. Find these books on products/my_products/ or in your Profile. Hit the Delete-button, confirm you're sure and the book is gone.
 
-**Change my password** - 
+**Change my password** - To change your password go to the login-page and hit "Oeps, I forgot my password", which takes the user to password-reset.html. 
+Fill in your emailaddress and hit the Reset password-button. An email is send, in which a link takes the request.user to password_reset_confirm.html where a new password needs to be filled in.
+After sending in avalid password, the user can sign in.
 
-**Make deposit** - 
+**Make deposit** - If the user is logged in and has paid before (have_paid == True), in the navbar the button will read "Make new deposit". Otherwise the button reads "Make deposit". 
+Clicking it will take the user to checkout.html where all details need to filled in. Off course there is a message to explain everything for the experienced user and the new user.
+If the form is filled in correctly (all fields required), the user is taken to profile.html and gets a message: "You have successfully paid, start shopping :)".
 
 
 ### Automated Testing
