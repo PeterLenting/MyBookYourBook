@@ -46,6 +46,21 @@ There are multiple platforms where anybody can sell or buy books. The renting-pa
 It is different from a library, because by stimulating people to rent out their own books the supply of popular books will be a lot bigger. 
 In libraries the waiting list for popular books can be very long. 
 
+### Mock-ups
+[Mock-up of the desktop version of product-detail](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-upProduct-page.JPG).
+
+[Mock-up of the desktop version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/DesktopMock-up.JPG).
+
+[Mock-up of the mobile version of the homepage](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/MobileMock-up.JPG).
+
+### Final site
+
+[Mobile Version of the site (profile-page)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Mobile.JPG).
+
+[Tablet Version of the site (product-detail)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/tablet.JPG).
+
+[Desktop Version of the site (homepage)](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Desktop.JPG)
+
 ### Who is the target audience?
 People who love to read paper books. 
 
