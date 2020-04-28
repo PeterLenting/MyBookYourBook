@@ -37,7 +37,7 @@
                     <form class="margin-form" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
                     {% csrf_token %}
                         <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
-                            <p id="rent-button"><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> Rent: </span> €{{product.rentprice_per_week}} pw</p> 
+                            <span id="rent-button"><i class="fas fa-shopping-cart" id="add-to-cart-cart"></i><span class="boldtext"> Rent: </span> €{{product.rentprice_per_week}} pw</span> 
                         </button> 
                     </form>    
                     {% endif %}
@@ -45,7 +45,7 @@
                     <div class="row rent-sale-background" id="sale-button">
                         <a href="{% url 'user_contact_page' product.id %}" class="btn btn-info btn-block" id="contact-user-button">
                             <div class="col-md-12 rent-sale-button margin-bottom">
-                                <p><i class="fas fa-envelope-square"></i><span class="boldtext"> Buy: </span> €{{product.saleprice}}</p>
+                                <span><i class="fas fa-envelope-square"></i><span class="boldtext"> Buy: </span> €{{product.saleprice}}</span>
                             </div>
                         </a>
                     </div>

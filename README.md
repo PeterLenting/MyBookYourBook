@@ -23,7 +23,7 @@ MyBookYourBook will help people achieve that.
 4. [Testing](https://github.com/PeterLenting/MyBookYourBook#testing)
    - [Resonsive testing](https://github.com/PeterLenting/MyBookYourBook#responsive-testing)
    - [Manual testing](https://github.com/PeterLenting/MyBookYourBook#manual-testing)
-   - [Improvements after testing](https://github.com/PeterLenting/MSP3#improvements-after-testing)
+   - [Improvements after testing](https://github.com/PeterLenting/MyBookYourBook#improvements-after-testing)
    - [Browsers](https://github.com/PeterLenting/MyBookYourBook#browsers)
    - [Automated testing](https://github.com/PeterLenting/MyBookYourBook#automated-testing)
 5. [Deployment](https://github.com/PeterLenting/MSP3#deployment)
@@ -290,9 +290,9 @@ The following **validation services** were used to check the validity of the cod
 
 •	W3C Markup Validation Service was used to validate HTML.
 
-•	W3C CSS validation was used to validate CSS.
+•	W3C CSS validation was used to validate CSS and showed no errors.
 
-•	JSHint was used to validate JavaScript.
+•	JSHint was used to validate JavaScript and showed no errors.
 
 ### Improvements after testing
 
