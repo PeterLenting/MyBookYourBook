@@ -5,6 +5,8 @@ Reading is fun and reading books creates understanding.
 So it’s important to give everyone the opportunity to read as many books as they want. 
 MyBookYourBook will help people achieve that.
 
+![Responsive site](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Desktop.JPG)
+
 - [View the page here](https://mbyb-app.herokuapp.com/). This application is hosted on Heroku using a Postgres (MySQL Database).
 - [View the Github Repository here](https://github.com/PeterLenting/MyBookYourBook)
 
