@@ -2,10 +2,10 @@
 {% block content %}
     
 <div class="col-sm-12 offset-md-2 col-md-8 product-detail-wrapper">
-    <h3 class="text-center">{{ product.title }}</h3>
+    <h2 class="text-center">{{ product.title }}</h2>
     {% if product.image %}
     <div class="text-center">
-        <img class="img-product-detail" src="/media/{{ product.image }}" alt="{{ product.title }}">
+        <img class="img-product-detail" src="https://mybookyourbook.s3.eu-west-3.amazonaws.com/media/{{ product.image }}" alt="{{ product.title }}">
     </div>
     {% endif %}
     <p>{{ product.content }}</p>

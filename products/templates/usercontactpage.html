@@ -18,7 +18,7 @@
         <h3 class="text-center">{{ product.title }}</h3>
         {% if product.image %}
         <div class="text-center">
-            <img class="product-img" src="/media/{{ product.image }}" alt="{{ product.title }}">
+            <img class="product-img" src="https://mybookyourbook.s3.eu-west-3.amazonaws.com/media/{{ product.image }}" alt="{{ product.title }}">
         </div>
         {% endif %}
         <p>{{ product.content }}</p>
