@@ -3,53 +3,58 @@
 {% load bootstrap_tags %}
 
 {% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-    //<![CDATA[
-        Stripe.publishableKey = '{{ publishable }}';
-    //]]>
-</script>
-<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+<!-- js.stripe.com/v2 is the direct link to Stripe's JavaScript to set the Stripe.publishableKey. 
+The rest of our Stripe JavaScript is in the stripe.js file.-->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+            Stripe.publishableKey = '{{ publishable }}';
+        //]]>
+    </script>
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock head_js %}
 
 {% block content %}
-<div class="offset-lg-2 col-lg-8">
-    {% if user.uprofile.have_paid == True %}
-    <div class="checkout-explanation">
-        <legend class="text-center">New deposit</legend>
-        <p>As you now, to be able to rent books a deposit of 30 euro's is required.<br> 
-        This deposite is used to pay the owner of the books you are renting.<br>
-        If you want to make an extra 30 euro deposit, you can do this by sending in this form.<br>
-        The new deposit will be added to your current balance and you'll get an email with your new balance.<br>
-        Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
-        </p>
-    </div>
-    {% elif user.uprofile.have_paid == False %}
-    <div class="checkout-explanation">
-        <legend class="text-center">Deposit</legend>
-        <p>To be able to rent books a deposit of 30 euro's is required.<br> 
-        The deposite is used to pay the owner of the books you are renting.<br>
-        Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
-        </p>
-    </div>
-    {% endif %}
-    <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
-        <legend class="text-center">My Details</legend>
-        <div id="credit-card-errors" style="display: none;">
-            <div id="alert-message block-message error" id="stripe-error-message"></div>
+    <div class="offset-lg-2 col-lg-8">
+        {% if user.uprofile.have_paid == True %}
+        <!--Shows the explanation of the rent-procedure to the user that has seen it before (has paid before)-->
+        <div class="checkout-explanation">
+            <legend class="text-center">New deposit</legend>
+            <p>As you now, to be able to rent books a deposit of 30 euro's is required.<br> 
+            This deposit is used to pay the owner of the books you are renting.<br>
+            If you want to make an extra 30 euro deposit, you can do this by sending in this form.<br>
+            The new deposit will be added to your current balance and you'll get an email with your new balance.<br>
+            Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
+            </p>
         </div>
-        <div class="form-group col-md-12">
-            {{ order_form | as_bootstrap }}
-            {% csrf_token %}
+        {% elif user.uprofile.have_paid == False %}
+        <!--Shows the explanation of the rent-procedure to the user that has not seen it before (has not paid before)-->
+        <div class="checkout-explanation">
+            <legend class="text-center">Deposit</legend>
+            <p>To be able to rent books a deposit of 30 euro's is required.<br> 
+            The deposite is used to pay the owner of the books you are renting.<br>
+            Read more about the terms and conditions on our <a href="{% url 'about' %}" target="_blank" id="link-about">About-page</a>.
+            </p>
         </div>
+        {% endif %}
+        <!--The checkout-form-->
+        <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
+            <legend class="text-center">My Details</legend>
+            <div id="credit-card-errors" style="display: none;">
+                <div id="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
+            <div class="form-group col-md-12">
+                {{ order_form | as_bootstrap }}
+                {% csrf_token %}
+            </div>
 
-        <div class="form-group col-md-12">
-            {{ payment_form | as_bootstrap }}
-            {% csrf_token %}
-        </div>
-        <div class="form-group col-md-12 text-center">
-            <input class="btn btn-info" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
-    </form>
-</div>
+            <div class="form-group col-md-12">
+                {{ payment_form | as_bootstrap }}
+                {% csrf_token %}
+            </div>
+            <div class="form-group col-md-12 text-center">
+                <input class="btn btn-info" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+            </div>
+        </form>
+    </div>
 {% endblock %}

@@ -608,7 +608,7 @@ footer {
 }
 
 /*Styling the four icons in the footer*/
-.sociallinks a{
+.sociallinks a {
     color: #17a2b8;
     padding-left: 25px;
     padding-right: 25px;  
@@ -637,6 +637,9 @@ footer {
   }
 .navbar-expand-lg .navbar-nav .nav-link {
   font-size: 1.4rem;  
+  }
+.product-wrapper {
+  height: 750px;
   }
 .product-info-wrapper p {
   font-size: 1.2rem;   
@@ -684,7 +687,7 @@ body {
   padding-top: 225px;
   }
 .product-wrapper {
-  height: 1350px;
+  height: 740px;
   }
 .header-logo {
   width: 80%;
@@ -706,7 +709,7 @@ body {
   font-size: 2rem;
   } 
 .product-wrapper {
-  height: 800px;
+  height: 700px;
   }
 .wrapper-product-img {
   height: 205px;
@@ -777,7 +780,7 @@ body {
   font-size: 2.4rem;
   } 
 .product-wrapper {
-  height: 700px;
+  height: 600px;
   }
 body {
   padding-top: 210px;
@@ -838,9 +841,6 @@ body {
 @media (min-width: 2100px){
 body {
   padding-top: 235px;
-  }
-.product-wrapper {
-  height: 660px;
   }
 }
 

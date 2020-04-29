@@ -1,14 +1,11 @@
 {% extends "base.html" %}
+
 {% block content %}
-    
-<div class="col-sm-12 offset-md-2 col-md-8 product-detail-wrapper">
-    <h2 class="text-center">{{ product.title }}</h2>
-    {% if product.image %}
+    <div class="col-sm-12 offset-md-1 col-md-10 product-detail-wrapper">
+    <h1 class="text-center boldtext">{{ product.title }}</h1>
     <div class="text-center">
         <img class="img-product-detail" src="https://mybookyourbook.s3.eu-west-3.amazonaws.com/media/{{ product.image }}" alt="{{ product.title }}">
     </div>
-    {% endif %}
-    <p>{{ product.content }}</p>
     <p><span class="boldtext">Added:</span> {{ product.published_date }}</p>
     <p><span class="boldtext">Author:</span> {{product.author}}</p>
     <p><span class="boldtext">Edition:</span> {{product.year_of_edition}}</p>
@@ -17,13 +14,15 @@
     <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' product.provider.id %}">{{product.provider}}</a></p>
     <p><span class="boldtext">Pages:</span> {{product.number_of_pages}}</p>
     <p><span class="boldtext">Location:</span> {{product.location}}</p>
-    {% if product.is_for_rent == True and product.id in cart_ids%}   
+    {% if product.is_for_rent == True and product.id in cart_ids%}  
+    <!--If the book is for rent and is in the users cart, a button to remove the book form the cart is shown--> 
     <form class="margin-bottom col-lg-6 rent-sale-background margin-form" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
         {% csrf_token %}
         <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
         <button class="row rent-sale-background btn btn-info btn-block margin-bottom" id="remove-from-cart-button"><i class="fas fa-shopping-cart" id="remove-from-cart-cart"></i> Remove book</button>
     </form>
-    {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
+    {% elif product.is_for_rent == True %} 
+    <!--If the book is for rent a button to rent the book is shown-->
     <form class="margin-bottom col-lg-6 rent-sale-background margin-form" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
     {% csrf_token %}
         <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
@@ -31,7 +30,8 @@
         </button> 
     </form>        
     {% endif %}
-    {% if product.is_for_sale == True and user != product.provider%}
+    {% if product.is_for_sale == True %}
+    <!--If the book is for sale a button to buy the book is shown-->
     <div class="row rent-sale-background col-md-6" id="sale-button">
         <a href="{% url 'user_contact_page' product.id %}" class="btn btn-info btn-block" id="contact-user-button">
             <div class="col-md-12 rent-sale-button">
@@ -42,6 +42,7 @@
     {% endif %}
     <p><span class="boldtext">Summary:</span> {{ product.summary | linebreaks}}</p>
     {% if user == product.provider or user.is_superuser %}
+    <!--If the user is the one offering the book, or the superuser an edit- and a delete-button are shown-->
     <div class="row edit-delete-button">
         <div class="col-6 edit-button">
             <a href="{% url 'edit_product' product.id %}" class="btn btn-info btn-block margin-bottom">Edit</a>
@@ -54,8 +55,5 @@
         </div>
     </div>
     {% endif %}
-    <!--<div class="text-center">
-        <a href="{% url 'get_products' %}" class="btn btn-info">Home</a>
-    </div>-->
 </div>
 {% endblock %}
