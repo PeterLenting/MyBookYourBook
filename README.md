@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/PeterLenting/MyBookYourBook.svg?branch=master)](https://travis-ci.org/PeterLenting/MyBookYourBook)
+
 # MyBookYourBook
 
 ## Introduction
@@ -29,7 +31,7 @@ MyBookYourBook will help people achieve that.
    - [Improvements after testing](https://github.com/PeterLenting/MyBookYourBook#improvements-after-testing)
    - [Browsers](https://github.com/PeterLenting/MyBookYourBook#browsers)
    - [Automated testing](https://github.com/PeterLenting/MyBookYourBook#automated-testing)
-5. [Deployment](https://github.com/PeterLenting/MSP3#deployment)
+5. [Deployment](https://github.com/PeterLenting/MyBookYourBook#deployment)
    - [How to add this project to your local workspace](https://github.com/PeterLenting/MyBookYourBook#How-to-add-this-project-to-your-local-workspace)
 6. [Credits](https://github.com/PeterLenting/MyBookYourBook#credits)
    - [Content](https://github.com/PeterLenting/MyBookYourBook#content)
@@ -211,6 +213,10 @@ There are loads of extra feature that could be build to make this platform even 
 
 •   [Travis](https://travis-ci.org/) for continuous integration.
 
+•   [AWS S3](https://aws.amazon.com/s3/) to store the static-files and the images.
+
+•   PIP3 for installation of tools needed in this project.
+
 •	Paint to edit the images used.
 
 •	Google Chrome developer tools.
@@ -369,6 +375,20 @@ To clone this project from GitHub:
 
 • Hit Enter. The process of cloning will now be completed.
 
+• Create an env.py file, use os.environ.get and os.getenv in your settings.py and enter the following:
+
+            ```
+            "SECRET_KEY": "enter your own value here",
+            "DATABASE_URL": "enter your own value here",
+            "EMAIL_ADDRESS": "enter your own value here",
+            "EMAIL_PASSWORD": "enter your own value here",
+            "STRIPE_PUBLISHABLE": "enter your own value here",
+            "STRIPE_SECRET": "enter your own value here",
+            "AWS_SECRET_KEY_ID": "enter your own value here",
+            "AWS_SECRET_ACCESS_KEY": "enter your own value here"
+            ```
+• Before you push, you should off course env.py to .gitignore in order not the share this information.
+
 ## Credits
 
 ### Content
@@ -380,9 +400,8 @@ The logo is made by [Freepik](https://www.flaticon.com/authors/freepik), on [Fla
 
 ### Code
 I wrote all the code myself, with help and inspiration from the users of StackOverflow.com. Questions and answers on that site pointed me in the right direction more than once. 
-The Code Institute tutor-team also helped me understand why sometimes some code wasn't working. https://wsvincent.com/django-contact-form/
+The Code Institute tutor-team also helped me understand why sometimes some code wasn't working. 
+The code to build the contactform is based on: https://wsvincent.com/django-contact-form/
 
 ## Disclaimer
 The content of this website is for educational purposes only.
-
-[![Build Status](https://travis-ci.org/PeterLenting/MyBookYourBook.svg?branch=master)](https://travis-ci.org/PeterLenting/MyBookYourBook)
