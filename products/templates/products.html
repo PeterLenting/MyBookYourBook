@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+
 {% block content %}
     {% for product in products %}
+    <!--Loops through all the products (books) -->
     <div class="col-md-6 col-lg-4 col-xl-3 product-wrapper">
         <h3 class="text-center product-header"><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></h3>
         <div class="text-center wrapper-product-img">
@@ -14,13 +16,15 @@
                 <p><span class="boldtext">Condition:</span> {{product.condition_of_book}}</p>
                 <p><span class="boldtext">Provider:</span> <a href="{% url 'provider_profile' product.provider.id %}">{{product.provider}}</a></p>
                 <p><span class="boldtext">Location:</span> {{product.location}}</p> 
-                {% if product.is_for_rent == True and product.id in cart_ids%}   
+                {% if product.is_for_rent == True and product.id in cart_ids%}
+                <!--If the book is for rent and is in the users cart, a button to remove the book form the cart is shown-->    
                 <form class="margin-form" action='{% url "remove" %}' method="POST" id="remove_from_cart_form-{{ forloop.counter }}">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="{{ item.product.id }}"/>
                     <button class="row rent-sale-background btn btn-info btn-block" id="remove-from-cart-button"><i class="fas fa-shopping-cart" id="remove-from-cart-cart"></i> Remove book</button>
                 </form>
-                {% elif product.is_for_rent == True and user != superuser and user != product.provider %} 
+                {% elif product.is_for_rent == True %} 
+                <!--If the book is for rent a button to rent the book is shown-->
                 <form class="margin-form" action="{% url 'add_to_cart' product.id %}" method="post" id="add_to_cart_form-{{ forloop.counter }}">
                 {% csrf_token %}
                     <button class="row rent-sale-background btn btn-info btn-block" id="add_to_cart_button-{{ forloop.counter }}" type="submit">
@@ -28,7 +32,8 @@
                     </button> 
                 </form>    
                 {% endif %}
-                {% if product.is_for_sale == True and user != product.provider%}
+                {% if product.is_for_sale == True %}
+                <!--If the book is for sale a button to buy the book is shown-->
                 <div class="row rent-sale-background" id="sale-button">
                     <a href="{% url 'user_contact_page' product.id %}" class="btn btn-info btn-block" id="contact-user-button">
                         <div class="col-md-12 rent-sale-button">

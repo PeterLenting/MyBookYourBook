@@ -4,7 +4,6 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
         <!-- Favicon File -->
         <link rel="shortcut icon" type="image/jpg" href="/media/img/bookshelf1.png">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -13,6 +12,7 @@
     <body>
     <div class="offset-xl-1 col-xl-10 offset-xl-1 no-padding">
         <div id="header-wrap" class="container-fluid fixed-top">
+        <!--The first part of the header with the navigationbar, the welcome-message and the shoppingcart-->
             <div class="row no-padding">
                 <div class="col-12 no-padding">
                     <nav class="navbar navbar-expand-lg navbar-color">
@@ -74,6 +74,7 @@
                             </ul>
                         </div>
                          {% if user.is_authenticated %}
+                         <!--If the user is logged in-->
                         <div id="hello_user">Hello {{ request.user }}
                             <a href="{% url 'view_cart' %}">
                                 <i class="fas fa-shopping-cart"></i>
@@ -87,6 +88,7 @@
                     </nav>
                 </div>
             </div>
+            <!--The second part of the header with the logo and the searchbar-->
             <div class="row no-padding">
                 <div class="col-12 no-padding">
                     <div class="row second-header">
@@ -109,6 +111,7 @@
 
          
         {% if messages %}
+        <!--If there is a message form views.py, it is shown here-->
         <div class= "col-12 text-center message">
             {% for message in messages %} 
                 {{ message | safe}} 
@@ -118,43 +121,42 @@
         
         <div class="container-fluid">
             <div class="row">
-                <!--post entries-->
-                    {% block content %}
-                    {% endblock %}
-                <!--post entries-->
+                <!--The other templates are shown here-->
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-12 text-center" id="footer-text">
+                <p>Stay connected</p>
+            </div>    
         </div>
-        <footer>
-            <div class="row">
-                <div class="col-12 text-center" id="footer-text">
-                    <p>Stay connected</p>
-                </div>    
+        <div class="row">
+            <div class="col-12 text-center sociallinks">
+                <a href="#" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x padding-fa"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fab fa-instagram fa-2x padding-fa"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fab fa-youtube-square fa-2x padding-fa"></i>
+                </a>
+                <a href="#" target="_blank">
+                    <i class="fab fa-twitter-square fa-2x padding-fa"></i>
+                </a>
             </div>
-            <div class="row">
-                <div class="col-12 text-center sociallinks">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-facebook-square fa-2x padding-fa"></i>
-                    </a>
-                    <a href="#" target="_blank">
-                        <i class="fab fa-instagram fa-2x padding-fa"></i>
-                    </a>
-                    <a href="#" target="_blank">
-                        <i class="fab fa-youtube-square fa-2x padding-fa"></i>
-                    </a>
-                    <a href="#" target="_blank">
-                        <i class="fab fa-twitter-square fa-2x padding-fa"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.4.0.slim.js" integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ=" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="{% static 'js/script.js' %}"></script>
-        {% block head_js %}
-        {% endblock head_js %}
-        <!-- Font Awesome File -->
-        <script src="https://kit.fontawesome.com/c44d99760e.js" crossorigin="anonymous"></script>
-    </body>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.0.slim.js" integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block head_js %}
+    {% endblock head_js %}
+    <!-- Font Awesome File -->
+    <script src="https://kit.fontawesome.com/c44d99760e.js" crossorigin="anonymous"></script>
+</body>
 </html>

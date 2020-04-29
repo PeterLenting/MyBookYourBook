@@ -42,7 +42,7 @@
     {% endif %}
     <p><span class="boldtext">Summary:</span> {{ product.summary | linebreaks}}</p>
     {% if user == product.provider or user.is_superuser %}
-    <!--If the user is the one offering the book, or the superuser an edit- and a delete-button are shown-->
+    <!--If the user is the one offering the book, or the superuser an edit- and a delete-button are shown to make it possible to edit or delete the post-->
     <div class="row edit-delete-button">
         <div class="col-6 edit-button">
             <a href="{% url 'edit_product' product.id %}" class="btn btn-info btn-block margin-bottom">Edit</a>

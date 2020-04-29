@@ -3,10 +3,10 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-
 <div class="rent-details-wrapper col-md-6 col-lg-3 col-xl-3">
     <div>
         {% if user.uprofile.have_paid == False %}
+        <!--If the user hasn't paid his deposit yet a message with a link to the chechout-page appear-->
         <div class="make-deposit-wrapper">
             <p>To be able to rent books a deposit of 30 euro's is required.<br> 
             The deposite is used to pay the owner of the books you are renting.<br>
@@ -16,8 +16,8 @@
                 <a href="{% url 'checkout' %}" class="btn btn-info deposit-button">Make your deposit</a>
             </div>
         </div>
-        {% else %}
         {% endif %}
+        <!--Shows some details of the user and the rentorder-->
         <h3 class="text-center">Details</h3>
         <p class="rent-details"><span class="boldtext">Username:</span> {{ request.user }}</p>
         <p class="rent-details"><span class="boldtext">Email:</span> {{ user.email }}</p>
@@ -25,12 +25,14 @@
         <p class="rent-details"><span class="boldtext">Total per week:</span> <span class="glyphicon glyphicon-euro" aria-hidden="true"></span> €{{ total_prices }}</p>
     </div>
     <div>
+    <!--The hidden form with the data that MyBookYourBook needs to handle the rentorder (A.O. the username and the id's of the books the user wants to rent)-->
         <form id="rentform" class="col-12" method="POST">
         <div class="hidden">
         {% csrf_token %}
         {{ form | as_bootstrap }}
         </div>
         {% if user.uprofile.have_paid == True %}
+        <!--If the user has paid his deposit, he can send the form (the Send-button is shown)-->
         <div class="text-center">
             <button class="btn btn-info" type="submit">Send</button>
         </div>
@@ -41,6 +43,7 @@
 </div>
 
     {% for item in cart_items %}
+    <!--Loops through the items in the cart and shows the details-->
     <div id="rent-cart-product-wrapper" class="col-md-6 col-lg-3 col-xl-3 product-wrapper">        
         <h3 class="text-center product-header"><a href="{% url 'product_detail' item.product.id %}">{{ item.product.title }}</a></h3>
         <div class="text-center wrapper-product-img">
