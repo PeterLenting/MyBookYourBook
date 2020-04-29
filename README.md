@@ -348,7 +348,9 @@ The project was built using Gitpod. I committed the project and pushed it up to 
 
 **Requirements and Procfile** - A requirements.txt file is used to specify the dependencies required for the application. A Procfile is used to specify to Heroku the commands that are executed by the app on startup.
 
-**Connection between Github and Heroku** - On Heroku Dashboard the “Deploy” tab was chosen and the "GitHub" pane selected. Then the option to auto-deploy the project whenever it’s pushed to on Github was activated, the IP, PORT and my connection string in Heroku settings specified and finally, when scrolled down to "Manual deploy" "Master" branch was deployed.
+**Connection between Github and Heroku** - On Heroku Dashboard the “Deploy” tab was chosen and the "GitHub" pane selected. 
+Then the option to auto-deploy the project whenever it’s pushed to on Github was activated, DATABASE_URL, SECRET_KEY, EMAIL_ADDRESS, EMAIL_PASSWORD, STRIPE_PUBLISHABLE and STRIPE_SECRET in Heroku settings specified.
+Finally, when scrolled down to "Manual deploy" "Master" branch was deployed and by clicking "Open app" the site was opened in a new tab.
 
 ### How to add this project to your local workspace
 To clone this project from GitHub:

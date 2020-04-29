@@ -1,3 +1,30 @@
+/*To make footer stick to bottom*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/*Padding and margin to make room for fixed-top-navbar and footer*/
+body {
+  padding-top: 280px;
+  background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 80px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.background-content {
+  background-color: #fff;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;    
+}
+
 #rent_request_form {
   padding-left: 15px; 
   padding-right: 15px; 
@@ -87,33 +114,6 @@
 /*Button on rent-success page*/
 .home-button {
   margin: 10px;  
-}
-
-/*To make footer stick to bottom*/
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-/*Padding and margin to make room for fixed-top-navbar and footer*/
-body {
-  padding-top: 280px;
-  background-color: #f2f2f2;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 80px;
-}
-
-.container-fluid {
-  padding: 0;
-}
-
-.background-content {
-  background-color: #fff;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;    
 }
 
 /*When user has no books of his own (profile.html)*/
