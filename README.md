@@ -7,7 +7,7 @@ MyBookYourBook will help people achieve that.
 
 ![Responsive site](https://raw.githubusercontent.com/PeterLenting/MyBookYourBook/master/media/img/mock-ups/Desktop.JPG)
 
-- [View the page here](https://mbyb-app.herokuapp.com/). This application is hosted on Heroku using a Postgres (MySQL Database).
+- [View the page here](https://mbyb-app.herokuapp.com/)
 - [View the Github Repository here](https://github.com/PeterLenting/MyBookYourBook)
 
 ## Contents table

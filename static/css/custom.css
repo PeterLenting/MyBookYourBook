@@ -16,6 +16,15 @@ body {
   padding: 0;
 }
 
+a {
+  color: #212529;
+}
+
+.boldtext {
+  font-weight: bold;  
+}
+
+/*Makes background of content stick out compared to body-background (#F2F2F2)*/
 .background-content {
   background-color: #fff;
 }
@@ -25,6 +34,7 @@ body {
   margin-right: 0;    
 }
 
+/*rent.html*/
 #rent_request_form {
   padding-left: 15px; 
   padding-right: 15px; 
@@ -44,6 +54,7 @@ body {
   height: 725px;
   }
 
+/*cart.html*/
 #cart-product-wrapper {
   height: 1050px;  
 }
@@ -52,14 +63,17 @@ body {
   height: 500px;  
 }
 
+/*Sets color to cart in rent-button*/
 #add-to-cart-cart {
   color: #17a2b8;  
 }
 
+/*Sets color to cart in remove-book-button*/
 #remove-from-cart-cart {
   color: #FF2828;
 }
 
+/*Sets style to remove-book-button*/
 #remove-from-cart-button {
   background-color: #F2F2F2;
   color: black;
@@ -67,15 +81,18 @@ body {
   padding-bottom: 6px;
 }
 
+/*Sets color to remove-button on cart.html*/
 #remove-from-cart {
   background-color:#FF2828;
   border-color: #FF2828;  
 }
 
+/*Sets color to envelope in buy-button*/
 .fa-envelope-square {
   color: #17a2b8;
 }
 
+/*Sets color to cart in navbar*/
 .fa-shopping-cart {
   color: #17a2b8;  
 }
@@ -84,11 +101,7 @@ body {
   color: #138496;  
 }
 
-#contact-user-button:hover {
-  background-color: #138496;
-  border-color: #117a8b   
-}
-
+/*Sets color to buy-button*/
 #contact-user-button {
   color: black;
   background-color: #F2F2F2;
@@ -97,23 +110,21 @@ body {
   font-size: 2rem;
 }
 
+#contact-user-button:hover {
+  background-color: #138496;
+  border-color: #117a8b   
+}
+
+/*usercontactpage.html*/
 .user-contact-form {
   padding-bottom: 15px; 
   font-size: 2rem; 
 }
 
-.rent-success-page {
-  background-color: #FFF  
-}
-
+/*checkout.html*/
 .checkout-explanation {
   background-color: #fff;  
   padding: 10px;
-}
-
-/*Button on rent-success page*/
-.home-button {
-  margin: 10px;  
 }
 
 /*When user has no books of his own (profile.html)*/
@@ -122,13 +133,13 @@ body {
   font-weight: bold; 
 }
 
+.no-books-wrapper {
+  padding-top: 10px;  
+}
+
 .no-books-link {
    color: #17a2b8;
    font-style: italic;
-}
-
-.no-books-wrapper {
-  padding-top: 10px;  
 }
 
 /*Message user gets through Django-views*/
@@ -147,8 +158,8 @@ body {
   display: none;
 }
 
-/*To increase readability on mobile-devices the fontsize is doubled*/
-
+/*Navigation Bar*/
+/*To increase readability on mobile-devices the fontsize is doubled for the list*/
 li {
   font-size: 2rem;  
 }
@@ -171,6 +182,7 @@ li {
   font-size: 2rem;   
 }
 
+/*Enlarge fontsize on mobile for readability */
 p {
   font-size: 2rem;  
 }
@@ -211,6 +223,7 @@ p {
   margin-bottom: 8px;  
 }
 
+/*Gives the forms some more space*/
 .margin-form {
   margin-top: 8px;
   margin-bottom: 8px;   
@@ -222,7 +235,7 @@ p {
   padding-right: 0; 
 }
 
-/*All buttons on products.html are .btn-info */
+/*Sets style to all bootstrap .btn-info buttons */
 .btn-info {
   box-shadow: 2px 3px#606060;  
   font-size: 2.1rem;
@@ -234,16 +247,12 @@ p {
   border-color: #117a8b
 }
 
-.btn-info p {
-  color: black
-}
- 
-
 /*Sets margin on all buttons on products.html*/
 .margin-bottom {
   margin-bottom: 4px;  
 }
 
+/*Sets margin on products.html*/
 .edit-delete-button {
   margin-bottom: 4px;
   margin-top: 10px;  
@@ -326,6 +335,18 @@ h3 {
   background-color: #fff;  
 }
 
+/*To get dropdownmenu on same hight as other list items in navbar*/
+#dropdownMenuButton {
+  padding: 1px; 
+  font-weight: bold; 
+  color: #17a2b8;
+  padding-top: 8px;
+  }
+
+#dropdown-link {
+  font-size: 1.5rem;
+}
+
 .btn-secondary:hover {
   background-color: #F2F2F2;
 }
@@ -363,10 +384,6 @@ h3 {
   margin-top: 6px;
 }
 
-.TEST {
-  font-size: 2rem;  
-}
-
 .header-logo-wrap {
   padding-right: 0;
   padding-left: 5px;
@@ -376,10 +393,6 @@ h3 {
 
 .header-logo {
   width: 100%;
-}
-
-.col-2 {
-  max-width: 100%;    
 }
 
 /*Search Bar*/
@@ -408,31 +421,21 @@ h3 {
   border-color: #117a8b;
 }
 
-.no-search-results {
-  font-weight: bold;
-  padding-top: 10px;
-}
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #E1CC97;
   font-style: italic;
   opacity: 1; /* Firefox */
 }
 
-.second-header {
-  background-color: #FFF;     
+/*On products.html when no books are found*/
+.no-results {
+  font-weight: bold;
+  padding-top: 10px;
 }
 
-/*To get dropdownmenu on same hight as other list items in navbar*/
-#dropdownMenuButton {
-  padding: 1px; 
-  font-weight: bold; 
-  color: #17a2b8;
-  padding-top: 8px;
-  }
-
-#dropdown-link {
-  font-size: 1.5rem;
+/*Makes background stick out compared to body-background (#F2F2F2)*/
+.second-header {
+  background-color: #FFF;     
 }
 
 /*Sets color for books-button*/
@@ -441,8 +444,7 @@ h3 {
   border: 0;
 }
 
-/*smaller margin-bottom on products.html and productdetail.html and profile.html*/
-
+/*Smaller margin-bottom on products.html, productdetail.html and profile.html*/
 .product-info-wrapper .col-12 p {
   margin-bottom: 3px;    
 }
@@ -463,6 +465,11 @@ h3 {
   height: 290px;
 }
 
+#rent-button {
+  color: black;
+}
+
+/*profile.html*/
 .profile-wrapper {
   padding: 0;
 }
@@ -470,6 +477,10 @@ h3 {
 .profile-wrapper p {
   margin-bottom: 0; 
   background-color: #fff;
+}
+
+#profile-products {
+  height: 800px;  
 }
 
 .profile-books {
@@ -492,11 +503,7 @@ h3 {
   font-style: italic;  
 }
 
-#rent-button {
-  color: black;
-  font-size: 2rem;  
-}
-
+/*Rent.html when user has not made a deposit yet*/
 .make-deposit-wrapper {
   background-color: #A9A9A9;
   color: #FFF;  
@@ -529,6 +536,11 @@ h3 {
   font-weight: bold;  
 }
 
+/*Header on the about-page*/
+.about-header {
+  padding-top: 10px;  
+}
+
 .bg-edit-profile-button {
   background-color: #fff;
   padding-bottom: 5px;
@@ -555,6 +567,7 @@ h3 {
   width: 225px; 
 }
 
+/*To make sure products still line out, whether booktitle is long or short*/
 .product-header {
  min-height: 114px;
  padding-top: 10px;
@@ -567,22 +580,12 @@ h3 {
   font-style: italic; 
 }
 
-.about-header {
-  padding-top: 10px;  
-}
-
-a {
-  color: #212529;
-}
-
-.boldtext {
-  font-weight: bold;  
-}
-
+/*Gives more room to form on productform.html*/
 #productform {
   padding-bottom: 15px;
 }
 
+/*Footer*/
 footer {
   background-color: #FFF;
   color:#17a2b8;
@@ -604,15 +607,11 @@ footer {
   padding-bottom: 5px;
 }
 
+/*Styling the four icons in the footer*/
 .sociallinks a{
     color: #17a2b8;
     padding-left: 25px;
     padding-right: 25px;  
-}
-
-/*Profile Page*/
-#profile-products {
-  height: 800px;  
 }
 
 @media (min-width: 800px){
