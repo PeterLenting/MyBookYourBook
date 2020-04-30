@@ -47,14 +47,16 @@ MyBookYourBook is a fictional platform for people who love books. Everyone can s
 The books can be sold, but also rented out to other users. 
 There are multiple platforms where anybody can sell or buy books. The renting-part of MyBookYourBook is something new. 
 It is different from a library, because by stimulating people to rent out their own books the supply of popular books will be a lot bigger. 
-In libraries the waiting list for popular books can be very long. 
+In libraries the waiting list for popular books can be very long. MyBookYourBook fixes that problem. 
 
 ### Who is the target audience?
 People who love to read paper books. 
 
 ### The Goal
 I really like to read. Some books I like to read, but have no need to keep them. This site is a platform to sell the book on, but also to rent out a book. 
-This way, the person who bought the book can earn a little bit of money back and someone with a smaller budget can read a book for a small amount of money. 
+This way, the person who bought the book can earn a little bit of money back and someone, perhaps with a smaller budget, can read a book for a small amount of money. 
+
+Besides that MyBookYourBook brings people who like to read in contact with eachother. By selling and renting books to eachother they get an opporunity to get to know other readers.
 
 ### User stories
 As a visitor, I want:
