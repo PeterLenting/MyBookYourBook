@@ -98,7 +98,9 @@
                             </a>
                         </div>
                         <div class="col-2 col-xl-1 header-text-wrap mr-auto">
-                            <p class="header-text">MyBook<br>YourBook</p>
+                            <a href="{% url 'get_products' %}">
+                                <p class="header-text" id="header-link">MyBook<br>YourBook</p>
+                            </a>
                         </div>
                         <form action="{% url 'search' %}" method="GET" id="search-form" class="form-inline my-2 my-lg-0">
                             <input id="search-input" name="q" class="form-control mr-sm-2" type="text" placeholder="Search for books by title / author / location" aria-label="Search">

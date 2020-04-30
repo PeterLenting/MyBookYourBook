@@ -78,7 +78,7 @@ a {
   background-color: #F2F2F2;
   color: black;
   padding: 0;
-  padding-bottom: 6px;
+  font-size: 2rem;
 }
 
 /*Sets color to remove-button on cart.html*/
@@ -384,6 +384,10 @@ h3 {
   margin-top: 6px;
 }
 
+a:hover { 
+  color: black; 
+}
+
 .header-logo-wrap {
   padding-right: 0;
   padding-left: 5px;
@@ -660,6 +664,9 @@ p {
 #remove-from-cart {
   font-size: 1.1rem;  
   }  
+#remove-from-cart-button {
+  font-size: 1.2rem;
+}
 #cart-info-wrapper {
   height: 415px;  
   }
