@@ -388,7 +388,7 @@ a:hover {
   color: black; 
 }
 
-.header-logo-wrap {
+#header-logo-wrap {
   padding-right: 0;
   padding-left: 5px;
   background-color: #FFF;
