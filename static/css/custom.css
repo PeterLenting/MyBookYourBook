@@ -192,7 +192,7 @@ p {
 .product-wrapper {
   background-color: #fff;  
   border: 2px #F2F2F2 solid;
-  height: 950px;
+  height: 975px;
 }
 
 /*Products.html -> to make both buttons line out better*/
@@ -487,6 +487,7 @@ a:hover {
 
 #profile-products {
   height: 800px;  
+  margin-top: 1px;
 }
 
 .profile-books {
@@ -643,8 +644,8 @@ footer {
   }
 .navbar-expand-lg .navbar-nav .nav-link {
   font-size: 1.4rem;  
-  padding-right: 0.6rem;
-  padding-left: 0.6rem;
+  padding-right: .6rem!important;
+  padding-left: .6rem!important;
   }
 .product-wrapper {
   height: 750px;
