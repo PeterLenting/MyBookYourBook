@@ -188,6 +188,8 @@ There are loads of extra feature that could be build to make this platform even 
 
 **Wish list** - Let user add books they would like in a wish list and email them when the book is being offered.
 
+**Pagination** - If more books are placed on the site, pagination would be necessary.
+
 
 ## Technologies used
 
